@@ -2,15 +2,15 @@
 
 @section('content')
 
-<div class="card">
+
     <div class="card-header">
     <h4> TAILOR MANAGEMENT</h4>
-    <hr>
+    
     </div>
 
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
                 <tr>
                 
                     <th><h5>TAILOR NAME</h5></th>
@@ -33,7 +33,7 @@
                         <td>{{ $item->location }}</td>
                         <td>
                            
-                            <a href="{{ url('admin/delete-tailor/'.$item->tailor_id)}}" class="btn btn-danger">Delete</a>
+                            <a href="{{ url('admin/delete-tailor/'.$item->tailor_id)}}" class="btn btn-danger"  onclick="return confirm('are you sure you want to delete the registerd tailor?')">Delete</a>
 
                         </td>
                     </tr>
@@ -41,6 +41,6 @@
             </tbody>
         </table>
     </div>
-</div>
+
 
 @endsection
