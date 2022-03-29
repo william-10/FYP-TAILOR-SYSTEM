@@ -19,4 +19,9 @@ class Cloth_category extends Model
         'popular',
         'status'
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Gallery;
+use App\Models\Product;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -20,15 +21,16 @@ class Tailor extends Authenticatable
      */
 
      protected $primaryKey='tailor_id';
-     
+
     protected $fillable = [
         'tailor_name',
         'email',
+        'avator',
         'password',
         'phone',
         'location',
         'address'
-        
+
     ];
 
     /**
@@ -53,5 +55,10 @@ class Tailor extends Authenticatable
     public function gallery()
     {
         return $this->hasMany(Gallery::class,'tailor_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class,'tailor_id');
     }
 }

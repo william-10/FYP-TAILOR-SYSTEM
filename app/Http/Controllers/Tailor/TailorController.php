@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Tailor;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Tailor;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class TailorController extends Controller
 {
@@ -14,6 +16,7 @@ class TailorController extends Controller
           $request->validate([
                 'tailor_name'=>'required',
                 'phone'=>'required|min:10|max:10',
+                'avator'=>'sometimes|image|mimes:jpg,jpeg,bmp,svg,png|max:5000',
                 'location'=>'required',
                 'address'=>'required',
                 'email'=>'required|email|unique:users,email',
@@ -21,27 +24,62 @@ class TailorController extends Controller
                 'cpassword'=>'required|min:5|max:30|same:password'
           ]);
 
-          $tailor=new Tailor();
-          $tailor->tailor_name = $request->tailor_name;
-          $tailor->email = $request->email;
-          $tailor->phone = $request->phone;
-          $tailor->location = $request->location;
-          $tailor->address = $request->address;
-          $tailor->password = \Hash::make($request->password);
-          $save=$tailor->save();
 
-          if($save){
+
+
+
+        if($request->hasFile('avator'))
+        {
+            $avatoruploaded=$request->file('avator');
+            $ext=$avatoruploaded->getClientOriginalExtension();
+            $avatorname=time().'.'.$ext;
+            $avatorpath=public_path('/assets/uploads/avator/');
+            $avatoruploaded->move($avatorpath, $avatorname);
+
+            $save=Tailor::Create([
+                'tailor_name'=>$request->tailor_name,
+                'email'=>$request->email,
+                'location'=>$request->location,
+                'phone'=>$request->phone,
+                'address'=>$request['address'],
+                'password'=>Hash::make($request->password),
+                'avator'=>'/assets/uploads/avator/'. $avatorname
+            ]);
+
+
+
+
+        if($save){
             return redirect()->route('tailor.login')->with('success','you are now registerd successfully');
         }
         else{
           return redirect()->back()->with('fail','something went wrong, failed to register');
         }
 
+
+        }
+
+        $save=Tailor::Create([
+            'tailor_name'=>$request->tailor_name,
+            'email'=>$request->email,
+            'location'=>$request->location,
+            'phone'=>$request->phone,
+            'address'=>$request['address'],
+            'password'=>Hash::make($request->password)]);
+            if($save){
+                return redirect()->route('tailor.login')->with('success','you are now registerd successfully');
+            }
+            else{
+              return redirect()->back()->with('fail','something went wrong, failed to register');
+            }
+
+
+
 }
         public function check(Request  $request)
         {
             $request->validate([
-                
+
                 'email'=>'required',
                 'password'=>'required|min:5|max:30'
             ],
@@ -51,7 +89,7 @@ class TailorController extends Controller
 
             $creds =$request->only('email','password');
             if( Auth::guard('tailor')->attempt($creds))
-                {   
+                {
                     return redirect()->route('tailor.home');
                 }
                 else{
@@ -67,7 +105,7 @@ class TailorController extends Controller
 
         public function index()
     {
-        
+
         return view('tailor.details.index');
     }
 
@@ -81,9 +119,9 @@ class TailorController extends Controller
 
         $request->validate([
             'tailor_name' =>'required|min:4|string|max:20'
-            
+
         ]);
-        
+
         $user =Auth::user();
         $user->tailor_name = $request['tailor_name'];
         $user->phone = $request['phone'];
@@ -91,9 +129,35 @@ class TailorController extends Controller
         $user->address = $request['address'];
         $user->save();
         return redirect('tailor/details')->with('status',"Profile Updated");
-        
+
     }
 
+    public function view()
+    {
+        return view('Tailor.Gallery.avator');
+    }
+
+    public function updateavator(Request $request)
+    {
+        $user =Auth::user();
+        if($request->hasFile('avator'))
+        {
+            $avatorpath='assets/uploads/avator/'.$user->avator;
+            if(File::exists($avatorpath))
+            {
+                    File::delete($avatorpath);
+            }
+            $avatoruploaded=$request->file('avator');
+            $ext=$avatoruploaded->getClientOriginalExtension();
+            $avatorname=time().'.'.$ext;
+            $avatorpath=public_path('/assets/uploads/avator/');
+             $avatoruploaded->move($avatorpath, $avatorname);
+             $user->avator='/assets/uploads/avator/'.$avatorname;
+             $user->update();
 
 
+        }
+              return redirect('tailor/home')->with('status',"profile picture updated successfully");
+
+    }
 }

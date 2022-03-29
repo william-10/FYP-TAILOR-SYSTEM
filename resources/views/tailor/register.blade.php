@@ -18,7 +18,7 @@
             <!-- <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     @guest
-                    
+
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="">Logout</a>
@@ -29,7 +29,7 @@
 
         </div>
     </nav>
-     
+
     <main class="login-form">
      <div class="cotainer">
         <div class="row justify-content-center">
@@ -38,7 +38,8 @@
                         <h3 class="card-header text-center">TAILOR REGISTER</h3>
                         <div class="card-body">
 
-                        <form method="POST" action="{{route('tailor.create')}}" autocomplete="off">
+                        <form method="POST" action="{{route('tailor.create')}}" autocomplete="off" enctype="multipart/form-data">
+
                             @if ( Session::get('success'))
                                 <div class="alert alert-success">
                                     {{Session::get('success')  }}
@@ -63,8 +64,8 @@
                         </div>
 
 
-                        
-                        
+
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
@@ -76,12 +77,24 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="avator" class="col-md-4 col-form-label text-md-end">profile picture<br>
+                        <span class="text-small text-info">*Not required</span>
+                        </label>
+
+                            <div class="col-md-6">
+                                <input  type="file"  class="form-control @error('avator') is-invalid @enderror" name="avator" >
+
+                                <span class="text-danger">@error('avator'){{ $message}}@enderror</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="phone" class="col-md-4 col-form-label text-md-end">Phone number</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="name" placeholder="Enter phone number"  class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" >
                                 <span class="text-danger">@error('phone'){{ $message}}@enderror</span>
-                               
+
                             </div>
                         </div>
 
@@ -91,7 +104,7 @@
                             <div class="col-md-6">
                                 <input id="location" type="name" placeholder="Enter location" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('email') }}" >
                                 <span class="text-danger">@error('location'){{ $message}}@enderror</span>
-                               
+
                             </div>
                         </div>
 
@@ -112,7 +125,7 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
                                 <span class="text-danger">@error('password'){{ $message}}@enderror</span>
-                                
+
                             </div>
                         </div>
 
@@ -139,7 +152,7 @@
 
                             <br>
                             <a href="{{route('admin.login')}}">Admin login</a>
-                    
+
                          </div>
                          </form>
 

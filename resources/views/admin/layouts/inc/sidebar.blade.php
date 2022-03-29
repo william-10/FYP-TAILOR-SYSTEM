@@ -6,9 +6,9 @@
     -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    
+
                        <h3>TAILOR SHOP</h3>
-                       
+
 
                     </a>
                 </div>
@@ -26,11 +26,38 @@
                             <p>CATEGORY</p>
                         </a>
                     </li>
-                          
+
                     <li class="nav-item {{Request::is('admin/add-categories') ? 'active':''}}"  >
                         <a class="nav-link" href="{{'add-categories'}}">
                             <i class="fas fa-plus-circle"></i>
                             <p>ADD CATEGORY</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{Request::is('admin/gender') ? 'active':''}}">
+                        <a class="nav-link" href="{{'gender'}}">
+                            <i class="fa fa-list-alt"></i>
+                            <p>GENDERS</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{Request::is('admin/add-gender') ? 'active':''}}"  >
+                        <a class="nav-link" href="{{'add-gender'}}">
+                            <i class="fas fa-plus-circle"></i>
+                            <p>ADD GENDER</p>
+                        </a>
+                    </li>
+
+                   <li class="nav-item {{Request::is('admin/measurement') ? 'active':''}}">
+                        <a class="nav-link" href="{{'measurement'}}">
+                            <i class="far fa-user"></i>
+                            <p>MEASUREMENT GUIDE</p></a>
+                    </li>
+
+                   <li class="nav-item {{Request::is('admin/add-measurement') ? 'active':''}}">
+                        <a class="nav-link" href="{{'add-measurement'}}">
+                            <i class="far fa-user"></i>
+                            <p>CREATE MEASUREMENT</p>
                         </a>
                     </li>
 
@@ -41,14 +68,14 @@
                         </a>
                     </li>
 
-                    
+
                    <li class="nav-item {{Request::is('admin/view_customers') ? 'active':''}}">
                         <a class="nav-link" href="{{'view_customers'}}">
                             <i class="far fa-user"></i>
                             <p>USER MANAGEMENT</p>
                         </a>
                     </li>
-                  
+
                 </ul>
             </div>
         </div>

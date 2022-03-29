@@ -15,25 +15,29 @@
                         <li class="nav-item {{Request::is('tailor/view-gallery') ? 'active':''}}">
                             <a href="{{('view-gallery')}}">VIEW GALLERY</a>
                         </li>
-                      
+
+                        <li class="nav-item {{Request::is('tailor/avator') ? 'active':''}}">
+                            <a href="{{ 'avator' }}">UPDATE AVATOR</a>
+                        </li>
+
                     </ul>
                 </li>
                 <li class="nav-item {{Request::is('tailor/details') ? 'active':''}}" >
-                    
+
                     <a  href="{{('details')}}">PERSONAL DETAILS</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
+
+                        <li class="nav-item {{Request::is('tailor/view-product') ? 'active':''}}">
+                            <a href="{{ ('view-product' )}}">VIEW PRODUCTS</a>
                         </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
+
+                        <li class="nav-item {{Request::is('tailor/add-product') ? 'active':''}}">
+                            <a href="{{ ('add-product' )}}">ADD PRODUCT</a>
+                        </li >
+
                     </ul>
                 </li>
                 <li>

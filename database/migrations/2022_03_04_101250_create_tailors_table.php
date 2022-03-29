@@ -17,11 +17,12 @@ class CreateTailorsTable extends Migration
             $table->id('tailor_id');
             $table->string('tailor_name');
             $table->string('email')->unique();
+            $table->string('avator')->default('/assets/uploads/avator/defaultavator.jpg');
             $table->string('phone');
             $table->string('location');
             $table->string('address');
             $table->timestamp('email_verified_at')->nullable();
-            
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
