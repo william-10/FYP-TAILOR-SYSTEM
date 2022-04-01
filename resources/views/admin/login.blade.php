@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     @guest
-                    
+
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="">Logout</a>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </nav>
-     
+
     <main class="login-form">
      <div class="cotainer">
         <div class="row justify-content-center">
@@ -44,13 +44,13 @@
                             @csrf
                             <div class="form-group mb-3">
                             <label for="email" class="form-group">
-                                <strong>Email</strong></label> 
+                                <strong>Email</strong></label>
                                 <input type="text" placeholder="Email" id="email" class="form-control" name="email" value="{{ old('email')}}">
                                 <span class="text-danger">@error('email'){{ $message}}@enderror</span>
-                                
+
                             </div>
                             <div class="form-group mb-3">
-                                <label for="password" class="form-group"><strong>Password</strong></label>     
+                                <label for="password" class="form-group"><strong>Password</strong></label>
                             <input type="password" placeholder="Password" id="password" class="form-control" name="password" value="{{ old('password')}}">
                             <span class="text-danger">@error('password'){{ $message}}@enderror</span>
                             </div>
@@ -65,7 +65,7 @@
                                 <button type="submit" class="btn btn-dark btn-block">Sign in</button>
                             </div>
                             <br>
-                            <a href="{{route('user.home')}}">homepage</a>
+                            <a href="{{url('/user/home')}}">homepage</a>
                         </form>
                     </div>
                 </div>

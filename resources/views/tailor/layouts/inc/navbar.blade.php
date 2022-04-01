@@ -23,7 +23,7 @@
                           <strong>{{ Auth::user()->tailor_name }}</strong></a>
                       </li>
                       <li class="nav-item">
-                          <a class="btn btn-primary" href="{{url('/')}}">Homepage</a>
+                          <a class="btn btn-primary" href="{{url('/user')}}">Homepage</a>
                       </li>
 
                       <li class="nav-item">

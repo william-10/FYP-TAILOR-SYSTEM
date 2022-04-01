@@ -60,9 +60,9 @@
                     </td>
 
                     <td>
-                        <a href="" class="btn btn-primary" >Edit</a>
+                        <a href="{{('edit-product/'.$item->id)}}" class="btn btn-primary" >Edit</a>
 
-                        <a href="" class="btn btn-danger" onclick="return confirm('are you sure you want to delete the product?')" >  Delete</a>
+                        <a href="{{('delete-product/'.$item->id)}}" class="btn btn-danger" onclick="return confirm('are you sure you want to delete the product?')" >  Delete</a>
 
                      </td>
                  </tr>

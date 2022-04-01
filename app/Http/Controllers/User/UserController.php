@@ -16,7 +16,7 @@ class UserController extends Controller
           $request->validate([
                 'name'=>'required',
                 'email'=>'required|email|unique:users,email',
-                
+
                 'password'=>'required|min:5|max:30',
                 'cpassword'=>'required|min:5|max:30|same:password'
           ]);
@@ -25,13 +25,13 @@ class UserController extends Controller
           $user=new User();
           $user->name = $request->name;
           $user->email = $request->email;
-          
+
           $user->password = \Hash::make($request->password);
           $save=$user->save();
 
 
           if($save){
-              return redirect()->back()->with('success','you are now registerd successfully');
+              return redirect('user.login')->with('success','you are now registerd successfully');
           }
           else{
             return redirect()->back()->with('fail','something went wrong, failed to register');
@@ -42,20 +42,20 @@ class UserController extends Controller
      public function check(Request  $request)
      {
         $request->validate([
-            
+
             'email'=>'required|email|exists:users,email',
             'password'=>'required|min:5|max:30'
-        
+
         ],
         [
             'email.exists'=>'This email does not exist',
-            
+
         ]);
 
         $creds =$request->only('email','password','phone');
         if( Auth::guard('web')->attempt($creds))
             {
-                return redirect()->route('user.home');
+                return redirect('user/home');    //it was 'user.home'
             }
             else{
                 return redirect()->route('user.login')->with('fail','invalid credentials');
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::guard('web')->logout();
-        return redirect('/');
+        return redirect('user/home');
     }
 
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Tailor\TailorController;
+use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Tailor\GalleryController;
 use App\Http\Controllers\Tailor\ProductController;
@@ -21,9 +22,9 @@ use App\Http\Controllers\Admin\MeasurementController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.user.home');
-});
+// Route::get('/', function () {
+//     return view('dashboard.user.index');
+// });
 
 
 
@@ -40,16 +41,24 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/create', [UserController::class, 'create'])->name('create');
         Route::post('/check', [UserController::class, 'check'])->name('check');
 
+        //  Route::get('/home', [FrontendController::class, 'index']);
+        //  Route::get('view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
+
+
     });
 
     Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
 
-        Route::view('/home', 'dashboard.user.home')->name('home');
+        //  Route::view('/home',[FrontendController::class, 'index']);    //it was 'dashboard.user.home' name('home')
+
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+        // Route::get('/', [FrontendController::class, 'index']);
+        // Route::get('view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
     });
 });
 
-
+Route::get('/user/home', [FrontendController::class, 'index']);
+Route::get('/user/view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -138,6 +147,9 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('view-product',[ProductController::class,'index']);
                 Route::get('add-product',[ProductController::class,'create']);
                 Route::post('insert-product',[ProductController::class,'store']);
+                Route::get('edit-product/{id}',[ProductController::class,'edit']);
+                Route::put('update-product/{id}',[ProductController::class,'update']);
+                Route::get('delete-product/{id}',[ProductController::class,'destroy']);
 
 
 

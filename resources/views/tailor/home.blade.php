@@ -8,20 +8,20 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
-    
+
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/home.css') }}" rel="stylesheet">
 
-  
 
 
-    
+
+
     <title>TAILOR SHOP | TAILOR PANEL</title>
 </head>
 <body>
         <div class="wrapper">
             @include('tailor.layouts.inc.sidebar')
-            
+
             @include('tailor.layouts.inc.navbar')
 
                     <div class="card">
@@ -30,11 +30,11 @@
                      </div>
 
             </div>
-            
-        </div>    
 
-        
-     
+        </div>
+
+
+
 
 
     <script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></script>

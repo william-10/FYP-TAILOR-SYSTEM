@@ -9,8 +9,8 @@
 
     <title>TAILOR SHOP</title>
 
-   
-    
+
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,9 +22,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/user/home') }}">
                     TAILOR SHOP
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -95,7 +95,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.check') }}" autocomplete="off">
-                   
+
                             @if (Session::get('fail'))
                                 <div class="alert alert-danger">
                                     {{Session::get('fail')  }}
@@ -109,9 +109,9 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" >
                                 <span class="text-danger"> @error('email'){{  $message  }}@enderror</span>
-                               
-                                
-                                        
+
+
+
                             </div>
                         </div>
 
@@ -121,8 +121,8 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
                                 <span class="text-danger"> @error('password'){{  $message  }}@enderror</span>
-                               
-                               
+
+
                             </div>
                         </div>
 

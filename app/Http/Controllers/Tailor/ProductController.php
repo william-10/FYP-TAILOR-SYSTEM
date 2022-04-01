@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -99,7 +100,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product= Product::find($id);
+        $category=Cloth_category::all();
+        $gender=Gender::all();
+        return view('tailor.product.edit', compact('product','category','gender'));
     }
 
     /**
@@ -111,7 +115,35 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product=Product::find($id);
+        if($request->hasFile('image'))
+        {
+            $path='assets/uploads/product/'.$product->image;
+            if(File::exists($path))
+            {
+                    File::delete($path);
+            }
+            $file=$request->file('image');
+            $ext=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ext;
+            $file->move('assets/uploads/product/',$filename);
+            $product->image=$filename;
+        }
+
+        $product->name=$request->input('name');
+        $product->description=$request->input('description');
+        $product->slug=$request->input('slug');
+        $product->category_id=$request->input('category_id');
+        $product->gender_id=$request->input('gender_id');
+        $product->original_price=$request->input('original_price');
+        $product->selling_price=$request->input('selling_price');
+        $product->qty=$request->input('qty');
+        $product->status=$request->input('status') == TRUE ? '1':'0';
+        $product->trending=$request->input('trending')== TRUE ? '1':'0';
+        $product->update();
+
+        return redirect ('tailor/view-product')->with('status',"Product updated successfully");
+
     }
 
     /**
@@ -122,6 +154,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product= Product::find($id);
+        $path='assets/uploads/product/'.$product->image;
+            if(File::exists($path))
+            {
+                    File::delete($path);
+            }
+
+        $product->delete();
+        return redirect('tailor/view-product')->with('status',"Product deleted successfully");
     }
 }

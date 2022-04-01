@@ -148,7 +148,7 @@
                             <a href="{{route('tailor.login')}}">I already have an account, login now</a>
 
                             <br>
-                            <a href="{{url('/')}}">Go to home page</a>
+                            <a href="{{url('user/home')}}">Go to home page</a>
 
                             <br>
                             <a href="{{route('admin.login')}}">Admin login</a>
