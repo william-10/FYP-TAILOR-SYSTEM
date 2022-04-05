@@ -20,6 +20,10 @@
                         <a href="{{url('user/home')}}" class="nav-link">Tailors</a>
 
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('user/home/products')}}" class="nav-link">Products</a>
+
+                    </li>
 
                         <!-- Authentication Links -->
                         @guest

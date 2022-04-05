@@ -41,7 +41,7 @@
                         <form method="POST" action="{{route('tailor.create')}}" autocomplete="off" enctype="multipart/form-data">
 
                             @if ( Session::get('success'))
-                                <div class="alert alert-success">
+                                <div class="alert alert-success alert-dismissable">
                                     {{Session::get('success')  }}
                                 </div>
                             @endif

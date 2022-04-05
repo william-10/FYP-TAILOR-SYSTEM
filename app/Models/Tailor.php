@@ -23,6 +23,7 @@ class Tailor extends Authenticatable
      protected $primaryKey='tailor_id';
 
     protected $fillable = [
+
         'tailor_name',
         'email',
         'avator',

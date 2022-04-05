@@ -41,7 +41,7 @@ public function logout()
 
 public function index()
     {
-        $tailor= Tailor::all();
+        $tailor= Tailor::paginate(2);
         return view('admin.management.tailormanage', compact('tailor'));
     }
 

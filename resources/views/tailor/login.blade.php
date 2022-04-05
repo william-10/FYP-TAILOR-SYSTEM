@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     @guest
-                    
+
                     @else
                     <li class="nav-item">
                         <a class="nav-link" href="">Logout</a>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </nav>
-     
+
     <main class="login-form">
      <div class="cotainer">
         <div class="row justify-content-center">
@@ -36,6 +36,13 @@
                     <h3 class="card-header text-center">TAILOR LOGIN</h3>
                     <div class="card-body">
                         <form method="POST" action="{{route('tailor.check')}}" autocomplete="off">
+
+                        @if ( Session::get('success'))
+                                <div class="alert alert-success alert-dismissable">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
+
                         @if (Session::get('fail'))
                                 <div class="alert alert-danger">
                                     {{Session::get('fail')  }}
@@ -43,13 +50,13 @@
                             @endif
                             @csrf
                             <div class="form-group mb-3">
-                            <label for="email" class="form-group"><strong>Email</strong></label> 
+                            <label for="email" class="form-group"><strong>Email</strong></label>
                                 <input type="text" placeholder="Email" id="email" class="form-control" name="email" value="{{ old('email')}}">
                                 <span class="text-danger">@error('email'){{ $message}}@enderror</span>
-                                
+
                             </div>
                             <div class="form-group mb-3">
-                                <label for="password" class="form-group"><strong>Password</strong></label>     
+                                <label for="password" class="form-group"><strong>Password</strong></label>
                             <input type="password" placeholder="Password" id="password" class="form-control" name="password">
                             <span class="text-danger">@error('password'){{ $message}}@enderror</span>
                             </div>

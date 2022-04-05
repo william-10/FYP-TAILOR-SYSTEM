@@ -33,6 +33,9 @@
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
 
+
+
+
 @if(SESSION('status'))
 <script>swal("{{session('status')}}");
 </script>

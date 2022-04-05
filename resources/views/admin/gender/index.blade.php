@@ -12,7 +12,7 @@
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-
+                <th><h5> ID</h5></th>
                     <th><h5> NAME</h5></th>
                     <th><h5> IMAGE</h5></th>
 
@@ -26,7 +26,7 @@
 
                     <tr>
 
-
+                    <td>{{ $loop->index+1 }}</td>
                         <td>{{ $item->name }}</td>
                         <td> <img src="{{asset('assets/uploads/gender/'.$item->image)}} " class="cate-image"  alt="image here" ></td>
 

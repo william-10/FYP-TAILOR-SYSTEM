@@ -14,7 +14,7 @@
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-
+                <th><h5> ID</h5></th>
                     <th><h5>CATEGORY NAME</h5></th>
                     <th><h5>IMAGE</h5></th>
                     <th><h5>ACTION</h5></th>
@@ -25,7 +25,7 @@
                 @foreach ($category as $item)
                     <tr>
 
-
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ $item->category_name }}</td>
                         <td>
                         <img src="{{asset('assets/uploads/category/'.$item->image)}} " class="cate-image"  alt="image here" >

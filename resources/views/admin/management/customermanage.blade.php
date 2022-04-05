@@ -5,14 +5,14 @@
 
     <div class="card-header ">
     <h4>CUSTOMER MANAGEMENT</h4>
-    
+
     </div>
 
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
-                
+                <th><h5> ID</h5></th>
                     <th><h5> NAME</h5></th>
                     <th><h5>EMAIL</h5></th>
                 </tr>
@@ -20,9 +20,10 @@
             <tbody>
                 @foreach ($user as $item)
                     <tr>
+                    <td>{{$loop->index+1}}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
-                        
+
                     </tr>
                 @endforeach
             </tbody>

@@ -22,9 +22,8 @@ use App\Http\Controllers\Admin\MeasurementController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('dashboard.user.index');
-// });
+
+Route::get('/', [UserController::class, 'index']);
 
 
 
@@ -41,9 +40,6 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/create', [UserController::class, 'create'])->name('create');
         Route::post('/check', [UserController::class, 'check'])->name('check');
 
-        //  Route::get('/home', [FrontendController::class, 'index']);
-        //  Route::get('view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
-
 
     });
 
@@ -58,7 +54,14 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
 Route::get('/user/home', [FrontendController::class, 'index']);
-Route::get('/user/view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
+Route::get('/user/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
+ Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
+ Route::get('user/home/products', [FrontendController::class, 'product']);
+ Route::get('/user/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
+
+
+
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -96,18 +99,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('edit-gender/{id}', [GenderController::class ,'edit']);
             Route::put('update-gender/{id}', [GenderController::class ,'update']);
             Route::get('delete-gender/{id}', [GenderController::class ,'destroy']);
-
-
-
-
-
-
-
-
-
-
-
-
 
     });
 
@@ -150,12 +141,6 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('edit-product/{id}',[ProductController::class,'edit']);
                 Route::put('update-product/{id}',[ProductController::class,'update']);
                 Route::get('delete-product/{id}',[ProductController::class,'destroy']);
-
-
-
-
-
-
 
 
             });

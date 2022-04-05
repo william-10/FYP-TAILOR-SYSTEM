@@ -30,7 +30,7 @@ class Product extends Model
 
     public function tailors()
     {
-        return $this->belongsTo(Tailor::class);
+        return $this->belongsTo(Tailor::class,'tailor_id','tailor_id');
     }
 
     public function categories()

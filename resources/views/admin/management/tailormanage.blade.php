@@ -9,10 +9,12 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-hover table-respnsive">
         <thead class="table-dark">
             <tr>
-
+            <th>
+                    <h5>ID</h5>
+                </th>
                 <th>
                     <h5>TAILOR NAME</h5>
                 </th>
@@ -36,7 +38,7 @@
             @foreach ($tailor as $item)
             <tr>
 
-
+            <td>{{$loop->index+1}}</td>
                 <td>{{ $item->tailor_name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->phone }}</td>
@@ -51,7 +53,16 @@
             @endforeach
         </tbody>
     </table>
+    {!! $tailor->links() !!}
 </div>
+
+
+<style>
+    .pagination{
+        float:right;
+        margin-top:20px;
+    }
+</style>
 
 
 @endsection
