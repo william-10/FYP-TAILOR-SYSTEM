@@ -49,10 +49,14 @@
                         <div class="row mt-2">
                         <div class="col-md-10">
                             <br/>
-                            <button type="button" class="btn btn-success me-3 float-start">Add to wishlist</button>
+
+                            @if ($products->qty >0)
                             <button type="button" class="btn btn-primary me-3 addTocartBtn float-start">
                                 <i class="fal fa-shopping-cart">Add to cart</i>
                             </button>
+                           @endif
+                            <button type="button" class="btn btn-success me-3 float-start">Add to wishlist</button>
+
                         </div>
                         </div>
                 </div>

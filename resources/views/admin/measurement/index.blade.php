@@ -28,9 +28,9 @@
 
                     <td>{{ $loop->index+1 }}</td>
                         <td>{{ $item->name }}</td>
-                        <td> <img src="{{asset('assets/uploads/measurement/image1/'.$item->image1)}} " class="cate-image"  alt="image here" ></td>
+                        <td> <img src="{{asset('assets/uploads/measurement/image1/'.$item->image1)}} " width="200px" heigth="200px"  alt="image here" ></td>
 
-                        <td> <img src="{{asset('assets/uploads/measurement/image2/'.$item->image2)}} " class="cate-image"  alt="image2 here" ></td>
+                        <td> <img src="{{asset('assets/uploads/measurement/image2/'.$item->image2)}} " width="200px" heigth="200px" alt="image2 here" ></td>
 
                         <td>{{ $item->details }}</td>
                         <td>

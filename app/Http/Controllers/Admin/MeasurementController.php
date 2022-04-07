@@ -132,7 +132,7 @@ class MeasurementController extends Controller
         }
 
         $measurement->name=$request->input('name');
-        $measurement->name=$request->input('details');
+        $measurement->details=$request->input('details');
         $measurement->update();
         return redirect('admin/measurement')->with('status',"Measurement details updated successfully");
     }
