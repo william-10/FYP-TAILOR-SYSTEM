@@ -6,6 +6,7 @@ use App\Models\Tailor;
 use App\Models\Gallery;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
@@ -49,15 +50,7 @@ class FrontendController extends Controller
 
     }
 
-    public function listproduct($tailor_id)
-    {
 
-        $tailor_product=Product::where('tailor_id',$tailor_id)->get();
-
-        return view('dashboard.user.tailors.product',compact('tailor_product'));
-
-
-}
 
 
 public function tailorproduct()
@@ -80,6 +73,24 @@ public function product()
         $products=Product::get();
         return view('dashboard.user.products.index',compact('products'));
 
+}
+
+public function viewproduct($cate_slug,$prod_slug)
+{
+    if(Cloth_category::where('slug',$cate_slug)->exists())
+    {
+            if(Product::where('slug',$prod_slug)->exists())
+            {
+                $products=Product::where('slug',$prod_slug)->first();
+                return view('dashboard.user.products.view',compact('products'));
+            }
+            else{
+                return back()->with('status','link was broken');
+            }
+    }
+    else{
+        return back()->with('status','category details not found');
+    }
 }
 
 }

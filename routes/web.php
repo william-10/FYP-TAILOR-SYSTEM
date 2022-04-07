@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GenderController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -45,20 +46,21 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
 
-        //  Route::view('/home',[FrontendController::class, 'index']);    //it was 'dashboard.user.home' name('home')
-
+        Route::get('/cart', [CartController::class, 'viewcart']);
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-        // Route::get('/', [FrontendController::class, 'index']);
-        // Route::get('view-tailor/{tailor_name}', [FrontendController::class, 'viewtailor']);
+
     });
 });
 
-Route::get('/user/home', [FrontendController::class, 'index']);
-Route::get('/user/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
- Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
- Route::get('user/home/products', [FrontendController::class, 'product']);
- Route::get('/user/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
-
+        Route::get('/user/home', [FrontendController::class, 'index']);
+        Route::get('/user/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
+        //  Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
+        Route::get('user/home/products', [FrontendController::class, 'product']);
+        Route::get('/user/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
+        Route::get('/user/view-product/{cate_slug}/{prod_slug}', [FrontendController::class, 'viewproduct']);
+        Route::post('/user/add-to-cart', [CartController::class, 'addProduct']);
+        Route::post('/user/delete-cart-item', [CartController::class, 'deleteproduct']);
+        Route::post('/user/update-cart', [CartController::class, 'updatecart']);
 
 
 

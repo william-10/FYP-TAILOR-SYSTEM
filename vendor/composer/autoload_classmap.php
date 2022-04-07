@@ -23,6 +23,7 @@ return array(
     'App\\Http\\Controllers\\Tailor\\GalleryController' => $baseDir . '/app/Http/Controllers/Tailor/GalleryController.php',
     'App\\Http\\Controllers\\Tailor\\ProductController' => $baseDir . '/app/Http/Controllers/Tailor/ProductController.php',
     'App\\Http\\Controllers\\Tailor\\TailorController' => $baseDir . '/app/Http/Controllers/Tailor/TailorController.php',
+    'App\\Http\\Controllers\\User\\FrontendController' => $baseDir . '/app/Http/Controllers/User/FrontendController.php',
     'App\\Http\\Controllers\\User\\UserController' => $baseDir . '/app/Http/Controllers/User/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

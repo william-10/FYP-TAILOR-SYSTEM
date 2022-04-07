@@ -40,13 +40,13 @@
 
                         <form method="POST" action="{{route('tailor.create')}}" autocomplete="off" enctype="multipart/form-data">
 
-                            @if ( Session::get('success'))
+                            @if ( Session::get('message'))
                                 <div class="alert alert-success alert-dismissable">
                                     {{Session::get('success')  }}
                                 </div>
                             @endif
 
-                            @if ( Session::get('fail'))
+                            @if ( Session::get('error'))
                                 <div class="alert alert-danger">
                                     {{Session::get('fail')  }}
                                 </div>
@@ -163,7 +163,47 @@
     </div>
 </main>
 
+<script src="{{ asset('admin/js/jquery.3.2.1.min.js') }}" defer></script>
+<script src="{{ asset('admin/js/bootstrap.min.js') }}" defer></script>
+<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
 
+<script>
+  @if(Session::has('message'))
+  toastr.options =
+  {
+  	"closeButton" : true,
+  	"progressBar" : true
+  }
+  		toastr.success("{{ session('message') }}");
+  @endif
+
+  @if(Session::has('error'))
+  toastr.options =
+  {
+  	"closeButton" : true,
+  	"progressBar" : true
+  }
+  		toastr.error("{{ session('error') }}");
+  @endif
+
+  @if(Session::has('info'))
+  toastr.options =
+  {
+  	"closeButton" : true,
+  	"progressBar" : true
+  }
+  		toastr.info("{{ session('info') }}");
+  @endif
+
+  @if(Session::has('warning'))
+  toastr.options =
+  {
+  	"closeButton" : true,
+  	"progressBar" : true
+  }
+  		toastr.warning("{{ session('warning') }}");
+  @endif
+</script>
 
 </body>
 </html>

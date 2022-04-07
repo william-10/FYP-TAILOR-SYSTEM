@@ -12,7 +12,7 @@ Products
                 <div class="row">
                 @foreach ($products as $product)
                     <div class="col-md-4 mb-3" >
-                        <a href="">
+                        <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
                         <div class="card">
                             <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="w-100 img-fluid" alt="image here">
                             <div class="card-body">

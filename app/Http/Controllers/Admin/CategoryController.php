@@ -42,10 +42,10 @@ class CategoryController extends Controller
 
 
     }
-    
+
     public function edit($category_id)
     {
-    
+
         $category= Cloth_category::find($category_id);
         return view('admin.category.edit', compact('category'));
     }
@@ -71,7 +71,7 @@ class CategoryController extends Controller
         $category->slug=$request->input('slug');
         $category->popular=$request->input('popular') == TRUE ? '1': '0';
         $category->status=$request->input('status') == TRUE ? '1': '0';
-        $category->update(); 
+        $category->update();
         return redirect('admin/categories')->with('status',"category updated successfully");
 
     }

@@ -543,6 +543,7 @@ class ComposerStaticInita957c8f77484b76789afacc8d2470f9f
         'App\\Http\\Controllers\\Tailor\\GalleryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tailor/GalleryController.php',
         'App\\Http\\Controllers\\Tailor\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tailor/ProductController.php',
         'App\\Http\\Controllers\\Tailor\\TailorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tailor/TailorController.php',
+        'App\\Http\\Controllers\\User\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/FrontendController.php',
         'App\\Http\\Controllers\\User\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

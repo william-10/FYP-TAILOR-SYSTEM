@@ -13,7 +13,6 @@ class Product extends Model
     use HasFactory;
     protected $table='products';
     protected $fillable= [
-        'id',
         'name',
         'slug',
         'tailor_id',

@@ -3,3 +3,11 @@
     height: 350px;
     object-fit: cover;
 }
+
+body {
+    background: rgb(236, 229, 229);
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}

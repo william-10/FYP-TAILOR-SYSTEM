@@ -24,6 +24,10 @@
                         <a href="{{url('user/home/products')}}" class="nav-link">Products</a>
 
                     </li>
+                    <li class="nav-item">
+                        <a href="{{url('/user/cart')}}" class="nav-link">Carts</a>
+
+                    </li>
 
                         <!-- Authentication Links -->
                         @guest

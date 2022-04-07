@@ -14,8 +14,10 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4 border-right">
+                <div class="col-md-4 ">
+                    <div class="bg-image hover-zoom">
                     <img src="{{asset(''.$unique_tailor->avator)}}" class="w-100 img-fluid" alt="image here">
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="col-mb-0">
@@ -42,7 +44,7 @@
             </div>
             <div class="col-md-12">
                 <a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">
-                    <button class="btn btn-primary">GALLERY</button>
+                    <h4>GALLERY</h4>
                 </a>
 
             </div>
@@ -61,37 +63,34 @@
 </div>
 
 <div class="container">
-    <h4 class="py-2  ">PRODUCTS</h4>
+
     @if (count($tailor_product)>0)
-
-
-    <div class="card shadow">
-
         <div class="row">
             <div class="col-md-12">
-
+            <h4 class="py-2  ">PRODUCTS</h4>
                 <div class="row">
                     @foreach ($tailor_product as $product)
-                    <div class="col-md-4 mb-3 ">
-                        <a href="#">
+                    <div class="col-md-3 mb-3 ">
+                        <div class="card">
+                        <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
 
                             <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="w-100 img-fluid"
                                 alt="image here">
-                            <div class="card-body">
+                            <div class="card-body shadow">
                                 <h5>{{$product->name}}</h5>
-                                <h6>Tailor: {{$product->tailors->tailor_name}}</h6>
+
                                 <span class="float-start">{{$product->selling_price}}</span>
-                                <span class="float-end"><s>{{ $product->original_price }}</s></span>
+                                <span class="float-end "><s>{{ $product->original_price }}</s></span>
                             </div>
 
                         </a>
                     </div>
-
+                    </div>
                     @endforeach
                 </div>
             </div>
         </div>
-    </div>
+
     @else
     <div class="container">
         <div class="row">
@@ -102,14 +101,6 @@
     </div>
 
     @endif
-</div>
-
-</div>
-
-
-</div>
-
-</div>
 </div>
 @endsection
 
