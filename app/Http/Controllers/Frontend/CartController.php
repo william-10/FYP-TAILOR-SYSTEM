@@ -14,6 +14,14 @@ class CartController extends Controller
     {
         $product_id=$request->input('product_id');
         $product_qty=$request->input('product_qty');
+        $bega=$request->input('bega');
+        $mkono=$request->input('mkono');
+        $kifua=$request->input('kifua');
+        $kiuno=$request->input('kiuno');
+        $paja=$request->input('paja');
+        $urefu_juu=$request->input('urefu_juu');
+        $urefu_mguu=$request->input('urefu_mguu');
+
             if(Auth::check())
             {
                 $prod_check=Product::where('id',$product_id)->first();
@@ -29,6 +37,13 @@ class CartController extends Controller
                         $cartItem->prod_id=$product_id;
                         $cartItem->prod_qty=$product_qty;
                         $cartItem->user_id=Auth::id();
+                        $cartItem->bega=$bega;
+                        $cartItem->kifua=$kifua;
+                        $cartItem->mkono=$mkono;
+                        $cartItem->urefu_juu=$urefu_juu;
+                        $cartItem->urefu_mguu=$urefu_mguu;
+                        $cartItem->kiuno=$kiuno;
+                        $cartItem->paja=$paja;
                         $cartItem->save();
                         return response()->json(['status' => $prod_check->name." Added to cart"]);
                     }
@@ -68,14 +83,30 @@ class CartController extends Controller
         {
             $prod_id=$request->input('prod_id');
             $product_qty=$request->input('prod_qty');
+            $bega=$request->input('bega');
+            $mkono=$request->input('mkono');
+            $kifua=$request->input('kifua');
+            $kiuno=$request->input('kiuno');
+            $paja=$request->input('paja');
+            $urefu_juu=$request->input('urefu_juu');
+            $urefu_mguu=$request->input('urefu_mguu');
+
             if(Auth::check())
             {
                 if(Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists())
                 {
                     $cart=Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->first();
                     $cart->prod_qty=$product_qty;
+                    $cart->bega=$bega;
+                    $cart->kifua=$kifua;
+                    $cart->mkono=$mkono;
+                    $cart->urefu_juu=$urefu_juu;
+                    $cart->urefu_mguu=$urefu_mguu;
+                    $cart->kiuno=$kiuno;
+                    $cart->paja=$paja;
+
                     $cart->update();
-                    return response()->json(['status' => "Quantity updated successfully"]);
+                    return response()->json(['status' => "Quantity and measurement updated successfully"]);
 
                 }
             }

@@ -49,20 +49,20 @@
                                         @if ($products->upper_part =='1')
                                                     <div class="col-md-2 mb-3">
                                                         <label for="">bega</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug">
+                                                        <input type="number"  class="form-control" autocomplete="off" name="bega">
                                                     </div>
 
                                                     <div class="col-md-2 mb-3">
                                                         <label for="">mkono</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="mkono"></div>
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">kifua</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="kifua"></div>
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">urefu</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="urefu_juu"></div>
 
 
                                     @endif
@@ -71,17 +71,17 @@
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">kiuno</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="kiuno"></div>
 
 
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">paja</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="paja"></div>
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">urefu mguu</label>
-                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="urefu_mguu"></div>
                                 @endif
 
                         </div>
