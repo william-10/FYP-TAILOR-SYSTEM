@@ -3,6 +3,13 @@ $(document).ready(function() {
         e.preventDefault();
         var product_id = $(this).closest('.product_data').find('.prod_id').val();
         var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+        var bega = $(this).closest('.product_data').find('.bega-input').val();
+        var mkono = $(this).closest('.product_data').find('.mkono-input').val();
+        var kifua = $(this).closest('.product_data').find('.kifua-input').val();
+        var urefu_juu = $(this).closest('.product_data').find('.urefujuu-input').val();
+        var urefu_mguu = $(this).closest('.product_data').find('.urefumguu-input').val();
+        var paja = $(this).closest('.product_data').find('.paja-input').val();
+        var kiuno = $(this).closest('.product_data').find('.kiuno-input').val();
 
         $.ajaxSetup({
             headers: {
@@ -16,6 +23,15 @@ $(document).ready(function() {
             data: {
                 'product_id': product_id,
                 'product_qty': product_qty,
+                'bega': bega,
+                'paja': paja,
+                'kifua': kifua,
+                'kiuno': kiuno,
+                'mkono': mkono,
+                'urefu_juu': urefu_juu,
+                'urefu_mguu': urefu_mguu,
+             
+
 
             },
             success: function(response) {
