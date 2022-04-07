@@ -25,6 +25,9 @@ class CreateProductsTable extends Migration
             $table->string('original_price');
             $table->string('selling_price');
             $table->string('qty');
+            $table->tinyInteger('upper_part');
+            $table->tinyInteger('lower_part');
+
             $table->tinyInteger('status');
             $table->tinyInteger('trending');
 

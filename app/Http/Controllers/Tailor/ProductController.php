@@ -76,6 +76,9 @@ class ProductController extends Controller
         $product->qty=$request->input('qty');
         $product->status=$request->input('status') == TRUE ? '1':'0';
         $product->trending=$request->input('trending')== TRUE ? '1':'0';
+        $product->upper_part=$request->input('upper_part') == TRUE ? '1':'0';
+        $product->lower_part=$request->input('lower_part')== TRUE ? '1':'0';
+
         $product->save();
 
         return redirect ('tailor/view-product')->with('status',"Product added successfully");
@@ -140,6 +143,9 @@ class ProductController extends Controller
         $product->qty=$request->input('qty');
         $product->status=$request->input('status') == TRUE ? '1':'0';
         $product->trending=$request->input('trending')== TRUE ? '1':'0';
+
+        $product->upper_part=$request->input('upper_part') == TRUE ? '1':'0';
+        $product->lower_part=$request->input('lower_part')== TRUE ? '1':'0';
         $product->update();
 
         return redirect ('tailor/view-product')->with('status',"Product updated successfully");

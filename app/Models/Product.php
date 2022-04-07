@@ -23,6 +23,8 @@ class Product extends Model
         'selling_price',
         'status',
         'trending',
+        'upper_part',
+        'lower_part',
         'description',
         'image',
     ];

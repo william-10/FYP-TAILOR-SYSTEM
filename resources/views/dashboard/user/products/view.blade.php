@@ -46,30 +46,32 @@
                             </div>
 
                         <div class="row">
+                        @if ($products->upper_part =='1')
                                     <div class="col-md-2 mb-3">
                                         <label for="">Slug-men</label>
-                                        <input type="text" class="form-control" autocomplete="off" name="slug">
+                                        <input type="number"  class="form-control" autocomplete="off" name="slug">
                                     </div>
 
                                     <div class="col-md-2 mb-3">
                                         <label for="">Slug-men</label>
-                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
                                         <div class="col-md-2 mb-3">
                                         <label for="">Slug-men</label>
-                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+
+                @elseif($products->lower_part =='1')
 
                                         <div class="col-md-2 mb-3">
                                         <label for="">Slug-women</label>
-                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
                                         <div class="col-md-2 mb-3">
                                         <label for="">Slug-women</label>
-                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                @endif
 
                         </div>
-
-
 
                                   <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mymodal" >measurement help</button>
 

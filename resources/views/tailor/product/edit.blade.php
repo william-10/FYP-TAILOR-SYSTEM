@@ -100,6 +100,18 @@
                      <input type="checkbox" name="trending">
                  </div>
 
+
+                 <div class="row">
+                 <div class="col-md-6 mb-3">
+                     <label for="">upper part</label>
+                     <input type="checkbox"  name="upper_part">
+                 </div>
+
+                 <div class="col-md-6 mb-3">
+                     <label for="">Lower part</label>
+                     <input type="checkbox" name="lower_part">
+                 </div>
+
                  <div class="col-md-4">
                      <input type="file" class="form-control" name="image">
                  </div></div>
