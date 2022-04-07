@@ -46,31 +46,43 @@
                             </div>
 
                         <div class="row">
-                        @if ($products->upper_part =='1')
-                                    <div class="col-md-2 mb-3">
-                                        <label for="">Slug-men</label>
-                                        <input type="number"  class="form-control" autocomplete="off" name="slug">
-                                    </div>
+                                        @if ($products->upper_part =='1')
+                                                    <div class="col-md-2 mb-3">
+                                                        <label for="">bega</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug">
+                                                    </div>
 
-                                    <div class="col-md-2 mb-3">
-                                        <label for="">Slug-men</label>
-                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                                    <div class="col-md-2 mb-3">
+                                                        <label for="">mkono</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
-                                        <div class="col-md-2 mb-3">
-                                        <label for="">Slug-men</label>
-                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
-                    @endif
+                                                        <div class="col-md-2 mb-3">
+                                                        <label for="">kifua</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
-                @if($products->lower_part =='1')
+                                                        <div class="col-md-2 mb-3">
+                                                        <label for="">urefu</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
-                                        <div class="col-md-2 mb-3">
-                                        <label for="">Slug-women</label>
-                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
 
-                                        <div class="col-md-2 mb-3">
-                                        <label for="">Slug-women</label>
-                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
-                @endif
+                                    @endif
+
+                                @if($products->lower_part =='1')
+
+                                                        <div class="col-md-2 mb-3">
+                                                        <label for="">kiuno</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+
+
+
+                                                        <div class="col-md-2 mb-3">
+                                                        <label for="">paja</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+
+                                                        <div class="col-md-2 mb-3">
+                                                        <label for="">urefu mguu</label>
+                                                        <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                                @endif
 
                         </div>
 
