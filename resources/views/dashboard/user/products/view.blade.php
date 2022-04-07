@@ -44,18 +44,41 @@
                                 <input type="text" name="quantity" value="1" style="width:30px" class="form control qty-input text-center" />
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
+
+                                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mymodal" >measurement help</button>
+
+                                    <div id="mymodal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button class="close" type="button" data-dismiss="modal">&times</button>
+                                                        <h4 class="modal-title">Modal Header</h4>
+                                                </div>
+                                                <div class="modal-body">Body</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                         </div>
                         </div>
+
+
+                        <div class="row mt-2">
+                        <div class="col-md-10">
+                            hey
+                        </div>
+                        </div>
+
                         <div class="row mt-2">
                         <div class="col-md-10">
                             <br/>
 
                             @if ($products->qty >0)
-                            <button type="button" class="btn btn-primary me-3 addTocartBtn float-start">
+                            <button type="button" class="btn btn-primary me-3 addTocartBtn float-end">
                                 <i class="fal fa-shopping-cart">Add to cart</i>
                             </button>
                            @endif
-                            <button type="button" class="btn btn-success me-3 float-start">Add to wishlist</button>
+                            <button type="button" class="btn btn-success me-3 float-end">Add to wishlist</button>
 
                         </div>
                         </div>
@@ -66,3 +89,13 @@
 </div>
 @endsection
 
+
+@section('scripts')
+<script type="text/javascript">
+    $("button").click(function()
+    {
+        $("#mymodal").dialog();
+    });
+
+</script>
+@endsection
