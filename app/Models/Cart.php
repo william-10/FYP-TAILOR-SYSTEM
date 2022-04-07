@@ -13,7 +13,14 @@ class Cart extends Model
     protected $fillable= [
         'user_id',
         'prod_id',
-        'prod_qty'
+        'prod_qty',
+        'bega',
+        'mkono',
+        'kifua',
+        'urefu_juu',
+        'urefu_mguu',
+        'paja',
+        'kiuno'
     ];
 
     public function products()

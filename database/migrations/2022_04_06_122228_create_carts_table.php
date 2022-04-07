@@ -18,6 +18,13 @@ class CreateCartsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('prod_id');
             $table->string('prod_qty');
+            $table->unsignedBigInteger('kifua');
+            $table->unsignedBigInteger('urefu_juu');
+            $table->unsignedBigInteger('urefu_mguu');
+            $table->unsignedBigInteger('bega');
+            $table->unsignedBigInteger('kiuno');
+            $table->unsignedBigInteger('paja');
+            $table->unsignedBigInteger('mkono');
             $table->timestamps();
 
 
