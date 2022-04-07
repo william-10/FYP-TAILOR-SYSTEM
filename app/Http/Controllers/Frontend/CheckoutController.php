@@ -23,6 +23,10 @@ class CheckoutController extends Controller
             }
         }
         $cartitems=Cart::where('user_id',Auth::id())->get();
+
+
+        // $productcheck2=Product::where('lower_part',"1")->first();
+
             return view('dashboard.user.cart.checkout',compact('cartitems'));
     }
 }

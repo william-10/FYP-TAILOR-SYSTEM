@@ -49,6 +49,7 @@
                                                 <td>{{$item->products->selling_price}}</td>
 
 
+
                                                 <td>{{$item->mkono}}</td>
                                                 <td>{{$item->bega}}</td>
                                                 <td>{{$item->kifua}}</td>
