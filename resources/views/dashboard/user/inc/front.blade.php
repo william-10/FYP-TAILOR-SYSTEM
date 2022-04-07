@@ -45,12 +45,6 @@
 
 @yield('scripts')
 
-<!-- @if(SESSION('status'))
-<script>
-swal("{{session('status')}}");
-</script>
-@endif -->
-
 <script>
   @if(Session::has('message'))
   toastr.options =

@@ -22,6 +22,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/toastr.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
 
 
@@ -51,10 +52,11 @@
 </div>
 
 
-<script src="{{ asset('admin/js/jquery.3.2.1.min.js') }}" defer></script>
-<script src="{{ asset('admin/js/popper.min.js') }}" defer></script>
-<script src="{{ asset('admin/js/bootstrap.min.js') }}" defer></script>
-<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('admin/js/jquery.3.2.1.min.js') }}" ></script>
+<script src="{{ asset('admin/js/popper.min.js') }}" ></script>
+<script src="{{ asset('admin/js/bootstrap.min.js') }}" ></script>
+<script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
+<script src="{{ asset('admin/js/toastr.min.js') }}"></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
 
 @if(SESSION('status'))
@@ -64,12 +66,14 @@
 
 <script>
   @if(Session::has('message'))
+
   toastr.options =
   {
   	"closeButton" : true,
   	"progressBar" : true
   }
   		toastr.success("{{ session('message') }}");
+
   @endif
 
   @if(Session::has('error'))
@@ -99,6 +103,7 @@
   		toastr.warning("{{ session('warning') }}");
   @endif
 </script>
+
 
 @yield('scripts')
 </body>

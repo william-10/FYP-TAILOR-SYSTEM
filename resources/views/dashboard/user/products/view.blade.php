@@ -45,6 +45,10 @@
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
 
+                                
+
+
+
                                   <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mymodal" >measurement help</button>
 
                                     <div id="mymodal" class="modal fade" role="dialog">
@@ -89,13 +93,3 @@
 </div>
 @endsection
 
-
-@section('scripts')
-<script type="text/javascript">
-    $("button").click(function()
-    {
-        $("#mymodal").dialog();
-    });
-
-</script>
-@endsection
