@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Tailor\GalleryController;
 use App\Http\Controllers\Tailor\ProductController;
 use App\Http\Controllers\Admin\MeasurementController;
+use App\Http\Controllers\Frontend\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
 
         Route::get('/cart', [CartController::class, 'viewcart']);
+        Route::get('/checkout', [CheckoutController::class, 'index']);
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
     });

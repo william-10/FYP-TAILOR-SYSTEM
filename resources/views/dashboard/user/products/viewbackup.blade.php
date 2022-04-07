@@ -46,7 +46,7 @@
                             </div>
 
                         <div class="row">
-
+                                        @if ($products->upper_part =='1')
                                                     <div class="col-md-2 mb-3">
                                                         <label for="">bega</label>
                                                         <input type="number"  class="form-control bega-input" autocomplete="off" value="0" name="bega">
@@ -65,7 +65,9 @@
                                                         <input type="number"  class="form-control urefujuu-input" autocomplete="off" value="0" name="urefu_juu"></div>
 
 
+                                    @endif
 
+                                @if($products->lower_part =='1')
 
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">kiuno</label>
@@ -80,7 +82,7 @@
                                                         <div class="col-md-2 mb-3">
                                                         <label for="">urefu mguu</label>
                                                         <input type="number"  class="form-control urefumguu-input" autocomplete="off"  value="0" name="urefu_mguu"></div>
-
+                                @endif
 
                         </div>
 
@@ -113,14 +115,9 @@
                             <br/>
 
                             @if ($products->qty >0)
-                                    <button type="button" class="btn btn-primary me-3       addTocartBtn float-end">
-                                        <i class="fal fa-shopping-cart">Add to cart</i>
-                                     </button>
-
-                        @endif
-
-                            @if ($products->qty >0)
-
+                            <button type="button" class="btn btn-primary me-3 addTocartBtn float-end">
+                                <i class="fal fa-shopping-cart">Add to cart</i>
+                            </button>
                            @endif
                             <button type="button" class="btn btn-success me-3 float-end">Add to wishlist</button>
 

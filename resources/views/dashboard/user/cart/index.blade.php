@@ -40,6 +40,7 @@ CART
                                     <input type="text" name="quantity" class="form-control qty-input text-center" value="{{$item->prod_qty}}">
                                 <button class="input-group-text changeQuantity increment-btn">+</button>
                             </div>
+
                             @php $total+=$item->products->selling_price * $item->prod_qty; @endphp
                         @else
                             <h5>Out of stock</h5>
@@ -55,7 +56,7 @@ CART
                     <div class="card">
                         <div class="card-footer">
                             <h6>Total Price:TZS.{{$total}}
-                            <button class="btn btn-outline-success float-end ">Proceed to checkout</button>
+                            <a href="{{url('/user/checkout')}}" class="btn btn-outline-success float-end ">Proceed to checkout</a>
                             </h6>
                         </div>
                         </div>

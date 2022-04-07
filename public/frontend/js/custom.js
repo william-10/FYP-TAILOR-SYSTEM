@@ -11,6 +11,7 @@ $(document).ready(function() {
         var paja = $(this).closest('.product_data').find('.paja-input').val();
         var kiuno = $(this).closest('.product_data').find('.kiuno-input').val();
 
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -30,7 +31,7 @@ $(document).ready(function() {
                 'mkono': mkono,
                 'urefu_juu': urefu_juu,
                 'urefu_mguu': urefu_mguu,
-             
+
 
 
             },
