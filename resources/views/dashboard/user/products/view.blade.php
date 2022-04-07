@@ -59,8 +59,9 @@
                                         <div class="col-md-2 mb-3">
                                         <label for="">Slug-men</label>
                                         <input type="number"  class="form-control" autocomplete="off" name="slug"></div>
+                    @endif
 
-                @elseif($products->lower_part =='1')
+                @if($products->lower_part =='1')
 
                                         <div class="col-md-2 mb-3">
                                         <label for="">Slug-women</label>
