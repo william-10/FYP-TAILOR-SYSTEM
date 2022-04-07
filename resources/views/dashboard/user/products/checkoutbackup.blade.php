@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 mt-3">
+            <div class="col-md-5 mt-3">
                 <div class="card">
                     <div class="card-body shadow">
                         <h6>Order Details</h6>
@@ -20,21 +20,21 @@
                                                 <th>QTY</th>
                                                 <th>PRICE</th>
 
-
+                                                @if ($cartitems->products->upper_part =='1')
 
                                                 <th>MKONO</th>
                                                 <th>BEGA</th>
                                                 <th>KIFUA</th>
                                                 <th>UREFU JUU</th>
+                                                @endif
 
-
-
+                                                @if ($cartitems->products->lower_part =='1')
 
                                                 <th>KIUNO</th>
                                                 <th>PAJA</th>
                                                 <th>UREFU MGUU</th>
 
-
+                                                @endif
 
 
 
@@ -48,19 +48,19 @@
                                                 <td>{{$item->prod_qty}}</td>
                                                 <td>{{$item->products->selling_price}}</td>
 
-
+                                                @if ($item->products->upper_part =='1')
                                                 <td>{{$item->mkono}}</td>
                                                 <td>{{$item->bega}}</td>
                                                 <td>{{$item->kifua}}</td>
                                                 <td>{{$item->urefu_juu}}</td>
+                                                @endif
 
-
-
+                                                @if ($item->products->lower_part =='1')
                                                 <td>{{$item->kiuno}}</td>
                                                 <td>{{$item->paja}}</td>
                                                 <td>{{$item->urefu_mguu}}</td>
 
-
+                                                @endif
 
                                             </tr>
                                             @endforeach

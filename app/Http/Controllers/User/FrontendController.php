@@ -82,6 +82,7 @@ public function viewproduct($cate_slug,$prod_slug)
             if(Product::where('slug',$prod_slug)->exists())
             {
                 $products=Product::where('slug',$prod_slug)->first();
+
                 return view('dashboard.user.products.view',compact('products'));
             }
             else{
