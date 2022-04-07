@@ -45,7 +45,29 @@
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
 
-                                
+                        <div class="row">
+                                    <div class="col-md-2 mb-3">
+                                        <label for="">Slug-men</label>
+                                        <input type="text" class="form-control" autocomplete="off" name="slug">
+                                    </div>
+
+                                    <div class="col-md-2 mb-3">
+                                        <label for="">Slug-men</label>
+                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+
+                                        <div class="col-md-2 mb-3">
+                                        <label for="">Slug-men</label>
+                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+
+                                        <div class="col-md-2 mb-3">
+                                        <label for="">Slug-women</label>
+                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+
+                                        <div class="col-md-2 mb-3">
+                                        <label for="">Slug-women</label>
+                                        <input type="text" class="form-control" autocomplete="off" name="slug"></div>
+
+                        </div>
 
 
 

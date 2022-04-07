@@ -48,6 +48,8 @@
                      <label for="">Slug</label>
                      <input type="text" class="form-control" name="slug">
                  </div>
+
+                 </div>
                 <div class="com-md-12 mb-3">
                     <select class="form-select" name="category_id">
                         <option value="">select a category</option>
