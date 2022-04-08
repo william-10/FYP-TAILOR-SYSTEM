@@ -60,7 +60,7 @@
                @endforeach
                </tbody>
 </table>
-            {!! $gallery->links() !!}
+{!! $gallery->links() !!}
     </div>
 </div>
 
