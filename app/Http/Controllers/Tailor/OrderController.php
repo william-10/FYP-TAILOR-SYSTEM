@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Tailor;
 
+use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,10 +12,10 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order=OrderItem::where('tailor_id',Auth::id())->get();
-        // $order=$orderitems->orders->where('status','0')->get();
+        $orderitem=OrderItem::where('tailor_id',Auth::id())->get();
+        $order=Order::get();
 
-        return view('tailor.orders.index',compact('order'));
+        return view('tailor.orders.index',compact('orderitem','order'));
 
     }
 }

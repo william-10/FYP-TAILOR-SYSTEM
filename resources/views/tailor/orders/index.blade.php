@@ -13,6 +13,9 @@ ORDERS
                     ORDERS
                 </div>
                         <div class="card-body">
+
+
+
                         <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -26,8 +29,11 @@ ORDERS
                 </thead>
 
                 <tbody>
-                    @foreach ($order as $item)
 
+
+
+                @foreach ($orderitem as $item)
+                @if ($item->orders->status == "0")
                     <tr>
 
                         <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
@@ -38,7 +44,13 @@ ORDERS
                             <a href="{{url('/user/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
                         </td>
                     </tr>
+
+
+                    @endif
+
                     @endforeach
+
+
                 </tbody>
 
             </table>
