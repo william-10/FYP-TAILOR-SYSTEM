@@ -63,6 +63,8 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/user/add-to-cart', [CartController::class, 'addProduct']);
         Route::post('/user/delete-cart-item', [CartController::class, 'deleteproduct']);
         Route::post('/user/update-cart', [CartController::class, 'updatecart']);
+        Route::post('/user/place-order', [CheckoutController::class, 'placeorder']);
+
 
 
 

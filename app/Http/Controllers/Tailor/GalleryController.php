@@ -13,7 +13,7 @@ class GalleryController extends Controller
 
     public function view()
     {
-        $gallery=auth()->user()->gallery()->paginate(2);
+        $gallery=auth()->user()->gallery()->paginate(1);
         return view('tailor.gallery.index',compact('gallery'));
     }
 

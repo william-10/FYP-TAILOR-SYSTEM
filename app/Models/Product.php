@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Cart;
 use App\Models\Gender;
 use App\Models\Tailor;
 use App\Models\Cloth_category;
@@ -42,6 +43,12 @@ class Product extends Model
     public function genders()
     {
         return $this->belongsTo(Gender::class,'gender_id');
+
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class,'prod_id');
     }
 
 

@@ -35,3 +35,11 @@ Customer homepage
     </div>
 
 @endsection
+
+@section('scripts')
+
+@if(SESSION('status'))
+<script>swal("{{session('status')}}");
+</script>
+@endif
+@endsection
