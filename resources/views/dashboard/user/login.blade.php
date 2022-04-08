@@ -41,11 +41,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <!-- @if (Route::has('user.login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.login') }}">Login</a>
-                                </li>
-                            @endif -->
+
 
                             @if (Route::has('user.register'))
                                 <li class="nav-item">
@@ -84,7 +80,11 @@
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
 
 
-
+@if ( Session::get('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
 
 
 <div class="container">

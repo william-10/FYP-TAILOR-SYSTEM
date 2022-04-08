@@ -24,6 +24,7 @@ public function index()
     {
           $request->validate([
                 'name'=>'required',
+                'lname'=>'required',
                 'email'=>'required|email|unique:users,email',
 
                 'password'=>'required|min:5|max:30',
@@ -33,6 +34,7 @@ public function index()
 
           $user=new User();
           $user->name = $request->name;
+          $user->lname = $request->lname;
           $user->email = $request->email;
 
           $user->password = \Hash::make($request->password);
@@ -40,7 +42,7 @@ public function index()
 
 
           if($save){
-              return redirect('user.login')->with('success','you are now registerd successfully');
+              return redirect('/user/login')->with('success','you are now registerd successfully');
           }
           else{
             return redirect()->back()->with('fail','something went wrong, failed to register');
@@ -61,13 +63,13 @@ public function index()
 
         ]);
 
-        $creds =$request->only('email','password','phone');
+        $creds =$request->only('email','password');
         if( Auth::guard('web')->attempt($creds))
             {
                 return redirect('user/home');    //it was 'user.home'
             }
             else{
-                return redirect()->route('user.login')->with('fail','invalid credentials');
+                return redirect()->route('user.login')->with('status','invalid credentials');
             }
     }
     public function logout()
