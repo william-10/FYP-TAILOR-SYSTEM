@@ -38,11 +38,20 @@ class CheckoutController extends Controller
     {
 
         $order=new Order();
+
+        $order->user_id=Auth::id();
         $order->fname=$request->input('fname');
         $order->lname=$request->input('lname');
         $order->phone=$request->input('phone');
         $order->email=$request->input('email');
         $order->tracking_no='tshop'.rand(1111,9999);
+        $total=0;
+        $cartitems_total=Cart::where('user_id',Auth::id())->get();
+        foreach($cartitems_total as $prod)
+        {
+            $total+=$prod->products->selling_price;
+        }
+        $order->total_price=$total;
         $order->save();
 
 

@@ -69,7 +69,7 @@ public function index()
                 return redirect('user/home');    //it was 'user.home'
             }
             else{
-                return redirect()->route('user.login')->with('status','invalid credentials');
+                return redirect('/user/login')->with('status','invalid credentials');
             }
     }
     public function logout()

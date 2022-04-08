@@ -48,16 +48,29 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Logout</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none" >
-                                        @csrf
-                                    </form>
-                                </div>
+                                <li>
+                                    <a href="{{url('/user/my-orders')}}" class="dropdown-item">
+                                        My orders
+                                    </a>
+
+                                </li>
+
+
+                                    <li>
+                                            <a class="dropdown-item" href="{{ route('user.logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                Logout</a>
+
+
+
+                                        <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none" >
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         @endguest
                     </ul>

@@ -62,8 +62,11 @@ CART
                         </div>
                 @else
                 <div class="card shadow">
-                    <div class="card-body">
-                        <h5>NO products added to watchlist yet</h5>
+                    <div class="card-body text-center">
+                        <h2>Your <i class="fa fa-shopping-cart"></i> cart is empty</h2>
+                        <a href="{{url('/user/home')}}" class="btn btn-outline-primary float-end">
+                            Continue Shopping
+                        </a>
                     </div>
                 </div>
                 @endif
