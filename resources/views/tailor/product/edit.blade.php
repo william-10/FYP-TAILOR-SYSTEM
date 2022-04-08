@@ -41,16 +41,17 @@
 
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Name</label>
-                     <input type="text" class="form-control" name="name">
+                     <label for=""><strong>Name</strong></label>
+                     <input type="text" class="form-control"  value="{{$product->name}}" name="name">
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Slug</label>
-                     <input type="text" class="form-control" name="slug">
+                     <label for=""><strong>Slug</strong></label>
+                     <input type="text" class="form-control" value="{{$product->slug}}" name="slug">
                  </div>
+                 
                 <div class="com-md-12 mb-3">
-                    <select class="form-select" name="category_id">
+                    <select class="form-select" name="category_id" ">
                         <option value="">select a category</option>
                         @foreach ($category as $item )
                         <option value="{{$item->category_id}}">{{$item->category_name}}</option>
@@ -70,46 +71,46 @@
                 </div>
 
                 <div class="col-md-12 mb-3">
-                     <label for="">Description</label>
-                     <textarea class="form-control" rows="3" name="description"></textarea>
+                     <label for=""> <strong>Description </strong></label>
+                     <textarea class="form-control" rows="4" value="{{ $product->description}}" name="description"></textarea>
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Original price</label>
-                     <input type="number" class="form-control" name="original_price" value="{{ old('original_price') }}">
+                     <label for=""><strong>Original Price </strong></label>
+                     <input type="number" class="form-control" name="original_price"              value="{{$product->original_price}}">
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Selling price</label>
-                     <input type="number" class="form-control" name="selling_price">
+                     <label for=""><strong>Selling Price </strong></label>
+                     <input type="number" value="{{$product->selling_price}}" class="form-control" name="selling_price">
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Quantity</label>
-                     <input type="number" class="form-control" name="qty">
+                     <label for=""><strong>Quantity </strong></label>
+                     <input type="number" class="form-control" name="qty" value="{{$product->qty}}">
                  </div>
 
                 <div class="row">
                  <div class="col-md-6 mb-3">
-                     <label for="">Status</label>
-                     <input type="checkbox"  name="status">
+                     <label for=""><strong>Status </strong></label>
+                     <input type="checkbox"  name="status" value="{{$product->status}}">
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Trending</label>
-                     <input type="checkbox" name="trending">
+                     <label for=""><strong>Trending </strong></label>
+                     <input type="checkbox" name="trending" value="{{$product->trending}}">
                  </div>
 
 
                  <div class="row">
                  <div class="col-md-6 mb-3">
-                     <label for="">upper part</label>
-                     <input type="checkbox"  name="upper_part">
+                     <label for=""><strong>Upper part </strong></label>
+                     <input type="checkbox"  name="upper_part" value="{{$product->upper_part}}">
                  </div>
 
                  <div class="col-md-6 mb-3">
-                     <label for="">Lower part</label>
-                     <input type="checkbox" name="lower_part">
+                     <label for=""><strong>Lower part </strong></label>
+                     <input type="checkbox" name="lower_part" value="{{$product->lower_part}}">
                  </div>
 
                  <div class="col-md-4">
