@@ -26,6 +26,7 @@
 
                     <a  href="{{('details')}}">PERSONAL DETAILS</a>
                 </li>
+
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -36,14 +37,19 @@
 
                         <li class="nav-item {{Request::is('tailor/add-product') ? 'active':''}}">
                             <a href="{{ ('add-product' )}}">ADD PRODUCT</a>
-                        </li >
+                        </li>
 
                     </ul>
+
                 </li>
-                <li>
-                    <a href="#">Portfolio</a>
+
+
+                <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
+                    <a href="{{('orders')}}">ORDERS</a>
                 </li>
-                <li>
+
+
+                <li >
                     <a href="#">Contact</a>
                 </li>
             </ul>

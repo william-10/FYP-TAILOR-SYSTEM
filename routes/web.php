@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GenderController;
+use App\Http\Controllers\Tailor\OrderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
@@ -149,6 +150,9 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('edit-product/{id}',[ProductController::class,'edit']);
                 Route::put('update-product/{id}',[ProductController::class,'update']);
                 Route::get('delete-product/{id}',[ProductController::class,'destroy']);
+
+                Route::get('orders',[OrderController::class,'index']);
+
 
 
             });
