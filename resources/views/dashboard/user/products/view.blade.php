@@ -122,7 +122,7 @@
                             @if ($products->qty >0)
 
                            @endif
-                            <button type="button" class="btn btn-success me-3 float-end">Add to wishlist</button>
+                            <button type="button" class="btn btn-success me-3 addToWishlist float-end">Add to wishlist</button>
 
                         </div>
                         </div>

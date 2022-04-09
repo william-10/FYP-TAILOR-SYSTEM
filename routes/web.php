@@ -14,6 +14,7 @@ use App\Http\Controllers\Tailor\ProductController;
 use App\Http\Controllers\Admin\MeasurementController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CustomerController;
+use App\Http\Controllers\Frontend\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/my-orders', [CustomerController::class, 'index']);
         Route::get('/view-order/{id}', [CustomerController::class, 'vieworder']);
+        Route::get('/wishlist', [WishlistController::class, 'index']);
     });
 });
 
@@ -68,6 +70,11 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/user/update-cart', [CartController::class, 'updatecart']);
         Route::post('/user/place-order', [CheckoutController::class, 'placeorder']);
 
+        Route::post('/user/add-to-wishlist', [WishlistController::class, 'add']);
+        Route::post('/user/delete-wishlist-item', [WishlistController::class, 'deleteitem']);
+
+
+        Route::get('/user/view-product/{cate_slug}/{prod_slug}', [FrontendController::class, 'viewproduct']);
 
 
 

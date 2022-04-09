@@ -29,6 +29,11 @@
 
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{url('/user/wishlist')}}" class="nav-link">Wishlist</a>
+
+                    </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('user.login'))
