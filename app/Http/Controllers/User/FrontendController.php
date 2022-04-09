@@ -94,4 +94,17 @@ public function viewproduct($cate_slug,$prod_slug)
     }
 }
 
+public function viewcartproduct($prod_slug)
+{
+    if(Product::where('slug',$prod_slug)->exists())
+            {
+                $products=Product::where('slug',$prod_slug)->first();
+
+                return view('dashboard.user.wishlist.view',compact('products'));
+            }
+            else{
+                return back()->with('status','link was broken');
+            }
+}
+
 }

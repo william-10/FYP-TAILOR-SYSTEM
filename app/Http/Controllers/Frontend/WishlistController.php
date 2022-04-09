@@ -23,7 +23,16 @@ class WishlistController extends Controller
             if(Auth::check())
             {
                 $prod_id=$request->input('product_id');
-                    if(Product::find($prod_id))
+                $prod_check=Product::where('id',$prod_id)->first();
+
+                if(Wishlist::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists())
+                {
+                    return response()->json(['status' => $prod_check->name." Already added to Wishlist"]);
+
+                }
+
+
+                    elseif(Product::find($prod_id))
                     {
                         $wish=new Wishlist();
                         $wish->user_id=Auth::id();

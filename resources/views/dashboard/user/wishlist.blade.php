@@ -49,7 +49,7 @@ Wishlist
                     @endif
                 </div>
                 <div class="col-md-2 my-auto">
-                    <a href="{{url('/user/view-product/'.$item->products->categories->slug.'/'.$item->product->slug)}}" class="btn btn-success"><i class="">Go to product</i></a>
+                    <a href="{{url('/user/view-product/'.$item->products->slug)}}" class="btn btn-success"><i class="">Go to product</i></a>
                 </div>
 
                 <div class="col-md-2 my-auto">

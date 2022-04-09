@@ -74,8 +74,8 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/user/delete-wishlist-item', [WishlistController::class, 'deleteitem']);
 
 
-        Route::get('/user/view-product/{cate_slug}/{prod_slug}', [FrontendController::class, 'viewproduct']);
-
+        Route::get('/user/view-product/{prod_slug}', [FrontendController::class, 'viewcartproduct']);
+        Route::post('/user/add-to-wishcart', [CartController::class, 'addwishlistProduct']);
 
 
 
