@@ -1,7 +1,7 @@
 @extends('tailor.layouts.tailor')
 
 @section('title')
-ORDERS
+ORDER HISTORY
 @endsection
 
 @section('content')
@@ -10,8 +10,8 @@ ORDERS
         <div class="col-md-12">
         <div class="card">
                 <div class="card-header bg-primary">
-                        <h4 class="text-white">NEW ORDERS
-                            <a href="{{url('/tailor/order-history')}}" class="btn btn-warning float-end">Order History</a>
+                        <h4 class="text-white">Order History
+                            <a href="{{url('/tailor/orders')}}" class="btn btn-warning float-end">NEW ORDERS</a>
                         </h4>
                 </div>
                         <div class="card-body">
@@ -35,7 +35,7 @@ ORDERS
 
 
                 @foreach ($orderitem as $item)
-                @if ($item->orders->status == "0")
+                @if ($item->orders->status == "1")
                     <tr>
 
                         <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
