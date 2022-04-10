@@ -7,6 +7,7 @@ use App\Models\Gallery;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Cloth_category;
+use App\Models\Measurement_detail;
 use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
@@ -77,13 +78,15 @@ public function product()
 
 public function viewproduct($cate_slug,$prod_slug)
 {
+
+    $measurement=Measurement_detail::get();
     if(Cloth_category::where('slug',$cate_slug)->exists())
     {
             if(Product::where('slug',$prod_slug)->exists())
             {
                 $products=Product::where('slug',$prod_slug)->first();
 
-                return view('dashboard.user.products.view',compact('products'));
+                return view('dashboard.user.products.view',compact('products','measurement'));
             }
             else{
                 return back()->with('status','link was broken');
@@ -96,11 +99,13 @@ public function viewproduct($cate_slug,$prod_slug)
 
 public function viewcartproduct($prod_slug)
 {
+
+    $measurement=Measurement_detail::get();
     if(Product::where('slug',$prod_slug)->exists())
             {
                 $products=Product::where('slug',$prod_slug)->first();
 
-                return view('dashboard.user.wishlist.view',compact('products'));
+                return view('dashboard.user.wishlist.view',compact('products','measurement'));
             }
             else{
                 return back()->with('status','link was broken');

@@ -5,13 +5,41 @@
 
 @section('content')
 <div id="mymodal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
+
                 <button class="close" type="button" data-bs-dismiss="modal">&times</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Measurement Guide</h4>
             </div>
-            <div class="modal-body">Body</div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>NAME</th>
+                            <th>IMAGE</th>
+                            <th>DETAILS </th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ( $measurement as $item )
+                        <tr>
+                            <td>{{$item->name}}</td>
+                            <td>
+                            <img src="{{asset('assets/uploads/measurement/image1/'.$item->image1)}}" class="w-100" width="100%" height="100%" alt="image">
+                            </td>
+                            <td>{{$item->details}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> </div>
         </div>
     </div>
 </div>
