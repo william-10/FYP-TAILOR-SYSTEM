@@ -25,12 +25,16 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="{{url('/user/cart')}}" class="nav-link">Carts</a>
+                        <a href="{{url('/user/cart')}}" class="nav-link">Cart
+                            <span class="badge badge-pill bg-success cart-count">0</span>
+                        </a>
 
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{url('/user/wishlist')}}" class="nav-link">Wishlist</a>
+                        <a href="{{url('/user/wishlist')}}" class="nav-link">Wishlist
+                        <span class="badge badge-pill bg-primary wishlist-count">0</span>
+                        </a>
 
                     </li>
 

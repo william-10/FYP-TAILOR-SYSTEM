@@ -76,6 +76,8 @@ Route::prefix('user')->name('user.')->group(function () {
 
         Route::get('/user/view-product/{prod_slug}', [FrontendController::class, 'viewcartproduct']);
         Route::post('/user/add-to-wishcart', [CartController::class, 'addwishlistProduct']);
+        Route::get('/user/load-cart-data', [CartController::class, 'cartcount']);
+        Route::get('/user/load-wishlist-data', [WishlistController::class, 'wishcount']);
 
 
 
