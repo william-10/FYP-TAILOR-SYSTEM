@@ -8,6 +8,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
+        <form action="" method="POST">       <!--form tag for the modal   -->
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Rate {{  $unique_tailor->tailor_name }} </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -35,6 +37,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
       </div>
+      </form>
     </div>
   </div>
 </div>
