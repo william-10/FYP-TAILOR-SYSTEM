@@ -60,5 +60,9 @@ body {
     transition: 0.3s ease;
 }
 
+.checked {
+    color: #fce40fb9;
+}
+
 
 /* End of Star Rating */

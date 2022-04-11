@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Rating;
 use App\Models\Tailor;
 use App\Models\Gallery;
 use App\Models\Product;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Models\Measurement_detail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -28,7 +30,20 @@ class FrontendController extends Controller
 
             $unique_tailor=Tailor::findOrFail($tailor_id);
             $tailor_product=Product::where('tailor_id',$tailor_id)->get();
-            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product'));
+
+            $ratings=Rating::where('tailor_id',$unique_tailor->tailor_id)->get();
+            $rating_sum=Rating::where('tailor_id',$unique_tailor->tailor_id)->sum('stars_rated');
+            $user_rating=Rating::where('tailor_id',$unique_tailor->tailor_id)
+                            ->where('user_id',Auth::id())->first();
+
+            if($ratings->count()>0)
+            {
+                $rating_value=$rating_sum/$ratings->count();
+            }
+            else{
+                $rating_value=0;
+            }
+            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating'));
 
         }
         else{

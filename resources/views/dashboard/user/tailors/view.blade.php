@@ -22,6 +22,21 @@
         <div class="modal-body">
             <div class="rating-css">
                         <div class="star-icon">
+
+                            @if ($user_rating)
+                            @for ($i=1; $i<= $user_rating->stars_rated; $i++)
+                            <input type="radio" value="{{$i}}" name="product_rating" checked id="rating{{$i}}">
+                            <label for="rating{{$i}}" class="fa fa-star"></label>
+
+                            @endfor
+                            @for ($j=$user_rating->stars_rated+1; $j<=5; $j++)
+                                <input type="radio" value="{{$j}}" name="product_rating" id="rating{{$j}}">
+                                <label for="rating{{$j}}" class="fa fa-star"></label>
+
+                            @endfor
+
+                            @else
+
                             <input type="radio" value="1" name="product_rating" checked id="rating1">
                             <label for="rating1" class="fa fa-star"></label>
                             <input type="radio" value="2" name="product_rating" id="rating2">
@@ -32,6 +47,8 @@
                             <label for="rating4" class="fa fa-star"></label>
                             <input type="radio" value="5" name="product_rating" id="rating5">
                             <label for="rating5" class="fa fa-star"></label>
+
+                            @endif
                         </div>
                     </div>
 
@@ -78,9 +95,29 @@
 
 
 
-
                 </div>
             </div>
+            @php
+                $ratenum=number_format($rating_value)
+            @endphp
+            <div class="rating">
+                @for ($i=1; $i<= $ratenum; $i++)
+                <i class="fa fa-star checked"></i>
+                @endfor
+                    @for ($j=$ratenum+1; $j<=5; $j++)
+                    <i class="fa fa-star"></i>
+                    @endfor
+
+                        <span>
+                        @if ($ratings->count() > 0)
+                            {{$ratings->count()}} Ratings
+
+                        @else
+                        No ratings
+                        @endif
+                           </span>
+                    </div>
+
             <div class="col-md-12 mt-4">
                 <h4>LOCATION</h4>
                 <p style="color:blue">
@@ -151,27 +188,4 @@
 
     @endif
 </div>
-@endsection
-
-@section('scripts')
-<script>
-$('.owl-carousel').owlCarousel({
-    loop: true;
-    margin: 10;
-    dots: false,
-    nav: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 3
-        },
-        1000: {
-            items: 4
-        }
-
-    }
-})
-</script>
 @endsection

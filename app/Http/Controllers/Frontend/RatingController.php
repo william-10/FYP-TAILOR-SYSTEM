@@ -15,6 +15,7 @@ class RatingController extends Controller
     {
         $stars_rated=$request->input('product_rating');
         $tailor_id=$request->input('tailor_id');
+
         $tailor_check=Tailor::where('tailor_id',$tailor_id)->first();
         if($tailor_check)
         {
@@ -22,7 +23,7 @@ class RatingController extends Controller
                 ->join('order_items','orders.id','order_items.order_id')
                 ->where('order_items.tailor_id',$tailor_id)->get();
 
-                if($verified_purchase)
+                if($verified_purchase->count() >0)
                 {
                     $existing_rating=Rating::where('user_id',Auth::id())->where('tailor_id',$tailor_id)->first();
                     if($existing_rating)
@@ -45,7 +46,7 @@ class RatingController extends Controller
 
                 else{
 
-                    return redirect()->back()->with('status',"You can not rate A tailor without purchase his product");
+                    return redirect()->back()->with('status',"You can not rate A tailor without purchasing the product");
                 }
         }
 
