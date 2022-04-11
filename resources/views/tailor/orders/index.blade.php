@@ -42,9 +42,6 @@ ORDERS
                         <td>{{$item->orders->tracking_no}}</td>
                         <td>{{$item->orders->total_price}}</td>
                         <td ><strong style="color:red">Pending</strong></td>
-
-
-
                         <td>
                             <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
                         </td>

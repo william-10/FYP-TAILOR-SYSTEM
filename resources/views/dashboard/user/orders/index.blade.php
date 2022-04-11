@@ -36,9 +36,9 @@ ORDERS
                         <td>{{$item->tracking_no}}</td>
                         <td>{{$item->total_price}}</td>
                         @if ($item->status == '0')
-                                 <td ><strong style="color:red">pending</strong></td>
+                                 <td ><strong style="color:red">Pending</strong></td>
                         @else($item->status == '1')
-                            <td ><strong style="color:green">completed</strong></td>
+                            <td ><strong style="color:green">Completed</strong></td>
                         @endif
 
                         <td>
