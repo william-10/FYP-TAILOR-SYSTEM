@@ -17,6 +17,7 @@ ORDERS
                 <thead>
                     <tr>
 
+                    <th>ID</th>
                     <th>Order Date</th>
                     <th>Tracking Number</th>
                     <th>Total Price</th>
@@ -30,10 +31,16 @@ ORDERS
 
                     <tr>
 
+                        <td>{{$loop->index+1}}</td>
                         <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
                         <td>{{$item->tracking_no}}</td>
                         <td>{{$item->total_price}}</td>
-                        <td>{{$item->status == '0' ? 'pending':'completed'}}</td>
+                        @if ($item->status == '0')
+                                 <td ><strong style="color:red">pending</strong></td>
+                        @else($item->status == '1')
+                            <td ><strong style="color:green">completed</strong></td>
+                        @endif
+
                         <td>
                             <a href="{{url('/user/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
                         </td>
