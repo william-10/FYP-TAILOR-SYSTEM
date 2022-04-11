@@ -41,7 +41,7 @@ ORDERS
                         <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
                         <td>{{$item->orders->tracking_no}}</td>
                         <td>{{$item->orders->total_price}}</td>
-                        <td ><strong style="color:red">pending</strong></td>
+                        <td ><strong style="color:red">Pending</strong></td>
 
 
 
