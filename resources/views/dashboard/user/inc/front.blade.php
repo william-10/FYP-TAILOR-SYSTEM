@@ -12,6 +12,9 @@
      <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
+    <script src="https://use.fontawesome.com/ff4050828e.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
@@ -36,7 +39,7 @@
         </div>
 
 <!-- Scripts -->
-<script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></script>
+<script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></s>
 <script src="{{ asset('admin/js/popper.min.js') }}" ></script>
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>

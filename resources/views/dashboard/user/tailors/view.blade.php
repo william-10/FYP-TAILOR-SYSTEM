@@ -4,6 +4,41 @@
 
 
 @section('content')
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rate {{  $unique_tailor->tailor_name }} </h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="rating-css">
+                    <div class="star-icon">
+                        <input type="radio" value="1" name="product_rating" checked id="rating1">
+                        <label for="rating1" class="fa fa-star"></label>
+                        <input type="radio" value="2" name="product_rating" id="rating2">
+                        <label for="rating2" class="fa fa-star"></label>
+                        <input type="radio" value="3" name="product_rating" id="rating3">
+                        <label for="rating3" class="fa fa-star"></label>
+                        <input type="radio" value="4" name="product_rating" id="rating4">
+                        <label for="rating4" class="fa fa-star"></label>
+                        <input type="radio" value="5" name="product_rating" id="rating5">
+                        <label for="rating5" class="fa fa-star"></label>
+                    </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="py-3 mb-4 shadow-sm bg-warning border-top">
     <div class="container">
         <h6 class="mb-0">Profile</h6>
@@ -33,6 +68,10 @@
                         {{ $unique_tailor->location }}
                     </p>
 
+                    <div class="rating-css">
+
+</div>
+
 
                 </div>
             </div>
@@ -41,6 +80,10 @@
                 <p style="color:blue">
                     {{  $unique_tailor->address }}
                 </p>
+
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate this tailor</button>
+
             </div>
             <div class="col-md-12">
                 <a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">
