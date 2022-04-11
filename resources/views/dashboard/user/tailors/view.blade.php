@@ -18,22 +18,22 @@
         <div class="rating-css">
                     <div class="star-icon">
                         <input type="radio" value="1" name="product_rating" checked id="rating1">
-                        <label for="rating1" class="fad fa-star"></label>
+                        <label for="rating1" class="fa fa-star"></label>
                         <input type="radio" value="2" name="product_rating" id="rating2">
-                        <label for="rating2" class="fad fa-star"></label>
+                        <label for="rating2" class="fa fa-star"></label>
                         <input type="radio" value="3" name="product_rating" id="rating3">
-                        <label for="rating3" class="fad fa-star"></label>
+                        <label for="rating3" class="fa fa-star"></label>
                         <input type="radio" value="4" name="product_rating" id="rating4">
-                        <label for="rating4" class="fad fa-star"></label>
+                        <label for="rating4" class="fa fa-star"></label>
                         <input type="radio" value="5" name="product_rating" id="rating5">
-                        <label for="rating5" class="fad fa-star"></label>
+                        <label for="rating5" class="fa fa-star"></label>
                     </div>
                 </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
       </div>
     </div>
   </div>
