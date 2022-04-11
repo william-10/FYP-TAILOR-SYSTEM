@@ -31,9 +31,9 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-
+                    <h4 class="modal-title">Edit profile</h4>
                         <button class="close" type="button" data-bs-dismiss="modal">&times</button>
-                        <h4 class="modal-title">Edit profile</h4>
+
                     </div>
                     <div class="modal-body">
                         <form action="{{('update-details')}}" method="POST">
