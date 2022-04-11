@@ -9,34 +9,38 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-        <form action="" method="POST">       <!--form tag for the modal   -->
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Rate {{  $unique_tailor->tailor_name }} </h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="rating-css">
-                    <div class="star-icon">
-                        <input type="radio" value="1" name="product_rating" checked id="rating1">
-                        <label for="rating1" class="fa fa-star"></label>
-                        <input type="radio" value="2" name="product_rating" id="rating2">
-                        <label for="rating2" class="fa fa-star"></label>
-                        <input type="radio" value="3" name="product_rating" id="rating3">
-                        <label for="rating3" class="fa fa-star"></label>
-                        <input type="radio" value="4" name="product_rating" id="rating4">
-                        <label for="rating4" class="fa fa-star"></label>
-                        <input type="radio" value="5" name="product_rating" id="rating5">
-                        <label for="rating5" class="fa fa-star"></label>
+    <form action="{{url('/user/add-rating')}}" method="POST">     <!--form tag for the modal   -->
+
+        @csrf
+        <input type="hidden" value="{{ $unique_tailor->tailor_id }}" name="tailor_id">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Rate {{  $unique_tailor->tailor_name }} </h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="rating-css">
+                        <div class="star-icon">
+                            <input type="radio" value="1" name="product_rating" checked id="rating1">
+                            <label for="rating1" class="fa fa-star"></label>
+                            <input type="radio" value="2" name="product_rating" id="rating2">
+                            <label for="rating2" class="fa fa-star"></label>
+                            <input type="radio" value="3" name="product_rating" id="rating3">
+                            <label for="rating3" class="fa fa-star"></label>
+                            <input type="radio" value="4" name="product_rating" id="rating4">
+                            <label for="rating4" class="fa fa-star"></label>
+                            <input type="radio" value="5" name="product_rating" id="rating5">
+                            <label for="rating5" class="fa fa-star"></label>
+                        </div>
                     </div>
-                </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-      </div>
+        </div>
       </form>
     </div>
   </div>

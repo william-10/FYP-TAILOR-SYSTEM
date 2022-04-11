@@ -11,6 +11,7 @@ use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Tailor\GalleryController;
 use App\Http\Controllers\Tailor\ProductController;
+use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Admin\MeasurementController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CustomerController;
@@ -56,6 +57,8 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/my-orders', [CustomerController::class, 'index']);
         Route::get('/view-order/{id}', [CustomerController::class, 'vieworder']);
         Route::get('/wishlist', [WishlistController::class, 'index']);
+        Route::post('/add-rating', [RatingController::class, 'add']);
+
     });
 });
 
