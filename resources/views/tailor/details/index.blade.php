@@ -28,7 +28,7 @@
         @include('tailor.layouts.inc.navbar')
 
         <div id="mymodal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
 
