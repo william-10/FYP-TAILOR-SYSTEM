@@ -18,6 +18,7 @@
     <!-- Styles -->
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/fontawsome3.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
