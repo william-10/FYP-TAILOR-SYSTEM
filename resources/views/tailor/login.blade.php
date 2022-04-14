@@ -14,15 +14,14 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    @guest
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto">
 
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Logout</a>
-                    </li>
-                    @endguest
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{ route('user.register') }}">
+                                        <strong>{{ __('Register') }} </strong></a>
+                                </li>
+
                 </ul>
             </div>
         </div>
@@ -71,8 +70,7 @@
                                 <button type="submit" class="btn btn-dark btn-block">Log in</button>
                             </div>
 
-                            <br>
-                            <a href="{{route('admin.login')}}">Admin login</a>
+
                         </form>
                     </div>
                 </div>
