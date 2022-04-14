@@ -148,7 +148,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 swal(response.status);
-                loadwishlist()
+                loadwishlist();
 
             }
         });

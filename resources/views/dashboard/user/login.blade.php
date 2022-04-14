@@ -151,9 +151,8 @@
                                     </a>
                                 @endif
 
-                                <br>
-                                <a class="btn btn-link" href="{{route('tailor.register')}}">Login as Tailor
-                                    </a> </div></div>
+
+                                </div></div>
                             </div>
                         </div>
                     </form>

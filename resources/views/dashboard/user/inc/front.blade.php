@@ -52,9 +52,11 @@
 @yield('scripts')
 
 @if(SESSION('status'))
-<script>swal("{{session('status')}}");
+<script>
+swal("{{session('status')}}");
 </script>
 @endif
 
 </body>
 </html>
+

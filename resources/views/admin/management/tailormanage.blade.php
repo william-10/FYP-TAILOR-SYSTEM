@@ -2,11 +2,109 @@
 
 @section('content')
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
 
+    <form action="{{url('/admin/register-tailor')}}" method="POST">     <!--form tag for the modal   -->
+
+        @csrf
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> </h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <div class="row mb-3">
+                            <label for="tailor_name" class="col-md-4 col-form-label text-md-end">Name</label>
+
+                            <div class="col-md-6">
+                                <input id="tailor_name" type="text" placeholder="Enter full name" class="form-control @error('tailor_name') is-invalid @enderror" name="tailor_name">
+                                <span class="text-danger">@error('tailor_name'){{ $message}}@enderror</span>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" placeholder="Enter email address" class="form-control @error('email') is-invalid @enderror" name="email" >
+                                <span class="text-danger">@error('email'){{ $message}}@enderror</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">Phone number</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="name" placeholder="Enter phone number"  class="form-control @error('phone') is-invalid @enderror" name="phone" >
+                                <span class="text-danger">@error('phone'){{ $message}}@enderror</span>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="location" class="col-md-4 col-form-label text-md-end">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="name" placeholder="Enter location" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('email') }}" >
+                                <span class="text-danger">@error('location'){{ $message}}@enderror</span>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
+
+                            <div class="col-md-6">
+                                <textarea id="address"  placeholder="Enter full address of location" rows="3" class="form-control @error('address') is-invalid @enderror" name="address" >
+
+                                </textarea>
+                                <span class="text-danger">@error('location'){{ $message}}@enderror</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
+                                <span class="text-danger">@error('password'){{ $message}}@enderror</span>
+
+                            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col">
+</div>
 <div class="card-header">
     <h4> TAILOR MANAGEMENT</h4>
+    </div>
 
-</div>
+    <div class="col">
+    <button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD</button>
+
+</div></div>
 
 <div class="table-responsive">
     <table class="table table-hover table-respnsive">

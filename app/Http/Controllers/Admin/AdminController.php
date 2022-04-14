@@ -8,6 +8,7 @@ use App\Models\Tailor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -36,7 +37,7 @@ class AdminController extends Controller
 public function logout()
 {
     Auth::guard('admin')->logout();
-    return redirect('/admin/login');
+    return redirect('/tailor/login');
 }
 
 public function index()
@@ -58,5 +59,22 @@ public function customerview()
     return view('admin.management.customermanage', compact('user'));
 }
 
+
+public function tailorregister(Request $request)
+{
+    $save=Tailor::Create([
+        'tailor_name'=>$request->tailor_name,
+        'email'=>$request->email,
+        'location'=>$request->location,
+        'phone'=>$request->phone,
+        'address'=>$request['address'],
+        'password'=>Hash::make($request->password)]);
+        if($save){
+            return redirect('admin/home')->with('success','you registerd Tailor successfully');
+        }
+        else{
+          return redirect()->back()->with('fail','something went wrong, failed to register');
+        }
+}
 
 }

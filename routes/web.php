@@ -121,6 +121,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('update-gender/{id}', [GenderController::class ,'update']);
             Route::get('delete-gender/{id}', [GenderController::class ,'destroy']);
 
+            Route::post('register-tailor',[AdminController::class,'tailorregister']);
     });
 
 

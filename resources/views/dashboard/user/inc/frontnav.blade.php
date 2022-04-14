@@ -42,7 +42,7 @@
                         @guest
                             @if (Route::has('user.login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.login') }}">Login</a>
+                                    <a class="nav-link" href="{{ route('tailor.login') }}">Login</a>
                                 </li>
                             @endif
 

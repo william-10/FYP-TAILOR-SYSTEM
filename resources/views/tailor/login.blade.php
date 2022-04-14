@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
         <div class="container">
-            <a class="navbar-brand mr-auto" href="#"><h4>Tailor Shop | TAILOR</h4></a>
+            <a class="navbar-brand mr-auto" href="{{url('/user/home')}}"><h4>Tailor Shop | TAILOR</h4></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">TAILOR LOGIN</h3>
+                    <h3 class="card-header text-center">LOGIN</h3>
                     <div class="card-body">
                         <form method="POST" action="{{route('tailor.check')}}" autocomplete="off">
 
@@ -70,8 +70,9 @@
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Log in</button>
                             </div>
+
                             <br>
-                            <a href="{{route('tailor.register')}}">Create new Account</a>
+                            <a href="{{route('admin.login')}}">Admin login</a>
                         </form>
                     </div>
                 </div>

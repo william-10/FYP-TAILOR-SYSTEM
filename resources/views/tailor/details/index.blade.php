@@ -30,15 +30,17 @@
         <div id="mymodal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
+                <form action="{{('update-details')}}" method="POST">
+                            @csrf
+                            @method('PUT')
+
                     <div class="modal-header">
                     <h4 class="modal-title">Edit profile</h4>
                         <button class="close" type="button" data-bs-dismiss="modal">&times</button>
 
                     </div>
                     <div class="modal-body">
-                        <form action="{{('update-details')}}" method="POST">
-                            @csrf
-                            @method('PUT')
+
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -46,6 +48,17 @@
                                     <input type="text" value="{{Auth::user()->tailor_name}}" class="form-control"
                                         name="tailor_name">
                                 </div>
+
+                                <div class="col-md-6 mb-3">
+                     <label for="password">Password</label>
+
+                            <div class="col-md-12">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
+                                <span class="text-danger">@error('password'){{ $message}}@enderror</span>
+
+                            </div>
+                            </div>
+
 
                                 <div class="col-md-6 mb-3">
                                     <label for="phone">PHONE NUMBER</label>
@@ -69,7 +82,7 @@
 
                             </div>
 
-                        </form>
+
 
 
                     </div>
@@ -80,6 +93,7 @@
                                     data-bs-dismiss="modal">Close</button>
                     </div>
 
+                    </form>
                 </div>
             </div>
         </div>

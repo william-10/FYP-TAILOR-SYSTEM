@@ -24,10 +24,6 @@ class TailorController extends Controller
                 'cpassword'=>'required|min:5|max:30|same:password'
           ]);
 
-
-
-
-
         if($request->hasFile('avator'))
         {
             $avatoruploaded=$request->file('avator');
@@ -92,6 +88,17 @@ class TailorController extends Controller
                 {
                     return redirect()->route('tailor.home');
                 }
+
+
+                elseif( Auth::guard('admin')->attempt($creds))
+                {
+                    return redirect()->route('admin.home')->with('status','Welcome Administrator');
+                }
+
+                elseif( Auth::guard('web')->attempt($creds))
+                {
+                    return redirect('/user/home');
+                }
                 else{
                     return redirect()->route('tailor.login')->with('fail','invalid credentials');
                 }
@@ -118,17 +125,20 @@ class TailorController extends Controller
         //validation rules
 
         $request->validate([
-            'tailor_name' =>'required|min:4|string|max:20'
+            'tailor_name' =>'required|min:4|string|max:20',
+            'password'=>'required|min:5|max:30'
+
 
         ]);
 
         $user =Auth::user();
         $user->tailor_name = $request['tailor_name'];
         $user->phone = $request['phone'];
+        $user->password = $request['password'];
         $user->location = $request['location'];
         $user->address = $request['address'];
-        $user->save();
-        return redirect('tailor/details')->with('status',"Profile Updated");
+        $user->update();
+        return redirect('tailor/details')->with('success',"Profile Updated");
 
     }
 

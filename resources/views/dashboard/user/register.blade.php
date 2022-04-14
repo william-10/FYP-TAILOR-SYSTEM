@@ -102,8 +102,8 @@
                                     Register
                                 </button>
 
-                                <br>
-                            <a href="{{route('tailor.register')}}">Register as tailor</a>
+
+
                             </div>
                         </div>
                     </form>
