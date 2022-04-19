@@ -15,7 +15,7 @@ class TailorController extends Controller
     {
           $request->validate([
                 'tailor_name'=>'required',
-                'phone'=>'required|min:10|max:10',
+                'phone'=>'sometimes|min:10|max:10',
                 'avator'=>'sometimes|image|mimes:jpg,jpeg,bmp,svg,png|max:5000',
                 'location'=>'required',
                 'address'=>'required',

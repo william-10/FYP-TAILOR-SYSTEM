@@ -35,6 +35,7 @@ public function index()
           $user=new User();
           $user->name = $request->name;
           $user->lname = $request->lname;
+        $user->phone = $request->phone;
           $user->email = $request->email;
 
           $user->password = \Hash::make($request->password);
