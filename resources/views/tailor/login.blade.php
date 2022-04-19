@@ -7,6 +7,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
         <div class="container">
             <a class="navbar-brand mr-auto" href="{{url('/user/home')}}"><h4>Tailor Shop | TAILOR</h4></a>

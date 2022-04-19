@@ -43,7 +43,7 @@ public function index()
 
 
           if($save){
-              return redirect('/user/login')->with('success','you are now registerd successfully');
+              return redirect('/tailor/login')->with('success','you are now registerd successfully');
           }
           else{
             return redirect()->back()->with('fail','something went wrong, failed to register');
