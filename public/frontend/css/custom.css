@@ -66,3 +66,23 @@ body {
 
 
 /* End of Star Rating */
+
+.owl-prev {
+    left: -30px;
+}
+
+.owl-next {
+    right: -30px
+}
+
+.owl-next,
+.owl-prev {
+    position: absolute;
+    top: 90px
+}
+
+.owl-next span,
+.owl-prev span {
+    font-size: 80px;
+    color: black;
+}

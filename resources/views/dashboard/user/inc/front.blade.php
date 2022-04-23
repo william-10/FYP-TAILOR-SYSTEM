@@ -48,6 +48,7 @@
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.owl.js') }}"></script>
 
 @yield('scripts')
 

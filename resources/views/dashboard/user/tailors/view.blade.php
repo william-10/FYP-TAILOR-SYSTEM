@@ -151,31 +151,32 @@
 <div class="container">
 
     @if (count($tailor_product)>0)
-        <div class="row">
-            <div class="col-md-12">
-            <h4 class="py-2  ">PRODUCTS</h4>
-                <div class="row">
-                    @foreach ($tailor_product as $product)
-                    <div class="col-md-3 mb-3 ">
-                        <div class="card">
-                        <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
+    <h4 class="py-2  ">PRODUCTS</h4>
+    <div class="owl-carousel owl-theme">
+    <div class="ms-2 me-2">
+                            <div class="card">
 
-                            <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="w-100 img-fluid"
-                                alt="image here">
-                            <div class="card-body shadow">
-                                <h5>{{$product->name}}</h5>
+                    @foreach ($tailor_product as $product)
+
+
+
+                            <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
+
+                                <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="card-img-top" width="100%" height="100%" alt="image here">
+                            <div class="card-body">
+                                       <h5>{{$product->name}}</h5>
 
                                 <span class="float-start">{{$product->selling_price}}</span>
                                 <span class="float-end "><s>{{ $product->original_price }}</s></span>
                             </div>
+                            </div>
+                        </div>
 
-                        </a>
-                    </div>
-                    </div>
+
+
                     @endforeach
-                </div>
-            </div>
-        </div>
+                    </div>
+
 
     @else
     <div class="container">
@@ -187,5 +188,10 @@
     </div>
 
     @endif
+
 </div>
+
+
 @endsection
+
+
