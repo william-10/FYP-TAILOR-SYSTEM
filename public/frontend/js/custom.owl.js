@@ -1,30 +1,24 @@
-    $(".owl-carousel").owlCarousel({
-        autoplay: true,
-        autoplayhoverpause: true,
-        autoplaytimeout: 200,
-        items: 2,
-        loop: true,
-        nav: true,
-        responsive: {
-            0: {
-                items: 1,
-                dots: false
-            },
-            485: {
-                items: 2,
-                dots: false
-            },
-            728: {
-                items: 2,
-                dots: false
-            },
-            960: {
-                items: 2,
-                dots: false
-            },
-            1200: {
-                items: 3,
-                dots: false
-            }
+$(".featured-carousel").owlCarousel({
+    loop: true,
+    nav: true,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayTimeout: 2000,
+    margin: 10,
+
+    responsive: {
+        0: {
+            items: 1,
+            dots: false
+        },
+        600: {
+            items: 3,
+            dots: false
+        },
+
+        1000: {
+            items: 3,
+            dots: false
         }
-    });
+    }
+});

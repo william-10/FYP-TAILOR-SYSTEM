@@ -153,13 +153,11 @@
 
 @if (count($tailor_product)>2)
 <div class="container">
-    <h4 class="py-2  ">PRODUCTS</h4>
-    <div class="owl-carousel owl-theme">
-        <div class="ms-2 me-2">
-
-
-            @foreach ($tailor_product as $product)
-
+    <div class="row">
+    <h4 class="py-2 ">PRODUCTS</h4>
+    <div class="owl-carousel featured-carousel owl-theme">
+        @foreach ($tailor_product as $product)
+        <div class="item">
             <div class="card">
 
                 <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
@@ -174,11 +172,12 @@
                     </div>
             </div>
 
-
-
         </div>
+
+
         @endforeach
     </div>
+</div>
 </div>
 
 @elseif (count($tailor_product)>0)
@@ -222,8 +221,36 @@
 </div>
 
 @endif
+@endsection
 
+@section('scripts')
+<script>
+    $(document).ready(function () {
+        $('.featured-carousel').owlCarousel({
+    loop: true,
+    nav: true,
+    autoplay: true,
+    autoplayHoverPause: true,
+    autoplayTimeout: 2000,
+    margin: 10,
 
+    responsive: {
+        0: {
+            items: 1,
+            dots: false
+        },
+        600: {
+            items: 3,
+            dots: false
+        },
 
+        1000: {
+            items: 3,
+            dots: false
+        }
+    }
+});
+    });
 
+</script>
 @endsection

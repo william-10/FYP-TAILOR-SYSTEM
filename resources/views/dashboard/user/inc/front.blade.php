@@ -21,7 +21,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('frontend/css/fontawsome4.7.min.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
     <style>
@@ -42,13 +42,13 @@
         </div>
 
 <!-- Scripts -->
-<script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></s>
+<script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></script>
 <script src="{{ asset('admin/js/popper.min.js') }}" ></script>
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/custom.owl.js') }}"></script>
+<!-- <script src="{{ asset('frontend/js/custom.owl.js') }}"></script> -->
 
 @yield('scripts')
 
