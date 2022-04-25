@@ -151,7 +151,7 @@
 
 
 
-    @if (count($tailor_product)>2)
+@if (count($tailor_product)>2)
 <div class="container">
     <h4 class="py-2  ">PRODUCTS</h4>
     <div class="owl-carousel owl-theme">
@@ -162,7 +162,7 @@
 
             <div class="card">
 
-             <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
+                <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
 
                     <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="card-img-top" width="100%"
                         height="100%" alt="image here">
@@ -179,21 +179,21 @@
         </div>
         @endforeach
     </div>
-    </div>
+</div>
 
-    @elseif (count($tailor_product)>0)
-    <div class="container">
+@elseif (count($tailor_product)>0)
+<div class="container">
     <h4 class="py-2  ">PRODUCTS</h4>
     <div class="row">
 
         @foreach ($tailor_product as $product)
-        <div class="col-md-4 border-right">
+        <div class="col-md-4 mb-3">
             <a href="{{url('/user/view-product/'.$product->categories->slug.'/'.$product->slug)}}">
                 <div class="card">
-                    <div class="flex-fill d-flex align-items-center">
-                        <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="card-img-top"
-                            width="100%" height="100%" alt="image here">
-                    </div>
+
+                    <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="card-img-top" width="100%"
+                        height="100%" alt="image here">
+
                     <div class="card-body">
                         <h5>{{$product->name}}</h5>
 
@@ -201,27 +201,27 @@
                         <span class="float-end "><s>{{ $product->original_price }}</s></span>
                     </div>
                 </div>
-
+            </a>
 
 
         </div>
 
         @endforeach
     </div>
-    </div>
+</div>
 
 
 
-    @else
-    <div class="container">
-        <div class="row">
-            <div class="card shadow">
-                <h5>no products yet</h5>
-            </div>
+@else
+<div class="container">
+    <div class="row">
+        <div class="card shadow">
+            <h5>no products yet</h5>
         </div>
     </div>
+</div>
 
-    @endif
+@endif
 
 
 
