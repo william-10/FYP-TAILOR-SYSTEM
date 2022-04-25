@@ -10,6 +10,7 @@ Customer homepage
         <h6 class="mb-0">TAILORS</h6>
     </div>
 </div>
+
 <div class="container">
 <div class="row">
                 @foreach ($tailor as $tailor)
