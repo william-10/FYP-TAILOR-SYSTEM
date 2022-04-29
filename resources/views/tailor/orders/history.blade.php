@@ -41,7 +41,7 @@ ORDER HISTORY
                         <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
                         <td>{{$item->orders->tracking_no}}</td>
                         <td>{{$item->orders->total_price}}</td>
-                        <td ><strong style="color:green">Completed</strong></td>
+                        <td><strong class="badge badge-success rounded pill">Completed</strong></td>
                         <td>
                             <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
                         </td>
