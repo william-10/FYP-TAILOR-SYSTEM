@@ -134,7 +134,7 @@ class TailorController extends Controller
         $user =Auth::user();
         $user->tailor_name = $request['tailor_name'];
         $user->phone = $request['phone'];
-        $user->password = $request['password'];
+        $user->password = Hash::make($request['password']);
         $user->location = $request['location'];
         $user->address = $request['address'];
         $user->update();

@@ -55,7 +55,7 @@ public function index()
      {
         $request->validate([
 
-            'email'=>'required|email|exists:users,email',
+            'email'=>'required',
             'password'=>'required|min:5|max:30'
 
         ],
@@ -65,13 +65,24 @@ public function index()
         ]);
 
         $creds =$request->only('email','password');
-        if( Auth::guard('web')->attempt($creds))
-            {
-                return redirect('user/home');    //it was 'user.home'
-            }
-            else{
-                return redirect('/user/login')->with('status','invalid credentials');
-            }
+        if( Auth::guard('tailor')->attempt($creds))
+        {
+            return redirect()->route('tailor.home');
+        }
+
+
+        elseif( Auth::guard('admin')->attempt($creds))
+        {
+            return redirect()->route('admin.home')->with('status','Welcome Administrator');
+        }
+
+        elseif( Auth::guard('web')->attempt($creds))
+        {
+            return redirect('/user/home');
+        }
+        else{
+            return redirect()->route('user.login')->with('fail','invalid credentials');
+        }
     }
     public function logout()
     {
