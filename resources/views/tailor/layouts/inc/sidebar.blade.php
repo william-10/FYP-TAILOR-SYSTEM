@@ -28,11 +28,11 @@
                 </li>
 
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">MEASUREMENT</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
 
                         <li class="nav-item {{Request::is('tailor/view-product') ? 'active':''}}">
-                            <a href="{{ ('view-product' )}}">VIEW MEASUREMENT</a>
+                            <a href="{{ ('view-product' )}}">VIEW PRODUCTS</a>
                         </li>
 
                         <li class="nav-item {{Request::is('tailor/add-product') ? 'active':''}}">
