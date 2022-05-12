@@ -44,14 +44,24 @@
                 </li>
 
 
-                <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
-                    <a href="{{('orders')}}">ORDERS</a>
+
+                <li>
+                    <a href="#pagemap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">MAPS</a>
+                    <ul class="collapse list-unstyled" id="pagemap">
+
+                        <li class="nav-item">
+                            <a href="">VIEW MAP</a>
+                        </li>
+
+                        <li class="nav-item {{Request::is('tailor/add-map') ? 'active':''}}">
+                            <a href="{{ ('add-map' )}}">CREATE</a>
+                        </li>
+
+                    </ul>
+
                 </li>
 
 
-                <li >
-                    <a href="#">Contact</a>
-                </li>
             </ul>
 
 

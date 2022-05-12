@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Map;
 use App\Models\Gallery;
 use App\Models\Product;
 use Laravel\Sanctum\HasApiTokens;
@@ -61,5 +62,11 @@ class Tailor extends Authenticatable
     public function products()
     {
         return $this->hasMany(Product::class,'tailor_id');
+    }
+
+
+    public function maps()
+    {
+        return $this->hasOne(Map::class,'tailor_id');
     }
 }

@@ -22,8 +22,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap.min.css.map') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
 
@@ -43,19 +42,19 @@
          </div>
 
 
-    </div>
-    @include('tailor.layouts.inc.tailorfooter')
-</div>
+
 
 
 
     <script src="{{ asset('admin/js/jquery-3.6.0.min.js') }}" ></script>
     <script src="{{ asset('admin/js/popper.min.js') }}" ></script>
 
+
     <script src="{{ asset('admin/js/bootstrap.min.js') }}" ></script>
     <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}" ></script>
     <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('admin/js/home.js') }}" ></script>
+
 
 @if(SESSION('status'))
 <script>swal("{{session('status')}}");
