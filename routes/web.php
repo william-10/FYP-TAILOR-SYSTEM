@@ -166,6 +166,8 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('delete-product/{id}',[ProductController::class,'destroy']);
 
                 Route::get('add-map',[MapController::class,'create']);
+                Route::post('insert-map',[MapController::class,'store']);
+
 
                 Route::get('orders',[OrderController::class,'index']);
                 Route::get('view-order/{id}',[OrderController::class,'vieworder']);

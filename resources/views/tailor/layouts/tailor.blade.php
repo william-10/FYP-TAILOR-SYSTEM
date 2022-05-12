@@ -22,7 +22,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/bootstrap.min.css.map') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
 

@@ -67,6 +67,6 @@ class Tailor extends Authenticatable
 
     public function maps()
     {
-        return $this->hasOne(Map::class,'tailor_id');
+        return $this->hasMany(Map::class,'tailor_id');
     }
 }
