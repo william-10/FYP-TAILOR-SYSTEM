@@ -222,6 +222,7 @@
 
 @endif -->
 
+@if (count($unique_tailor->maps)>0)
 <div class="container">
 <div class="card">
     <div class="card-body">
@@ -259,11 +260,26 @@
         </div>
         </div>
 
+        @else
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                <div class="row">
+                <h4>LOCATION</h4>
+                <h7 style="color:red">No Map location available at the moment</h7>
+            </div>
+                </div>
+            </div>
+
+        </div>
+        @endif
 
 @endsection
 
 
 @section('scripts')
+
+@if (count($unique_tailor->maps)>0)
 <script
     src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize"
     async defer></script>
@@ -380,6 +396,7 @@ longitudeField.value = lng;
 
 
 </script>
+@endif
 
 <script>
     $(document).ready(function () {
