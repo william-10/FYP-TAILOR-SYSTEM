@@ -9,6 +9,8 @@ function initialize() {
     });
     const locationInputs = document.getElementsByClassName("map-input");
 
+    // var searchBox = new google.maps.places.SearchBox(document.getElementById('map-input')); //added myself,may be wrong......for autocomplting
+
     const autocompletes = [];
     const geocoder = new google.maps.Geocoder;
     for (let i = 0; i < locationInputs.length; i++) {
@@ -26,6 +28,22 @@ function initialize() {
             zoom: 13,
             scrollwhell: true,
         });
+
+        // google.maps.event.addListener(marker, 'places_changed', //added myself,may be wrong...for autocompleting
+        //     function() {
+        //         var places = searchBox.getPlaces();
+        //         var bounds = new google.maps.LatLngBounds();
+        //         var i, place;
+
+        //         for (i = 0; place = places[i]; i++) {
+        //             bounds.extend(place.geometry.location);
+        //             marker.setPosition(place.geometry.location); //set marker position new
+        //         }
+
+        //         map.fitBounds(bounds);
+        //         map.setZoom(15);
+        //     });
+
         const marker = new google.maps.Marker({
             map: map,
             position: { lat: latitude, lng: longitude },

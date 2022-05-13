@@ -11,7 +11,7 @@ ORDERS
         <div class="card">
                 <div class="card-header bg-primary">
                         <h4 class="text-white">NEW ORDERS
-                            <a href="{{url('/tailor/order-history')}}" class="btn btn-warning float-end">Order History</a>
+                           <a href="{{url('/tailor/order-history')}}" class="btn btn-warning float-end">Order History</a>
                         </h4>
                 </div>
                         <div class="card-body">
