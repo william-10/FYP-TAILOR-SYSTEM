@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Map;
 use App\Models\Rating;
 use App\Models\Tailor;
 use App\Models\Gallery;
@@ -27,6 +28,7 @@ class FrontendController extends Controller
         if(Tailor::where('tailor_id',$tailor_id)->exists())
         {
 
+            $tailor_map=Map::where('tailor_id',$tailor_id)->first();
 
             $unique_tailor=Tailor::findOrFail($tailor_id);
             $tailor_product=Product::where('tailor_id',$tailor_id)->get();
@@ -43,7 +45,7 @@ class FrontendController extends Controller
             else{
                 $rating_value=0;
             }
-            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating'));
+            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating','tailor_map'));
 
         }
         else{
