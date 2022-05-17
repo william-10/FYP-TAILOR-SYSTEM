@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
 
-    public function index()
+    public function index(Request $request )
     {
         $tailor=Tailor::get();
-        return view('dashboard.user.tailors.index',compact('tailor'));
+            return view('dashboard.user.tailors.index',compact('tailor'));
+
     }
 
     public function viewtailor($tailor_id)
@@ -60,6 +61,7 @@ class FrontendController extends Controller
         {
             $unique_tailor=Gallery::where('tailor_id',$tailor_id)->get();
             return view('dashboard.user.tailors.gallery',compact('unique_tailor'));
+            return response()->json($unique_tailor);
 
         }
         else{
@@ -80,6 +82,7 @@ public function tailorproduct()
         $tailor_product=Product::get();
 
         return view('dashboard.user.tailors.product',compact('tailor_product'));
+        return response()->json($tailor_product);
 
 
 }
@@ -90,6 +93,7 @@ public function product()
 
         $products=Product::get();
         return view('dashboard.user.products.index',compact('products'));
+        return response()->json($products);
 
 }
 
@@ -104,6 +108,7 @@ public function viewproduct($cate_slug,$prod_slug)
                 $products=Product::where('slug',$prod_slug)->first();
 
                 return view('dashboard.user.products.view',compact('products','measurement'));
+                return response()->json($products,$measurement);
             }
             else{
                 return back()->with('status','link was broken');
@@ -123,6 +128,7 @@ public function viewcartproduct($prod_slug)
                 $products=Product::where('slug',$prod_slug)->first();
 
                 return view('dashboard.user.wishlist.view',compact('products','measurement'));
+                return response()->json($products,$measurement);
             }
             else{
                 return back()->with('status','link was broken');
