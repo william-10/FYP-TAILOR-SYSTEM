@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('user')->name('user.')->group(function () {
 
-    Route::middleware(['guest:web','PreventBackHistory'])->group(function () {
+    Route::middleware(['guest:api','PreventBackHistory'])->group(function () {
 
         Route::view('/mobile/login', 'dashboard.user.login')->name('login');
         Route::view('/mobile/register', 'dashboard.user.register')->name('register');
@@ -35,7 +35,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
     });
 
-    Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
+    Route::middleware(['auth:api','PreventBackHistory'])->group(function () {
 
         Route::post('/mobile/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
