@@ -21,7 +21,7 @@
             @foreach ($content as $region )
                 <tr>
                     <td>{{$region->city}}</td>
-                    <tr>{{$region->admin_name}}</tr>
+                    <td>{{$region->admin_name}}</td>
                 </tr>
             @endforeach
         </tbody>
