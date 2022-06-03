@@ -55,7 +55,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 border-right">
-                    <img src="{{asset('assets/uploads/product/'.$products->image)}}" class="w-100" alt="product image">
+                    <img src="{{asset('assets/uploads/product/'.$products->image)}}" class="rounded" width="307" height="308"  alt="product image">
                 </div>
                 <div class="col-md-8">
                     <h2 class="mb-0">
