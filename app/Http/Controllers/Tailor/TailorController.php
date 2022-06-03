@@ -8,9 +8,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class TailorController extends Controller
 {
+    public function region()
+    {
+        $path= Storage::disk('local')->get('tz.json');
+       $content = json_decode(json_encode($path), true);
+       return view("region",[
+           "content"=>json_decode($content)
+       ]);
+
+
+    }
+
     public function create(Request  $request)
     {
           $request->validate([

@@ -131,6 +131,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
 
+Route::get('region',[TailorController::class,'region']);
 
 Route::prefix('tailor')->name('tailor.')->group(function () {
             Route::middleware(['guest:tailor','PreventBackHistory'])->group(function () {
@@ -146,6 +147,7 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::view('/home', 'tailor.home')->name('home');
                 Route::post('logout', [TailorController::class, 'logout'])->name('logout');
                 Route::get('details',[TailorController::class,'index']);
+                Route::get('',[TailorController::class,'region']);
 
                 Route::get('edit-profile',[TailorController::class,'edit']);
                 Route::put('update-details',[TailorController::class,'profileUpdate']);
