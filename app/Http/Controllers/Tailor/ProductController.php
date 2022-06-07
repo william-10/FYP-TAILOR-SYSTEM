@@ -9,6 +9,10 @@ use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Storage;
+use Illuminate\Support\Facades\Http;
+
+use Illuminate\Http\Client\Response;
 
 class ProductController extends Controller
 {
@@ -27,9 +31,13 @@ class ProductController extends Controller
 
     public function create()
     {
+        $content=http::acceptJson()->get('https://tanzaniatx.herokuapp.com/Region/?format=json',[
+
+        ]);
         $category=Cloth_category::all();
         $gender=Gender::all();
-        return view('tailor.product.add',compact('category','gender'));
+        return view('tailor.product.add',compact('category','gender','content'
+        ));
     }
 
     /**

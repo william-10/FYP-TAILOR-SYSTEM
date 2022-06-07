@@ -8,6 +8,10 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\API\\CustomerController' => $baseDir . '/app/Http/Controllers/API/CustomerController.php',
+    'App\\Http\\Controllers\\API\\FrontendController' => $baseDir . '/app/Http/Controllers/API/FrontendController.php',
+    'App\\Http\\Controllers\\API\\MapController' => $baseDir . '/app/Http/Controllers/API/MapController.php',
+    'App\\Http\\Controllers\\API\\UserController' => $baseDir . '/app/Http/Controllers/API/UserController.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\GenderController' => $baseDir . '/app/Http/Controllers/Admin/GenderController.php',
@@ -26,6 +30,7 @@ return array(
     'App\\Http\\Controllers\\Frontend\\WishlistController' => $baseDir . '/app/Http/Controllers/Frontend/WishlistController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\Tailor\\GalleryController' => $baseDir . '/app/Http/Controllers/Tailor/GalleryController.php',
+    'App\\Http\\Controllers\\Tailor\\MapController' => $baseDir . '/app/Http/Controllers/Tailor/MapController.php',
     'App\\Http\\Controllers\\Tailor\\OrderController' => $baseDir . '/app/Http/Controllers/Tailor/OrderController.php',
     'App\\Http\\Controllers\\Tailor\\ProductController' => $baseDir . '/app/Http/Controllers/Tailor/ProductController.php',
     'App\\Http\\Controllers\\Tailor\\TailorController' => $baseDir . '/app/Http/Controllers/Tailor/TailorController.php',
