@@ -47,10 +47,8 @@
                      <input type="text" value="{{Auth::user()->phone}}" class="form-control" name="phone">
                  </div>
 
-                 <div class="col-md-6 mb-3">
-                     <label for="location">LOCATION</label>
-                     <input type="text" value="{{Auth::user()->location}}" class="form-control" name="location">
-                 </div>
+
+
 
 
                  <div class="col-md-6 mb-3">

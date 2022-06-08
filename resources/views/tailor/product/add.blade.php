@@ -53,8 +53,8 @@
                 <div class="com-md-12 mb-3">
                     <select class="form-select" name="category_id">
                         <option value="">select a category</option>
-                        @foreach ($content as $item )
-                        <option value="{{$item->name}}">{{$item->name}}</option>
+                        @foreach ($category as $item )
+                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
                         @endforeach
 
                     </select>

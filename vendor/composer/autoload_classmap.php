@@ -48,6 +48,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Cart' => $baseDir . '/app/Models/Cart.php',
+    'App\\Models\\City' => $baseDir . '/app/Models/City.php',
     'App\\Models\\Cloth_category' => $baseDir . '/app/Models/Cloth_category.php',
     'App\\Models\\Gallery' => $baseDir . '/app/Models/Gallery.php',
     'App\\Models\\Gender' => $baseDir . '/app/Models/Gender.php',

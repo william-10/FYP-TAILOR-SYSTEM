@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Tailor;
 
+use Storage;
+use App\Models\City;
+use App\Models\Region;
 use App\Models\Tailor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Storage;
 
 class TailorController extends Controller
 {
@@ -29,7 +31,7 @@ class TailorController extends Controller
                 'tailor_name'=>'required',
                 'phone'=>'sometimes|min:10|max:10',
                 'avator'=>'sometimes|image|mimes:jpg,jpeg,bmp,svg,png|max:5000',
-                'location'=>'required',
+
                 'address'=>'required',
                 'email'=>'required|email|unique:users,email',
                 'password'=>'required|min:5|max:30',
@@ -47,7 +49,6 @@ class TailorController extends Controller
             $save=Tailor::Create([
                 'tailor_name'=>$request->tailor_name,
                 'email'=>$request->email,
-                'location'=>$request->location,
                 'phone'=>$request->phone,
                 'address'=>$request['address'],
                 'password'=>Hash::make($request->password),
@@ -70,7 +71,6 @@ class TailorController extends Controller
         $save=Tailor::Create([
             'tailor_name'=>$request->tailor_name,
             'email'=>$request->email,
-            'location'=>$request->location,
             'phone'=>$request->phone,
             'address'=>$request['address'],
             'password'=>Hash::make($request->password)]);
@@ -124,8 +124,9 @@ class TailorController extends Controller
 
         public function index()
     {
-
-        return view('tailor.details.index');
+        $region=Region::all();
+        $city=City::all();
+        return view('tailor.details.index',compact('region','city'));
     }
 
     public function edit()
@@ -147,10 +148,11 @@ class TailorController extends Controller
         $user->tailor_name = $request['tailor_name'];
         $user->phone = $request['phone'];
         $user->password = Hash::make($request['password']);
-        $user->location = $request['location'];
         $user->address = $request['address'];
+        $user->region = $request->input('name');
+        $user->city = $request->input('city_name');
         $user->update();
-        return redirect('tailor/details')->with('success',"Profile Updated");
+        return redirect('tailor/details')->with('status',"Profile Updated successfully");
 
     }
 

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Tailor;
 
+use Storage;
 use App\Models\Gender;
+use App\Models\Region;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Client\Response;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Storage;
 use Illuminate\Support\Facades\Http;
-
-use Illuminate\Http\Client\Response;
 
 class ProductController extends Controller
 {
@@ -31,12 +32,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        $content=http::acceptJson()->get('https://tanzaniatx.herokuapp.com/Region/?format=json',[
-
-        ]);
+        $region=Region::all();
         $category=Cloth_category::all();
         $gender=Gender::all();
-        return view('tailor.product.add',compact('category','gender','content'
+        return view('tailor.product.add',compact('category','gender',
+
         ));
     }
 

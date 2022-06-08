@@ -27,10 +27,11 @@ class Tailor extends Authenticatable
 
         'tailor_name',
         'email',
+        'region',
         'avator',
         'password',
         'phone',
-        'location',
+        'city',
         'address'
 
     ];

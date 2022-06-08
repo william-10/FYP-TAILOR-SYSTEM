@@ -30,50 +30,57 @@
         <div id="mymodal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                <form action="{{('update-details')}}" method="POST">
-                            @csrf
-                            @method('PUT')
+                    <form action="{{('update-details')}}" method="POST">
+                        @csrf
+                        @method('PUT')
 
-                    <div class="modal-header">
-                    <h4 class="modal-title">Edit profile</h4>
-                        <button class="close" type="button" data-bs-dismiss="modal">&times</button>
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit profile</h4>
+                            <button class="close" type="button" data-bs-dismiss="modal">&times</button>
 
-                    </div>
-                    <div class="modal-body">
+                        </div>
+                        <div class="modal-body">
 
 
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <label for="tailor_name">NAME</label>
                                     <input type="text" value="{{Auth::user()->tailor_name}}" class="form-control"
                                         name="tailor_name">
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                     <label for="password">Password</label>
-
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
-                                <span class="text-danger">@error('password'){{ $message}}@enderror</span>
-
-                            </div>
-                            </div>
 
 
-                                <div class="col-md-6 mb-3">
+
+                                <div class="col-md-12 mb-3">
                                     <label for="phone">PHONE NUMBER</label>
                                     <input type="text" value="{{Auth::user()->phone}}" class="form-control"
                                         name="phone">
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <label for="location">LOCATION</label>
-                                    <input type="text" value="{{Auth::user()->location}}" class="form-control"
-                                        name="location">
+                                <div class="col-md-12 mb-3">
+                                <label for="phone">REGION</label>
+                                    <select class="form-select" name="name">
+                                        <option value="">{{Auth::user()->region}}</option>
+                                        @foreach ($region as $item )
+                                        <option value="{{$item->name}}">{{$item->name}}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
 
+                                <div class="col-md-12 mb-3">
+                                <label for="phone">CITY</label>
+                                    <select class="form-select" name="city_name">
+                                        <option value="">{{Auth::user()->city}}</option>
+                                        @foreach ($city as $item )
+                                        <option value="{{$item->name}}">{{$item->name}}</option>
+                                        @endforeach
 
-                                <div class="col-md-6 mb-3">
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
                                     <label for="address">ADDRESS</label>
                                     <textarea id="address" value="{{Auth::user()->address}}" class="form-control"
                                         rows="3" name="address"> </textarea>
@@ -84,14 +91,29 @@
 
 
 
+                                <div class="col-md-12 mb-3">
+                                    <label for="password">Password</label>
 
-                    </div>
-                    <div class="modal-footer">
+                                    <div class="col-md-12">
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="password">
+                                        <span class="text-danger">@error('password'){{ $message}}@enderror</span>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
                             <button type="submit" class="btn btn-primary float-start">Update</button>
 
-                            <button type="button" class="btn btn-secondary  "
-                                    data-bs-dismiss="modal">Close</button>
-                    </div>
+                            <button type="button" class="btn btn-secondary  " data-bs-dismiss="modal">Close</button>
+                        </div>
 
                     </form>
                 </div>
@@ -120,7 +142,10 @@
                                 <h5>NUMBER</h5>
                             </th>
                             <th>
-                                <h5>LOCATION</h5>
+                                <h5>REGION</h5>
+                            </th>
+                            <th>
+                                <h5>city</h5>
                             </th>
                             <th>
                                 <h5>ADDRESS</h5>
@@ -139,7 +164,8 @@
                             <td>{{ Auth::user()->tailor_name }}</td>
                             <td>{{ Auth::user()->email }}</td>
                             <td>{{ Auth::user()->phone }}</td>
-                            <td>{{ Auth::user()->location }}</td>
+                            <td>{{ Auth::user()->region }}</td>
+                            <td>{{ Auth::user()->city }}</td>
                             <td>{{ Auth::user()->address }}</td>
                             <td>
                                 <!-- <a href="{{('edit-profile')}}" class="btn btn-primary">Edit</a> -->

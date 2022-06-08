@@ -19,7 +19,8 @@ class CreateTailorsTable extends Migration
             $table->string('email')->unique();
             $table->string('avator')->default('/assets/uploads/avator/defaultavator.jpg');
             $table->string('phone');
-            $table->string('location');
+            $table->string('region');
+            $table->string('city');
             $table->string('address');
             $table->timestamp('email_verified_at')->nullable();
 
