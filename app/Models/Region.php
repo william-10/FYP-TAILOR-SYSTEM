@@ -14,4 +14,9 @@ class region extends Model
         'RegionCode'
             ];
 
+            public function cities()
+    {
+        return $this->hasMany(City::class,'Regions');
+    }
+
 }
