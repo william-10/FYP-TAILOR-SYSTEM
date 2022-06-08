@@ -10,7 +10,7 @@ class City extends Model
     use HasFactory;
     protected $table='city';
     protected $fillable= [
-        'name',
+        'city_name',
         'DistrictsCode',
         'Regions'
 
@@ -18,6 +18,6 @@ class City extends Model
 
     public function regions()
     {
-        return $this->belongsTo(Region::class,'Regions','id');
+        return $this->belongsTo(Region::class,'Regions','name');
     }
 }

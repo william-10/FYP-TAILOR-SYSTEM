@@ -74,7 +74,7 @@
                                     <select class="form-select" name="city_name">
                                         <option value="">{{Auth::user()->city}}</option>
                                         @foreach ($city as $item )
-                                        <option value="{{$item->name}}">{{$item->name}}</option>
+                                        <option value="{{$item->city_name}}">{{$item->city_name}}</option>
                                         @endforeach
 
                                     </select>
