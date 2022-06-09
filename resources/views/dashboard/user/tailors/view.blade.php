@@ -121,7 +121,8 @@
             <div class="col-md-12 mt-4">
                 <h4>LOCATION</h4>
                 <p style="color:blue">
-                    {{  $unique_tailor->address }}
+                {{  $unique_tailor->city }},
+    {{  $unique_tailor->region }}
                 </p>
 
                 <!-- Button trigger modal -->
@@ -228,7 +229,7 @@
     <div class="card-body">
             <div class="row">
 
-                <h4>LOCATION</h4>
+                <h4>MAP LOCATION</h4>
 
 
                 <div class="col md-4 ">
@@ -322,7 +323,7 @@ for (let i = 0; i < locationInputs.length; i++) {
     const marker = new google.maps.Marker({
         map: map,
         position: { lat: latitude, lng: longitude },
-        draggable: true,
+        draggable: false,
     });
 
     // google.maps.event.addListener(marker, 'position_changed',

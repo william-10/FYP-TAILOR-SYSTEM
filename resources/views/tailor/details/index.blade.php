@@ -204,7 +204,54 @@
     </script>
     @endif
 
-    @yield('scripts')
+
+
+       <!-- <script>
+
+           $(document).ready(function(){
+            $('select[name="country"]').on('change',function(){
+                var country_id= $(this).val();
+                if (country_id) {
+                 $.ajax({
+                    url: "{{url('/getStates/')}}/"+country_id,
+                  type: "GET",
+                  dataType: "json",
+                  success: function(data){
+                    console.log(data);
+                    $('select[name="state"]').empty();
+                    $.each(data,function(key,value){
+                        $('select[name="state"]').append('<option value="'+key+'">'+value+'</option>');
+                    });
+                  }
+                 });
+                }else {
+                     $('select[name="state"]').empty();
+               }
+           });
+             $('select[name="state"]').on('change',function(){
+                var state_id= $(this).val();
+                if (state_id) {
+                 $.ajax({
+                    url: "{{url('/getCities/')}}/"+state_id,
+                  type: "GET",
+                  dataType: "json",
+                  success: function(data){
+                    console.log(data);
+                    $('select[name="city"]').empty();
+                    $.each(data,function(key,value){
+                        $('select[name="city"]').append('<option value="'+key+'">'+value+'</option>');
+                    });
+                  }
+                 });
+                }else {
+                     $('select[name="city"]').empty();
+               }
+           });
+           });
+
+
+</script> -->
+
 
 </body>
 

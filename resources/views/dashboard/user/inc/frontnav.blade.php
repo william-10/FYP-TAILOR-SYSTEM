@@ -20,11 +20,11 @@
                         <a href="{{url('user/home')}}" class="nav-link">Tailors</a>
 
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{{url('user/home/products')}}" class="nav-link">Products</a>
 
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a href="{{url('/user/cart')}}" class="nav-link">Cart
                             <span class="badge badge-pill bg-success cart-count">0</span>
                         </a>
@@ -36,7 +36,7 @@
                         <span class="badge badge-pill bg-primary wishlist-count">0</span>
                         </a>
 
-                    </li>
+                    </li> -->
 
                         <!-- Authentication Links -->
                         @guest

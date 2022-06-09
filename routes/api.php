@@ -35,11 +35,11 @@ Route::prefix('user')->name('user.')->group(function () {
 
     });
 
-    Route::middleware(['auth:api','PreventBackHistory'])->group(function () {
+    Route::middleware(['auth:api'])->group(function () {
 
-        Route::post('/mobile/logout', [UserController::class, 'logout'])->name('logout');
-        Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
-        Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
+        // Route::post('/mobile/logout', [UserController::class, 'logout'])->name('logout');
+        // Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
+        // Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
 
 
     });
