@@ -32,7 +32,10 @@ class FrontendController extends Controller
 
             $unique_tailor=Tailor::findOrFail($tailor_id);
 
-            return response()->json($unique_tailor,$tailor_map);
+            return response()->json([
+                'unique_tailor' =>$unique_tailor,
+                'tailor_map'=>$tailor_map
+            ]);
 
         }
         else{
@@ -46,7 +49,8 @@ class FrontendController extends Controller
         if(Tailor::where('tailor_id',$tailor_id)->exists())
         {
             $unique_tailor=Gallery::where('tailor_id',$tailor_id)->get();
-            return response()->json($unique_tailor);
+            return response()->json([
+                'unique_tailor'=>$unique_tailor]);
 
         }
         else{
