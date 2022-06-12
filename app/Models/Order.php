@@ -17,7 +17,7 @@ class Order extends Model
         'phone',
         'email',
         'status',
-        'total_price',
+
         'message',
         'tracking_no'
 

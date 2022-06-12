@@ -13,19 +13,8 @@ class OrderItem extends Model
     protected $table='order_items';
     protected $fillable= [
         'order_id',
-        'prod_id',
         'qty',
         'tailor_id',
-        'price',
-
-        'bega',
-        'mkono',
-        'kifua',
-        'urefu_juu',
-        'urefu_mguu',
-        'paja',
-        'kiuno'
-
     ];
 
     public function products()

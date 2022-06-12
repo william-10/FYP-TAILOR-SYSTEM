@@ -20,7 +20,6 @@ class CreateOrdersTable extends Migration
             $table->string('user_id');
             $table->string('phone');
             $table->string('email');
-            $table->string('total_price');
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable();
             $table->string('tracking_no');
