@@ -21,10 +21,11 @@ ORDER HISTORY
                         <table class="table table-bordered">
                 <thead>
                     <tr>
-
+                    <th>ID. NO</th>
+                    <th>EMAIL</th>
                     <th>Order Date</th>
                     <th>Tracking Number</th>
-                    <th>Total Price</th>
+
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
@@ -35,12 +36,13 @@ ORDER HISTORY
 
 
                 @foreach ($orderitem as $item)
-                @if ($item->orders->status == "1")
+                @if ($item->status == "1")
                     <tr>
+                    <td>{{$loop->index+1}}</td>
+                    <td>{{$item->email}}</td>
+                        <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
+                        <td>{{$item->tracking_no}}</td>
 
-                        <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
-                        <td>{{$item->orders->tracking_no}}</td>
-                        <td>{{$item->orders->total_price}}</td>
                         <td><strong class="badge badge-success rounded pill">Completed</strong></td>
                         <td>
                             <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary">View</a>

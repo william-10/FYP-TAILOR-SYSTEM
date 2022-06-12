@@ -98,8 +98,8 @@
                 <li >
                     <a href="#homesubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">ORDERS</a>
                     <ul class="collapse list-unstyled" id="homesubmenu3">
-                        <li class="nav-item ">
-                            <a href="">ADD ORDER</a>
+                        <li class="nav-item {{Request::is('tailor/create-order') ? 'active':''}}">
+                            <a href="{{('create-order')}}">ADD ORDER</a>
                         </li>
                         <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
                             <a href="{{('orders')}}">VIEW ORDERS</a>

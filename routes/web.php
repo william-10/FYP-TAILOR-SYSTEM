@@ -181,6 +181,8 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::put('update-order/{id}',[OrderController::class,'updateorder']);
                 Route::get('order-history',[OrderController::class,'orderhistory']);
 
+                Route::get('create-order',[OrderController::class,'createorder']);
+                Route::post('add-order',[OrderController::class,'addorder']);
 
 
             });

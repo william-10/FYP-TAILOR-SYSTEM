@@ -16,7 +16,7 @@
 
 
 
-    <title>TAILOR SHOP | TAILOR PANEL</title>
+    <title>TAILOR PANEL</title>
 </head>
 <body>
         <div class="wrapper">

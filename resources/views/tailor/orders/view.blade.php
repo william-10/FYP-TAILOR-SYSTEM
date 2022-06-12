@@ -22,10 +22,10 @@ VIEW ORDERS
                             <hr>
 
                             <label for=""><strong> First Name</strong></label>
-                            <div class="border">{{$orders->fname}}</div>
+                            <div class="border">{{$orders->users->name}}</div>
 
                             <label for=""><strong>Last Name</strong></label>
-                            <div class="border">{{$orders->lname}}</div>
+                            <div class="border">{{$orders->users->lname}}</div>
                             <label for=""><strong>Email</strong></label>
                             <div class="border">{{$orders->email}}</div>
 
@@ -51,22 +51,22 @@ VIEW ORDERS
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                <th>Description</th>
+                                <th>price</th>
 
-                                <th>Name</th>
-                                <th>Quantity</th>
 
                             </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($orders->orderitems as $item)
+
 
                                 <tr>
+                                <td>{{$orders->description}}</td>
+                                <td>{{$orders->price}}</td>
 
-                                    <td>{{$item->products->name}}</td>
-                                    <td>{{$item->qty}}</td>
                                 </tr>
-                                @endforeach
+
                             </tbody>
 
                         </table>

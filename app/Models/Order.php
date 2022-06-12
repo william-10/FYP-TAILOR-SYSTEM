@@ -11,14 +11,14 @@ class Order extends Model
     use HasFactory;
     protected $table='orders';
     protected $fillable= [
-        'fname',
+
         'user_id',
-        'lname',
-        'phone',
+        'tailor_id',
         'email',
+        'price',
         'status',
 
-        'message',
+        'description',
         'tracking_no'
 
     ];
@@ -28,4 +28,9 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    public function users()
+    {
+        return $this->belongsTo(User::class,'user_id');
+
+    }
 }

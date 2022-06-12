@@ -23,7 +23,9 @@ ORDERS
                     <tr>
 
                     <th>Order Date</th>
-                    <th>Tracking Number</th>
+                    <th>Customer email/id</th>
+                    <th>tracking no</th>
+
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
@@ -34,12 +36,13 @@ ORDERS
 
 
                 @foreach ($orderitem as $item)
-                @if ($item->orders->status == "0")
+                @if ($item->status == "0")
                     <tr>
 
-                        <td>{{date('d-m-Y',strtotime ($item->orders->created_at))}}</td>
-                        <td>{{$item->orders->tracking_no}}</td>
+                        <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
+                        <td>{{$item->email}}</td>
 
+                        <td>{{$item->tracking_no}}</td>
                         <td ><strong class="badge badge-danger rounded pill"> Pending</strong></td>
                         <td>
                             <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
