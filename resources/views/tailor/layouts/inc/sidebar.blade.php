@@ -27,7 +27,7 @@
                     <a  href="{{('details')}}">PERSONAL DETAILS</a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">PRODUCTS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
 
@@ -41,12 +41,14 @@
 
                     </ul>
 
-                </li>
+                </li> -->
 
-
+<!--
                 <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
                     <a href="{{('orders')}}">ORDERS</a>
-                </li>
+                </li> -->
+
+
                 <li>
                     <a href="#pagemap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">MAPS</a>
                     <ul class="collapse list-unstyled" id="pagemap">
@@ -62,13 +64,6 @@
                     </ul>
 
                 </li>
-
-
-            </ul>
-
-
-            <ul class="list-unstyled components">
-                <h4 class="bg bg-danger">OFFLINE</h4>
                 <li >
                     <a href="#homesubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">STAFFS</a>
                     <ul class="collapse list-unstyled" id="homesubmenu2">
@@ -106,12 +101,19 @@
                         <li class="nav-item ">
                             <a href="">ADD ORDER</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="">VIEW ORDERS</a>
+                        <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
+                            <a href="{{('orders')}}">VIEW ORDERS</a>
                         </li>
                     </ul>
 
                 </li>
+
+
+
             </ul>
+
+
+
+
 
         </nav>

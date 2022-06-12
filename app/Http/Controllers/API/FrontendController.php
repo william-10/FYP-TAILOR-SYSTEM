@@ -28,7 +28,7 @@ class FrontendController extends Controller
         if(Tailor::where('tailor_id',$tailor_id)->exists())
         {
 
-            $tailor_map=Map::where('tailor_id',$tailor_id)->first();
+            $tailor_map=Map::where('tailor_id',$tailor_id)->get();
 
             $unique_tailor=Tailor::findOrFail($tailor_id);
 

@@ -59,7 +59,7 @@ class TailorController extends Controller
 
 
         if($save){
-            return redirect()->route('tailor.login')->with('success','you are now registerd successfully');
+            return redirect()->route('tailor.login')->with('status','you are now registerd successfully');
         }
         else{
           return redirect()->back()->with('fail','something went wrong, failed to register');
