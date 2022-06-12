@@ -20,7 +20,6 @@ ORDERS
                     <th>ID</th>
                     <th>Order Date</th>
                     <th>Tracking Number</th>
-                    <th>Total Price</th>
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
@@ -34,7 +33,7 @@ ORDERS
                         <td>{{$loop->index+1}}</td>
                         <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
                         <td>{{$item->tracking_no}}</td>
-                        <td>{{$item->total_price}}</td>
+
                         @if ($item->status == '0')
                                  <td ><strong style="color:red">Pending</strong></td>
                         @else($item->status == '1')

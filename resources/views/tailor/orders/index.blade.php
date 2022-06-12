@@ -24,7 +24,6 @@ ORDERS
 
                     <th>Order Date</th>
                     <th>Tracking Number</th>
-
                     <th>Status</th>
                     <th>Action</th>
                     </tr>

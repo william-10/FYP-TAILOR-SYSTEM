@@ -54,17 +54,8 @@ VIEW ORDERS
 
                                 <th>Name</th>
                                 <th>Quantity</th>
-                                <th>Price</th>
-                                <th>image</th>
-                                <th>kifua</th>
-                                <th>Bega</th>
-                                <th>Mkono</th>
-                                <th>Urefu wa juu</th>
-                                <th>Kiuno</th>
-                                <th>Paja</th>
-                                <th>Urefu wa mguu</th>
 
-                                </tr>
+                            </tr>
                             </thead>
 
                             <tbody>
@@ -74,24 +65,12 @@ VIEW ORDERS
 
                                     <td>{{$item->products->name}}</td>
                                     <td>{{$item->qty}}</td>
-                                    <td>{{$item->price}}</td>
-                                    <td>
-                                        <img src="{{asset('assets/uploads/product/'.$item->products->image)}}" alt="Product image here" width="50px">
-                                    </td>
-                                    <td>{{$item->kifua}}</td>
-                                    <td>{{$item->bega}}</td>
-                                    <td>{{$item->mkono}}</td>
-                                    <td>{{$item->urefu_juu}}</td>
-                                    <td>{{$item->kiuno}}</td>
-                                    <td>{{$item->paja}}</td>
-                                    <td>{{$item->urefu_mguu}}</td>
-
                                 </tr>
                                 @endforeach
                             </tbody>
 
                         </table>
-                        <h4 class="px-2">GRAND TOTAL : TZS.<span class="float-end">{{$orders->total_price}}</h4></span>
+                        <!-- <h4 class="px-2">GRAND TOTAL : TZS.<span class="float-end">{{$orders->total_price}}</h4></span> -->
 
                         <div class="mt-5" style="width:200px">
                         <label for="">Order Status</label>
