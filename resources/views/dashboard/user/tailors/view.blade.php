@@ -76,30 +76,24 @@
     <div class="card shadow">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4 ">
-                    <div class="bg-image hover-zoom">
-                        <img src="{{asset(''.$unique_tailor->avator)}}" class="w-100 img-fluid" alt="image here">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="col-mb-0">
-                        <h2> {{ $unique_tailor->tailor_name }}</h2>
-                    </div>
-                    <hr>
-                    <div class="mb-0">
-                        <h6>{{$unique_tailor->phone}}</h6>
-                    </div>
-                    <hr>
-
-                    <p class="mt-3">
-                        {{ $unique_tailor->location }}
-                    </p>
-
-
-
-                </div>
-            </div>
-            @php
+                <div class="col-md-4">
+            <div class="span2">
+      <img src="{{asset(''.$unique_tailor->avator)}}"  alt="image here" class="w-100 img-fluid">
+    </div>
+    </div>
+            <div class="col-md-8">
+    <div class="span4">
+      <blockquote>
+        <p>{{ $unique_tailor->tailor_name }}</p>
+        <small><cite title="Source Title"> {{  $unique_tailor->city }},
+    {{  $unique_tailor->region }}
+    <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        <i class="icon-envelope"></i> {{ $unique_tailor->email }} <br>
+        <i class="icon-gift"></i>Joined: {{ $unique_tailor->created_at }}
+      </p>
+      @php
             $ratenum=number_format($rating_value)
             @endphp
             <div class="rating">
@@ -116,20 +110,34 @@
                             No ratings
                             @endif
                         </span>
-            </div>
 
-            <div class="col-md-12 mt-4">
-                <h4>LOCATION</h4>
-                <p style="color:blue">
-                {{  $unique_tailor->city }},
-    {{  $unique_tailor->region }}
-                </p>
-
+                        <div class="col-md-12 py-3">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate
                     this tailor</button>
 
             </div>
+            </div>
+    </div>
+    </div>
+                <!-- <div class="col-md-4 ">
+                    <div class="bg-image hover-zoom">
+                        <img src="{{asset(''.$unique_tailor->avator)}}" class="w-100 img-fluid" alt="image here">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="col-mb-0">
+                        <h2> {{ $unique_tailor->tailor_name }}</h2>
+                    </div>
+                    <hr>
+                    <div class="mb-0">
+                        <h6>{{$unique_tailor->phone}}</h6>
+                    </div> -->
+
+
+                </div>
+            </div>
+
             <div class="col-md-12">
                 <a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">
                     <h4>GALLERY</h4>
