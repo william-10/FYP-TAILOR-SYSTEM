@@ -49,7 +49,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);Route::get('/user/mobile/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
 
         Route::get('/user/mobile/tailor', [FrontendController::class, 'tailor']);
-        Route::get('/user/mobile/users', [FrontendController::class, 'customer']);
+        Route::get('/user/mobile/users', [FrontendController::class, 'customers']);
         Route::get('/user/mobile/map', [FrontendController::class, 'map']);
         Route::get('/user/mobile/gallery', [FrontendController::class, 'gallery']);
         Route::get('/user/mobile/order', [FrontendController::class, 'order']);
