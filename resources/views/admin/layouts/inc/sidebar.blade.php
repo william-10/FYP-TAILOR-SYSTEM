@@ -6,11 +6,9 @@
     -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-
-                       <h3>TAILOR SHOP</h3>
-
-
-                    </a>
+                    <a href="{{url('/admin/home')}}">
+                    <img src="{{asset('assets/uploads/gallery/tailor_logo.jpg')}}" width="39%" alt="img here">
+                            </a>
                 </div>
                 <ul class="nav">
                     <li class="nav-item {{Request::is('admin/home') ? 'active':''}}">

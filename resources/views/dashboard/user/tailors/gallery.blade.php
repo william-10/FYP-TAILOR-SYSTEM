@@ -12,7 +12,7 @@
 
 
 @if (count($unique_tailor)>0)
-
+<div class="card">
     <div class="row">
 
             @foreach ($unique_tailor as $gallery)
@@ -50,6 +50,7 @@
     </div>
 
     @endif
+    </div>
 
 @endsection
 

@@ -1,7 +1,7 @@
  <!-- Sidebar  -->
 <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="{{url('tailor/home')}}"><h3>TAILOR SHOP</h3></a>
+                <a href="{{url('tailor/home')}}"><img src="{{asset('assets/uploads/gallery/tailor_logo.jpg')}}" width="16%" alt="img here"></a>
             </div>
 
             <ul class="list-unstyled components">
