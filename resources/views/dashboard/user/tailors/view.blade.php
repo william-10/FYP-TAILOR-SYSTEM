@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
 
                 </div>
@@ -85,13 +85,21 @@
     <div class="span4">
       <blockquote>
         <p>{{ $unique_tailor->tailor_name }}</p>
+        <hr>
+
         <small><cite title="Source Title"> {{  $unique_tailor->city }},
     {{  $unique_tailor->region }}
+    <hr>
+
       </blockquote>
       <p>
-        <i class="icon-envelope"></i> {{ $unique_tailor->email }} <br>
-        <i class="icon-gift"></i>Joined: {{ $unique_tailor->created_at }}
+        <i class="icon-envelope"></i> {{ $unique_tailor->email }}
       </p>
+
+      <hr>
+      <i class="icon-gift"></i>Joined: {{ $unique_tailor->created_at }}
+      <hr>
+
       @php
             $ratenum=number_format($rating_value)
             @endphp
@@ -110,14 +118,11 @@
                             @endif
                         </span>
 
-                        <div class="col-md-12 py-3">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate
-                    this tailor</button>
 
             </div>
-            </div>
+
     </div>
+
     </div>
                 <!-- <div class="col-md-4 ">
                     <div class="bg-image hover-zoom">
@@ -132,14 +137,17 @@
                     <div class="mb-0">
                         <h6>{{$unique_tailor->phone}}</h6>
                     </div> -->
+    </div>
+    <div class="col-md-12">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate this tailor</button>
 
-
-                </div>
+            </div>
             </div>
 
             <div class="col-md-12">
-                <a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">
-                    <h4>GALLERY</h4>
+
+                    <h4><a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">GALLERY</h4>
                 </a>
 
             </div>
