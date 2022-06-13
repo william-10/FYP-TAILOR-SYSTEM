@@ -11,27 +11,35 @@
 </div>
 
 
-    @if (count($unique_tailor)>0)
+@if (count($unique_tailor)>0)
 
+    <div class="row">
 
-    <div class="card shadow">
-
-        <div class="row">
-            <div class="col-md-12">
-                    @foreach ($unique_tailor as $gallery)
-                    <div class="col-md-4 mb-3 ">
+            @foreach ($unique_tailor as $gallery)
+            <!-- <div class="col-md-4 mb-3 ">
                         <a href="#">
 
                             <img src="{{asset('assets/uploads/gallery/'.$gallery->image)}}" class="w-100 img-fluid"
                                 alt="image here">
                         </a>
-                    </div>
+                    </div> -->
 
-                    @endforeach
 
-            </div>
+                <div class="item col-lg-3 col-md-4 col-6 col-sm py-3">
+                <div class="portfolio-item row">
+                    <a href="{{asset('assets/uploads/gallery/'.$gallery->image)}}"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="{{asset('assets/uploads/gallery/'.$gallery->image)}}"
+                            alt="">
+                    </a>
+                </div>
+                </div>
+                @endforeach
+
+
         </div>
-    </div>
+
     @else
     <div class="container">
         <div class="row">
@@ -42,5 +50,29 @@
     </div>
 
     @endif
-</div>
+
+@endsection
+
+@section('scripts')
+<script>
+     $('.portfolio-menu ul li').click(function(){
+         	$('.portfolio-menu ul li').removeClass('active');
+         	$(this).addClass('active');
+
+         	var selector = $(this).attr('data-filter');
+         	$('.portfolio-item').isotope({
+         		filter:selector
+         	});
+         	return  false;
+         });
+         $(document).ready(function() {
+         var popup_btn = $('.popup-btn');
+         popup_btn.magnificPopup({
+         type : 'image',
+         gallery : {
+         	enabled : true
+         }
+         });
+         });
+</script>
 @endsection
