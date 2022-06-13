@@ -87,7 +87,6 @@
         <p>{{ $unique_tailor->tailor_name }}</p>
         <small><cite title="Source Title"> {{  $unique_tailor->city }},
     {{  $unique_tailor->region }}
-    <i class="icon-map-marker"></i></cite></small>
       </blockquote>
       <p>
         <i class="icon-envelope"></i> {{ $unique_tailor->email }} <br>
