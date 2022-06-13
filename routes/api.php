@@ -53,6 +53,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/user/mobile/map', [FrontendController::class, 'map']);
         Route::get('/user/mobile/gallery', [FrontendController::class, 'gallery']);
         Route::get('/user/mobile/order', [FrontendController::class, 'order']);
+        Route::post('/user/mobile/post_city', [FrontendController::class, 'postcity']);
         Route::get('/user/mobile/city', [FrontendController::class, 'city']);
         Route::get('/user/mobile/region', [FrontendController::class, 'region']);
 

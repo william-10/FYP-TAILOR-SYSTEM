@@ -17,6 +17,7 @@ class CreateRegionsTable extends Migration
             $table->id();
             $table->double('RegionCode');
             $table->string('name');
+            $table->timestamps();
             // $table->double('Regions');
             // $table->double('districtsCode');
 

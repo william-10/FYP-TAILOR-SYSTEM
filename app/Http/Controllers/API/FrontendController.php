@@ -105,4 +105,14 @@ class FrontendController extends Controller
         return response()->json($gallery);
     }
 
+    public function postcity(Request $request)
+    {
+        $city=new Region;
+        $city->RegionCode=$request->RegionCode;
+        $city->name=$request->name;
+        $city->save();
+        return response()->json([
+            "message" => "region record created"
+        ], 201);
+    }
 }
