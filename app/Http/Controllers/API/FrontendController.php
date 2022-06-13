@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Map;
+use App\Models\City;
+use App\Models\User;
+use App\Models\Order;
 use App\Models\Rating;
+use App\Models\Region;
 use App\Models\Tailor;
 use App\Models\Gallery;
 use App\Models\Product;
@@ -57,6 +61,48 @@ class FrontendController extends Controller
             return response()->json(['status'=>$tailor_id."tailor gallery not found"]);
         }
 
+    }
+
+    public function map()
+    {
+        $map=Map::all();
+        return response()->json($map);
+    }
+
+    public function order()
+    {
+        $order=Order::all();
+        return response()->json($order);
+    }
+
+    public function tailor()
+    {
+        $tailor=Tailor::all();
+        return response()->json($tailor);
+    }
+
+    public function customers()
+    {
+        $user=User::all();
+        return response()->json($user);
+    }
+
+    public function city()
+    {
+        $city=City::all();
+        return response()->json($city);
+    }
+
+    public function region()
+    {
+        $region=Region::all();
+        return response()->json($region);
+    }
+
+    public function gallery()
+    {
+        $gallery=Gallery::all();
+        return response()->json($gallery);
     }
 
 }

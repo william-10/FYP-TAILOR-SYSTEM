@@ -48,6 +48,15 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);
         Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);Route::get('/user/mobile/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
 
+        Route::get('/user/mobile/tailor', [FrontendController::class, 'tailor']);
+        Route::get('/user/mobile/users', [FrontendController::class, 'customer']);
+        Route::get('/user/mobile/map', [FrontendController::class, 'map']);
+        Route::get('/user/mobile/gallery', [FrontendController::class, 'gallery']);
+        Route::get('/user/mobile/order', [FrontendController::class, 'order']);
+        Route::get('/user/mobile/city', [FrontendController::class, 'city']);
+        Route::get('/user/mobile/region', [FrontendController::class, 'region']);
+
+
         //  Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
         // Route::get('user/mobile/products', [FrontendController::class, 'product']);
         // Route::get('/user/mobile/view-product/{cate_slug}/{prod_slug}', [FrontendController::class, 'viewproduct']);
