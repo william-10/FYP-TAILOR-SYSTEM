@@ -70,4 +70,9 @@ class Tailor extends Authenticatable
     {
         return $this->hasMany(Map::class,'tailor_id');
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class,'tailor_id');
+    }
 }

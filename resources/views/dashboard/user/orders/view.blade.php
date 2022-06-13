@@ -22,18 +22,17 @@ ORDERS
                             <hr>
 
                             <label for="">First Name</label>
-                            <div class="border p-2">{{$orders->fname}}</div>
+                            <div class="border p-2">{{$orders->users->name}}</div>
 
                             <label for="">Last Name</label>
-                            <div class="border p-2">{{$orders->lname}}</div>
+                            <div class="border p-2">{{$orders->users->lname}}</div>
                             <label for="">Email</label>
                             <div class="border p-2">{{$orders->email}}</div>
 
                             <label for="">Phone Number</label>
-                            <div class="border p-2">{{$orders->phone}}</div>
+                            <div class="border p-2">{{$orders->users->phone}}</div>
 
-                            <label for="">First Name</label>
-                            <div class="border p-2">{{$orders->fname}}</div>
+
 
                         </div>
                         </div>
@@ -45,23 +44,23 @@ ORDERS
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-
-                                <th>Name</th>
-                                <th>Quantity</th>
+                                <th>Tailor Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
 
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($orders->orderitems as $item)
+
 
                                 <tr>
-
-                                    <td>{{$item->products->name}}</td>
-                                    <td>{{$item->qty}}</td>
+                                <td > <a href="{{url('user/view-tailor/'.$orders->tailors->tailor_id)}}">{{$orders->tailors->tailor_name}}</a></td>
+                                    <td>{{$orders->description}}</td>
+                                    <td>{{$orders->price}}</td>
 
                                 </tr>
-                                @endforeach
+
                             </tbody>
 
                         </table>

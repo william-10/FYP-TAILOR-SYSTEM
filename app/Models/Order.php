@@ -33,4 +33,10 @@ class Order extends Model
         return $this->belongsTo(User::class,'user_id');
 
     }
+
+    public function tailors()
+    {
+        return $this->belongsTo(Tailor::class,'tailor_id');
+
+    }
 }
