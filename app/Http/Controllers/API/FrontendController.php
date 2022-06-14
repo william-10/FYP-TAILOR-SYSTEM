@@ -33,12 +33,14 @@ class FrontendController extends Controller
         {
 
             $tailor_map=Map::where('tailor_id',$tailor_id)->get();
+            $tailor_gallery=Gallery::where('tailor_id',$tailor_id)->get();
 
             $unique_tailor=Tailor::findOrFail($tailor_id);
 
             return response()->json([
                 'unique_tailor' =>$unique_tailor,
-                'tailor_map'=>$tailor_map
+                'tailor_map'=>$tailor_map,
+                'tailor_gallery'=>$tailor_gallery,
             ]);
 
         }
@@ -87,10 +89,18 @@ class FrontendController extends Controller
         return response()->json($user);
     }
 
-    public function city()
-    {
-        $city=City::all();
-        return response()->json($city);
+    public function city($RegionCode)
+    {   if(Region::where('RegionCode',$RegionCode)->exists())
+        {
+            $city=City::where('Regions',$RegionCode)->get();
+            return response()->json([
+                'city'=>$city
+            ]);
+        }
+
+        else{
+            return response()->json(['status'=>$RegionCode."city not found"]);
+        }
     }
 
     public function region()

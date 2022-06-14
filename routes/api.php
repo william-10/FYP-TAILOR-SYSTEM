@@ -46,7 +46,8 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);
-        Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);Route::get('/user/mobile/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
+        Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
+        Route::get('/user/mobile/gallery/{tailor_id}', [FrontendController::class, 'listgallery']);
 
         Route::get('/user/mobile/tailor', [FrontendController::class, 'tailor']);
         Route::get('/user/mobile/users', [FrontendController::class, 'customers']);
@@ -54,7 +55,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/user/mobile/gallery', [FrontendController::class, 'gallery']);
         Route::get('/user/mobile/order', [FrontendController::class, 'order']);
         Route::post('/user/mobile/post_city', [FrontendController::class, 'postcity']);
-        Route::get('/user/mobile/city', [FrontendController::class, 'city']);
+        Route::get('/user/mobile/city/{RegionCode}', [FrontendController::class, 'city']);
         Route::get('/user/mobile/region', [FrontendController::class, 'region']);
 
 
