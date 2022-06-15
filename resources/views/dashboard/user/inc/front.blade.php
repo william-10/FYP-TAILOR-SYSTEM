@@ -23,6 +23,7 @@
     <!-- <link href="{{ asset('frontend/css/fontawsome4.7.min.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('frontend/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
     <style>
         a{
@@ -47,7 +48,8 @@
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
-<script src="{{ asset('frontend/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js')}}"></script>
+<script src="{{ asset('frontend/js/jquery-ui.js') }}"></script>
 <!-- <script src="{{ asset('frontend/js/custom.owl.js') }}"></script> -->
 
 @yield('scripts')
@@ -57,6 +59,28 @@
 swal("{{session('status')}}");
 </script>
 @endif
+
+<script>
+  $( function() {
+    var availableTags = [];
+    $.ajax({
+        type: "GET",
+        url: "/user/search-tailor",
+        success: function (response) {
+                // console.log(response);
+                searchAutoComplete(response);
+        }
+    });
+    function searchAutoComplete(availableTags) {
+        $( "#search_tailor" ).autocomplete({
+        source: availableTags
+    });
+
+    }
+
+
+  } );
+  </script>
 
 </body>
 </html>

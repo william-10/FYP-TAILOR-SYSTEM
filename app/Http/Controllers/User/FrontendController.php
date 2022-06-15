@@ -21,6 +21,68 @@ class FrontendController extends Controller
         $tailor=Tailor::get();
             return view('dashboard.user.tailors.index',compact('tailor'));
 
+
+        }
+
+    public function searchtailor()
+    {
+        $tailor=Tailor::select('tailor_name','city','region')->get();
+        //  $location=Tailor::select('city','region')->get();
+
+        $data2=[];
+        // $data1=[];
+        // $data3=[];
+
+        foreach ($tailor as $item1) {
+            $data1[]= $item1['tailor_name'];
+            $data1[]= $item1['city'];
+            $data1[]= $item1['region'];
+
+        }
+        // foreach ($location as $item2) {
+        //     $data2[]= $item2['city'];
+        //     $data2[]= $item2['region'];
+        //     // $data3[]= $item2['region'];
+
+        // }
+
+        // foreach ($location as $item3) {
+        //     $data3= $item3['region'];
+        // }
+        return $data1;
+        // return $data1;
+        // return $data3;
+
+
+    }
+    public function searchtailor_details(Request $request)
+    {
+        $searched_thing=$request->tailor_search;
+        if ($searched_thing!="") {
+                $tailor=Tailor::where("tailor_name","LIKE","%$searched_thing%")->first();
+                $tailor_city=Tailor::where("city","LIKE","%$searched_thing%")->first();
+                $tailor_region=Tailor::where("region","LIKE","%$searched_thing%")->first();
+                    if ($tailor) {
+                            return redirect('/user/view-tailor/'.$tailor->tailor_id);
+                    }
+                    elseif ($tailor_city) {
+                        return redirect('/user/home');
+                    }
+
+                    elseif ($tailor_region) {
+                        return redirect('/user/view-tailor/'.$tailor->tailor_id);
+                    }
+                    else{
+                        return redirect()->back()->with("status","No tailor matched your search");
+                    }
+
+
+
+        }
+        else{
+            return redirect()->back();
+        }
+
     }
 
     public function viewtailor($tailor_id)

@@ -32,6 +32,10 @@ body {
     padding: 12px !important;
 }
 
+.search-bar {
+    width: 50%;
+}
+
 
 /* rating */
 
