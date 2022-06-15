@@ -17,13 +17,13 @@ class RatingController extends Controller
         $tailor_id=$request->input('tailor_id');
 
         $tailor_check=Tailor::where('tailor_id',$tailor_id)->first();
-        if($tailor_check)
-        {
-            $verified_purchase=Order::where('orders.user_id',Auth::id())
-                ->join('order_items','orders.id','order_items.order_id')
-                ->where('order_items.tailor_id',$tailor_id)->get();
+        // if($tailor_check)
+        // {
+            // $verified_purchase=Order::where('orders.user_id',Auth::id())
+            //     ->join('order_items','orders.id','order_items.order_id')
+            //     ->where('order_items.tailor_id',$tailor_id)->get();
 
-                if($verified_purchase->count() >0)
+                if($tailor_check)
                 {
                     $existing_rating=Rating::where('user_id',Auth::id())->where('tailor_id',$tailor_id)->first();
                     if($existing_rating)
@@ -46,13 +46,13 @@ class RatingController extends Controller
 
                 else{
 
-                    return redirect()->back()->with('status',"You can not rate A tailor without purchasing the product");
+                    return redirect()->back()->with('status',"The link was broken");
                 }
         }
 
-        else{
+    //     else{
 
-            return redirect()->back()->with('status',"The link was broken");
-        }
-    }
+    //         return redirect()->back()->with('status',"The link was broken");
+    //     }
+    // }
 }
