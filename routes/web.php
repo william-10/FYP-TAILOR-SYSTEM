@@ -64,8 +64,8 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
         Route::get('/user/home', [FrontendController::class, 'index']);
-        Route::get('/user/home/{city}', [FrontendController::class, 'filtercity']);
-        Route::get('/user/home/{region}', [FrontendController::class, 'filterregion']);
+        Route::get('/user/home/city/{city}', [FrontendController::class, 'filtercity']);
+        Route::get('/user/home/region/{region}', [FrontendController::class, 'filterregion']);
         Route::get('/user/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
         //  Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
         Route::get('user/home/products', [FrontendController::class, 'product']);
