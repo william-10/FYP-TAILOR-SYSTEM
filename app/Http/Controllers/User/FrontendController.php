@@ -23,6 +23,17 @@ class FrontendController extends Controller
 
 
         }
+        public function filtercity($city)
+        {   $filtered_tailor=Tailor::get();
+            $tailor=Tailor::where('city',$city)->get();
+            return view('dashboard.user.tailors.index',compact('tailor'));
+        }
+
+        public function filterregion($region)
+        {   $filtered_tailor=Tailor::get();
+            $tailor=Tailor::where('region',$region)->get();
+            return view('dashboard.user.tailors.index',compact('tailor'));
+        }
 
     public function searchtailor()
     {
@@ -65,13 +76,14 @@ class FrontendController extends Controller
                     if ($tailor) {
                             return redirect('/user/view-tailor/'.$tailor->tailor_id);
                     }
+                    elseif ($tailor_region) {
+                        return redirect('/user/home/'.$tailor_region->region);
+                    }
                     elseif ($tailor_city) {
-                        return redirect('/user/home');
+                        return redirect('/user/home/'.$tailor_city->city);
                     }
 
-                    elseif ($tailor_region) {
-                        return redirect('/user/view-tailor/'.$tailor->tailor_id);
-                    }
+
                     else{
                         return redirect()->back()->with("status","No tailor matched your search");
                     }
