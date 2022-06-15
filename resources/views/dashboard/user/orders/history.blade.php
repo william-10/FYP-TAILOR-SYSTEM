@@ -11,7 +11,7 @@ ORDERS
             <div class="card">
                 <div class="card-header">
 
-                    <h4 class="text-white"> My Orders
+                    <h4 class="text-black">
                         <a href="{{url('/user/my-orders')}}" class="btn btn-warning float-start">NEW ORDERS</a>
                     </h4>
                 </div>
@@ -44,7 +44,7 @@ ORDERS
 
                                 <!-- <td ><strong style="color:red">Pending</strong></td> -->
 
-                                <td><strong style="color:green">Completed</strong></td>
+                                <td ><strong style="color:green">Completed</strong></td>
 
 
                                 <td>

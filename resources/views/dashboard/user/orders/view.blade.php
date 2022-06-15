@@ -11,7 +11,7 @@ ORDERS
             <div class="card">
                 <div class="card-header bg-primary">
                     <h4 class="text-white">Order View
-                        <a href="{{url('/user/my-orders')}}" class="btn btn-warning float-end">BACK</a>
+                        <a href="{{url('/user/order-history')}}" class="btn btn-warning float-end">BACK</a>
                     </h4>
                 </div>
                 <div class="card-body">

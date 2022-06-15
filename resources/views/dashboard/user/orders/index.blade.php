@@ -10,7 +10,7 @@ ORDERS
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-white"> My Orders
+                    <h4 class="text-black"> My Orders
                         <a href="{{url('/user/order-history')}}" class="btn btn-warning float-end">HISTORY</a>
                     </h4>
                 </div>
@@ -39,7 +39,7 @@ ORDERS
                                         href="{{url('user/view-tailor/'.$item->tailors->tailor_id)}}">{{$item->tailors->tailor_name}}</a>
                                 </td>
                                 <td>{{$item->tracking_no}}</td>
-                                <td><strong style="color:green">Completed</strong></td>
+                                <td><strong style="color:red">Pending</strong></td>
 
 
                                 <td>

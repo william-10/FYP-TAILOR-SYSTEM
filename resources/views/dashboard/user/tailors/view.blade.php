@@ -97,7 +97,7 @@
       </p>
 
       <hr>
-      <i class="icon-gift"></i>Joined: {{ $unique_tailor->created_at }}
+      <i class="icon-gift"></i>Joined: {{date('F ,Y',strtotime ($unique_tailor->created_at))}}
       <hr>
 
       @php
