@@ -39,14 +39,14 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['auth:api'])->group(function () {
 
 
-        Route::get('users', [HomeController::class, 'index']);
+        Route::get('/users', [HomeController::class, 'index']);
         Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
         Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
 
 
     });
 });
-
+        Route::post('/register', [HomeController::class, 'register']);
         Route::post('login', [HomeController::class, 'login']);
 
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);

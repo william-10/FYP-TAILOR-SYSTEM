@@ -11,6 +11,36 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+
+       //Register user
+       public function register(Request $request)
+       {
+           //validate fields
+           $attrs = $request->validate([
+               'name' => 'required|string',
+               'lname' => 'required|string',
+               'phone' => 'required|string',
+               'email' => 'required|email|unique:users,email',
+               'password' => 'required|min:8|confirmed'
+           ]);
+
+           //create user
+           $user = User::create([
+               'name' => $attrs['name'],
+               'lname' => $attrs['lname'],
+               'phone' => $attrs['phone'],
+               'email' => $attrs['email'],
+               'password' => bcrypt($attrs['password'])
+           ]);
+
+           //return user & token in response
+           return response([
+               'user' => $user,
+               'token' => $user->createToken('secret')->plainTextToken
+           ], 200);
+       }
+
+
     public function login(Request $request) {
 
         $validator = Validator::make($request->all(), [
