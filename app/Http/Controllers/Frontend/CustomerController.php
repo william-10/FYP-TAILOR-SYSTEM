@@ -14,6 +14,11 @@ class CustomerController extends Controller
             return view('dashboard.user.orders.index',compact('orders'));
     }
 
+    public function orderhistory()
+    {       $orders=Order::where('user_id',Auth::id())->get();
+            return view('dashboard.user.orders.history',compact('orders'));
+    }
+
     public function vieworder($id)
     {
         $orders=Order::where('id',$id)->where('user_id',Auth::id())->first();

@@ -10,8 +10,9 @@ ORDERS
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+
                     <h4 class="text-white"> My Orders
-                        <a href="{{url('/user/order-history')}}" class="btn btn-warning float-end">HISTORY</a>
+                        <a href="{{url('/user/my-orders')}}" class="btn btn-warning float-start">NEW ORDERS</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -30,7 +31,7 @@ ORDERS
 
                         <tbody>
                             @foreach ($orders as $item)
-                            @if ($item->status == "0")
+                            @if ($item->status == "1")
                             <tr>
 
                                 <td>{{$loop->index+1}}</td>
@@ -39,6 +40,10 @@ ORDERS
                                         href="{{url('user/view-tailor/'.$item->tailors->tailor_id)}}">{{$item->tailors->tailor_name}}</a>
                                 </td>
                                 <td>{{$item->tracking_no}}</td>
+
+
+                                <!-- <td ><strong style="color:red">Pending</strong></td> -->
+
                                 <td><strong style="color:green">Completed</strong></td>
 
 

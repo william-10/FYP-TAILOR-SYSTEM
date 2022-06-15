@@ -56,6 +56,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/checkout', [CheckoutController::class, 'index']);
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/my-orders', [CustomerController::class, 'index']);
+        Route::get('/order-history', [CustomerController::class, 'orderhistory']);
         Route::get('/view-order/{id}', [CustomerController::class, 'vieworder']);
         Route::get('/wishlist', [WishlistController::class, 'index']);
         Route::post('/add-rating', [RatingController::class, 'add']);
