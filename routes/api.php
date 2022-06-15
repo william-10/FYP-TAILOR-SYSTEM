@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\FrontendController;
@@ -37,13 +38,16 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::middleware(['auth:api'])->group(function () {
 
-        // Route::post('/mobile/logout', [UserController::class, 'logout'])->name('logout');
+
+        Route::get('users', [HomeController::class, 'index']);
         Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
         Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
 
 
     });
 });
+
+        Route::post('login', [HomeController::class, 'login']);
 
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);
         Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);

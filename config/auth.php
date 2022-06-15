@@ -23,7 +23,7 @@ return [
         'model' =>App\Models\Admin::class,
     ],
 
-    
+
     'tailor' => [
         'driver' => 'eloquent',
         'model' =>App\Models\Tailor::class,
@@ -58,15 +58,20 @@ return [
             'provider'=>'admins',
         ],
 
-        
+
         'tailor'=>[
             'driver'=>'session',
             'provider'=>'tailors',
         ],
-    
+
+        'api' => [
+            'driver' => 'token', //only check
+            'provider' => 'users',
+        ],
+
     ],
 
-    
+
 
 
     /*
@@ -92,14 +97,14 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        
+
 
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-        
+
         'admins' => [
             'driver' => 'eloquent',
              'model' => App\Models\Admin::class,
@@ -111,7 +116,7 @@ return [
                 ],
     ],
 
-    
+
 
 
     /*
