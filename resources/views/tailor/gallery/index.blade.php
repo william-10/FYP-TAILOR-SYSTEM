@@ -48,7 +48,7 @@
                <tr>
                     <td class="w-25">
 
-                    <img src="{{asset('assets/uploads/gallery/'.$picture->image)}} " class="img-fluid img-thumbnail"  alt="image here" >
+                    <img src="{{asset('storage/gallery/'.$picture->image)}} " class="img-fluid img-thumbnail"  alt="image here" >
                     </td>
 
                     <td>

@@ -171,12 +171,21 @@ class TailorController extends Controller
             {
                     File::delete($avatorpath);
             }
-            $avatoruploaded=$request->file('avator');
-            $ext=$avatoruploaded->getClientOriginalExtension();
-            $avatorname=time().'.'.$ext;
-            $avatorpath=public_path('/assets/uploads/avator/');
-             $avatoruploaded->move($avatorpath, $avatorname);
-             $user->avator='/assets/uploads/avator/'.$avatorname;
+            // $avatoruploaded=$request->file('avator');
+            // $ext=$avatoruploaded->getClientOriginalExtension();
+            // $avatorname=time().'.'.$ext;
+            // $avatorpath=public_path('/assets/uploads/avator/');
+            //  $avatoruploaded->move($avatorpath, $avatorname);
+
+
+            $file = $request->file('avator');
+            $destinationPath = "avator";
+            $filename = time().'.'. $file->getClientOriginalExtension();
+
+            Storage::putFileAs($destinationPath, $file, $filename);
+            $user['avator']="$filename";
+
+             $user->avator='/storage/avator/'.$filename;
              $user->update();
 
 

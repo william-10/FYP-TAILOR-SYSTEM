@@ -27,10 +27,10 @@
 
                 <div class="item col-lg-3 col-md-4 col-6 col-sm py-3">
                 <div class="portfolio-item row">
-                    <a href="{{asset('assets/uploads/gallery/'.$gallery->image)}}"
+                    <a href="{{asset('storage/gallery/'.$gallery->image)}}"
                         class="fancylight popup-btn" data-fancybox-group="light">
                         <img class="img-fluid"
-                            src="{{asset('assets/uploads/gallery/'.$gallery->image)}}"
+                            src="{{asset('storage/gallery/'.$gallery->image)}}"
                             alt="">
                     </a>
                 </div>

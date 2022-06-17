@@ -34,7 +34,7 @@ class FrontendController extends Controller
 
             $tailor_map=Map::where('tailor_id',$tailor_id)->get();
             $tailor_gallery=Gallery::where('tailor_id',$tailor_id)->get();
-
+            // "http://localhost:8000/storage/gallery".
             $unique_tailor=Tailor::findOrFail($tailor_id);
 
             return response()->json([
