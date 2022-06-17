@@ -166,11 +166,11 @@ class TailorController extends Controller
         $user =Auth::user();
         if($request->hasFile('avator'))
         {
-            $avatorpath='assets/uploads/avator/'.$user->avator;
-            if(File::exists($avatorpath))
-            {
-                    File::delete($avatorpath);
-            }
+            // $avatorpath=$user->avator;
+            // if(File::exists($avatorpath))
+            // {
+            //          File::delete($avatorpath);
+            // }
             // $avatoruploaded=$request->file('avator');
             // $ext=$avatoruploaded->getClientOriginalExtension();
             // $avatorname=time().'.'.$ext;
