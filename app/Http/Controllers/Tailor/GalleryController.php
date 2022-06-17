@@ -56,7 +56,7 @@ class GalleryController extends Controller
     {
         $picture= Gallery::find($id);
 
-        unlink(public_path().'/assets/storage/gallery/'.$picture->image);
+        unlink(public_path().'/storage/gallery/'.$picture->image);
         $picture->delete();
 
         return redirect('tailor/view-gallery')->with('status',"Picture deleted successfully");
