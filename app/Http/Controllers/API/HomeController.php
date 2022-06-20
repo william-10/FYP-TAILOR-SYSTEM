@@ -36,8 +36,9 @@ class HomeController extends Controller
            //return user & token in response
            return response([
                'user' => $user,
-               'token' => $user->createToken('secret')->plainTextToken
-           ], 200);
+               'token' => $user->createApiToken()
+            //    'token' => $user->createToken('secret')->plainTextToken
+                       ], 200);
        }
 
 

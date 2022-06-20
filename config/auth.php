@@ -65,7 +65,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token', //only check
+            'driver' => 'passport', //only check
             'provider' => 'users',
         ],
 
