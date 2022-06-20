@@ -48,6 +48,11 @@ public function createorder()
 
 public function addorder(Request $request)
 {
+    $request->validate([
+        'description'=>'required',
+        'price'=>'required',
+        'customer_email'=>'required']);
+
     $customer_email=$request->input('customer_email');
 
     $customer_check=User::where('email',$customer_email)->first();
@@ -56,6 +61,9 @@ public function addorder(Request $request)
         // $verified_purchase=Order::where('orders.user_id',Auth::id())
         //     ->join('order_items','orders.id','order_items.order_id')
         //     ->where('order_items.tailor_id',$tailor_id)->get();
+
+
+
 
 
         $order=new Order();
@@ -68,7 +76,7 @@ public function addorder(Request $request)
         $order->email=$customer_email;
         $order->tracking_no='tshop'.rand(1111,9999);
         $order->save();
-        return redirect()->back()->with('status',"order placed successfully");
+        return redirect('/tailor/orders')->with('status',"order placed successfully");
     }
 
     else{

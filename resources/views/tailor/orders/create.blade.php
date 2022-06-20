@@ -18,6 +18,17 @@ CREATE ORDER
                       <div class="card-body">
 
                       <form action="{{url('tailor/add-order')}}" method="POST" enctype="multipart/form-data">
+                      @if ( Session::get('message'))
+                                <div class="alert alert-success alert-dismissable">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
+
+                            @if ( Session::get('error'))
+                                <div class="alert alert-danger">
+                                    {{Session::get('fail')  }}
+                                </div>
+                            @endif
                @csrf
 
              <div class="row">
@@ -25,7 +36,8 @@ CREATE ORDER
 
                  <div class="col-md-6 mb-3">
                      <label for="">EMAIL</label>
-                     <input type="text" class="form-control" name="customer_email">
+                     <input type="text" class="form-control" name="customer_email" value="{{ old('customer_email')}}">
+                     <span class="text-danger">@error('customer_email'){{ $message}}@enderror</span>
                  </div>
 
                  <!-- <div class="col-md-6 mb-3">
@@ -40,12 +52,14 @@ CREATE ORDER
 
                 <div class="col-md-12 mb-3">
                      <label for="">Description</label>
-                     <textarea class="form-control" rows="3" name="description"></textarea>
+                     <textarea class="form-control" rows="3" name="description" value="{{ old('description')}}"></textarea>
+                     <span class="text-danger">@error('description'){{ $message}}@enderror</span>
                  </div>
 
                  <div class="col-md-6 mb-3">
                      <label for="">Total price</label>
-                     <input type="number" class="form-control" name="price">
+                     <input type="number" class="form-control" name="price" value="{{ old('price')}}">
+                     <span class="text-danger">@error('price'){{ $message}}@enderror</span>
                  </div>
 
                  <div class="col-md-4">
