@@ -46,7 +46,15 @@ Route::prefix('user')->name('user.')->group(function () {
 
     });
 });
-        Route::post('/register', [HomeController::class, 'register']);
+// Route::group([
+// 'prefix'=>'auth'
+//     ],
+//     function()
+//     {
+
+//     }
+// );
+Route::post('/register', [HomeController::class, 'register']);
         Route::post('login', [HomeController::class, 'login']);
 
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);

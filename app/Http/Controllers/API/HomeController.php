@@ -7,39 +7,60 @@ use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 
 class HomeController extends Controller
 {
 
        //Register user
-       public function register(Request $request)
-       {
-           //validate fields
-           $attrs = $request->validate([
-               'name' => 'required|string',
-               'lname' => 'required|string',
-               'phone' => 'required|string',
-               'email' => 'required|email|unique:users,email',
-               'password' => 'required|min:8|confirmed'
-           ]);
+    //    public function register(Request $request)
+    //    {
+    //        //validate fields
+    //         $request->validate([
+    //            'name' => 'required|string',
+    //            'lname' => 'required|string',
+    //            'phone' => 'required|string',
+    //            'email' => 'required|email|unique:users,email',
+    //            'password' => 'required|min:8|string'
+    //        ]);
 
-           //create user
-           $user = User::create([
-               'name' => $attrs['name'],
-               'lname' => $attrs['lname'],
-               'phone' => $attrs['phone'],
-               'email' => $attrs['email'],
-               'password' => bcrypt($attrs['password'])
-           ]);
+    //        //create user
+    //        $user = new User([
+    //            'name' => $request->name,
+    //            'lname' => $request->lname,
+    //            'phone' => $request->phone,
+    //            'email' => $request->email,
+    //            'password' => Hash::make($request->password)
+    //        ]);
 
-           //return user & token in response
-           return response([
-               'user' => $user,
-               'token' => $user->createApiToken()
-            //    'token' => $user->createToken('secret')->plainTextToken
-                       ], 200);
-       }
+    //        //return user & token in response
+    //        $user->save();
+    //        return response()->json([
+    //            'message'=>"User has been registered"
+    //                    ], 200);
+    //    }
+
+
+    public function register(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'lname' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'email|required|unique:users',
+            'password' => 'required|string'
+        ]);
+
+
+        $validatedData['password'] = bcrypt($request->password);
+
+        $user = User::create($validatedData);
+
+        $accessToken = $user->createApiToken();
+
+        return response([ 'user' => $user, 'access_token' => $accessToken]);
+    }
 
 
     public function login(Request $request) {
