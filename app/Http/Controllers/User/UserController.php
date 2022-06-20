@@ -25,10 +25,10 @@ public function index()
           $request->validate([
                 'name'=>'required',
                 'lname'=>'required',
+                'phone'=>'required|unique:users,phone',
                 'email'=>'required|email|unique:users,email',
-
-                'password'=>'required|min:5|max:30',
-                'cpassword'=>'required|min:5|max:30|same:password'
+                'password'=>'required|min:8|max:11',
+                'cpassword'=>'required|min:8|max:11|same:password'
           ]);
 
 
@@ -38,7 +38,7 @@ public function index()
         $user->phone = $request->phone;
           $user->email = $request->email;
 
-          $user->password = \Hash::make($request->password);
+          $user->password =Hash::make($request->password);
           $save=$user->save();
 
 

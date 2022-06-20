@@ -30,7 +30,7 @@ VIEW ORDERS
                             <div class="border">{{$orders->email}}</div>
 
                             <label for=""><strong>Phone Number</strong></label>
-                            <div class="border">{{$orders->phone}}</div>
+                            <div class="border">{{$orders->users->phone}}</div>
 
 
                         </div>
