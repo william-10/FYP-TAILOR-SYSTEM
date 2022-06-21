@@ -53,27 +53,6 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="location" class="col-md-4 col-form-label text-md-end">Location</label>
-
-                            <div class="col-md-6">
-                                <input id="location" type="name" placeholder="Enter location" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('email') }}" >
-                                <span class="text-danger">@error('location'){{ $message}}@enderror</span>
-
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
-
-                            <div class="col-md-6">
-                                <textarea id="address"  placeholder="Enter full address of location" rows="3" class="form-control @error('address') is-invalid @enderror" name="address" >
-
-                                </textarea>
-                                <span class="text-danger">@error('location'){{ $message}}@enderror</span>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" >
@@ -140,7 +119,7 @@
                 <td>{{ $item->tailor_name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->phone }}</td>
-                <td>{{ $item->location }}</td>
+                <td>{{ $item->city }},{{ $item->region }}</td>
                 <td>
 
                     <a href="{{ url('admin/delete-tailor/'.$item->tailor_id)}}" class="btn btn-danger"

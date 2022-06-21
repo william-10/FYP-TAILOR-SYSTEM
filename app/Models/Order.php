@@ -14,7 +14,6 @@ class Order extends Model
 
         'user_id',
         'tailor_id',
-        'email',
         'price',
         'status',
 

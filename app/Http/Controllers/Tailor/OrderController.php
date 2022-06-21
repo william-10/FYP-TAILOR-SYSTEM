@@ -62,10 +62,6 @@ public function addorder(Request $request)
         //     ->join('order_items','orders.id','order_items.order_id')
         //     ->where('order_items.tailor_id',$tailor_id)->get();
 
-
-
-
-
         $order=new Order();
 
         // $order->user_id=Auth::id();
@@ -73,7 +69,7 @@ public function addorder(Request $request)
         $order->user_id=$customer_check->id;
         $order->price=$request->input('price');
         $order->description=$request->input('description');
-        $order->email=$customer_email;
+
         $order->tracking_no='tshop'.rand(1111,9999);
         $order->save();
         return redirect('/tailor/orders')->with('status',"order placed successfully");

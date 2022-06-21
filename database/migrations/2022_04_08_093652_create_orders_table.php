@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->unsignedBigInteger('tailor_id');
-            $table->string('email');
             $table->tinyInteger('status')->default('0');
             $table->string('description')->nullable();
             $table->string('price');

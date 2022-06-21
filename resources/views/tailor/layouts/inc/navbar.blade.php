@@ -16,17 +16,41 @@
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="nav navbar-nav ml-auto">
-
                       <li class="nav-item">
                           <a class="nav-link" href="#">
-                          <img src="{{asset(Auth::user()->avator)}}" style="height:45px;width=40px;border-radius:60%; margin-right:15px" alt=""></img>
-                          <strong>{{ Auth::user()->tailor_name }}</strong></a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="btn btn-primary" href="{{url('/user')}}">Homepage</a>
+                              <img src="{{asset(Auth::user()->avator)}}"
+                                  style="height:45px;width=40px;border-radius:60%; margin-right:15px" alt=""></img>
+
                       </li>
 
+                      <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{ Auth::user()->tailor_name }}
+                          </a>
+
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                              <li>
+                                  <a class="dropdown-item" href="{{ route('tailor.logout') }}" onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                      Logout</a>
+
+
+
+                                  <form id="logout-form" action="{{ route('tailor.logout') }}" method="POST"
+                                      class="d-none">
+                                      @csrf
+                                  </form>
+                              </li>
+                          </ul>
+                      </li>
+
+
+                      <!--
                       <li class="nav-item">
+                          <a class="btn btn-primary" href="{{url('/user')}}">Homepage</a>
+                      </li> -->
+
+                      <!-- <li class="nav-item">
 
 
                           <a class="btn btn-danger" href="{{ route('tailor.logout') }}" onclick="event.preventDefault();
@@ -38,7 +62,7 @@
                           <form id="logout-form" action="{{ route('tailor.logout') }}" method="POST" class="d-none">
                               @csrf
                           </form>
-                      </li>
+                      </li> -->
                   </ul>
               </div>
           </div>

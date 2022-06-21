@@ -42,7 +42,7 @@ public function logout()
 
 public function index()
     {
-        $tailor= Tailor::paginate(2);
+        $tailor= Tailor::paginate(4);
         return view('admin.management.tailormanage', compact('tailor'));
     }
 
@@ -62,19 +62,33 @@ public function customerview()
 
 public function tailorregister(Request $request)
 {
-    $save=Tailor::Create([
+    $request->validate([
+
+    'phone'=>'required',
+    'tailor_name'=>'required',
+    'password'=>'required|min:5|max:12'
+    ]);
+
+    $tailor_email=$request->input('email');
+
+    $tailor_check=Tailor::where('email',$tailor_email)->first();
+    if($tailor_check)
+    {
+
+        return redirect()->back()->with('status','something went wrong, failed to register');
+}
+
+else{
+    Tailor::Create([
         'tailor_name'=>$request->tailor_name,
         'email'=>$request->email,
-        'location'=>$request->location,
         'phone'=>$request->phone,
-        'address'=>$request['address'],
         'password'=>Hash::make($request->password)]);
-        if($save){
-            return redirect('admin/home')->with('success','you registerd Tailor successfully');
-        }
-        else{
-          return redirect()->back()->with('fail','something went wrong, failed to register');
-        }
+
+            return redirect('admin/view_tailors')->with('status','you registerd Tailor successfully');
+
+  }
 }
+
 
 }

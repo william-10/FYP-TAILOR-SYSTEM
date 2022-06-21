@@ -64,7 +64,7 @@
                     </ul>
 
                 </li>
-                <li >
+                <!-- <li >
                     <a href="#homesubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">STAFFS</a>
                     <ul class="collapse list-unstyled" id="homesubmenu2">
                         <li class="nav-item ">
@@ -75,10 +75,10 @@
                         </li>
                     </ul>
 
-                </li>
+                </li> -->
 
 
-                <li>
+                <!-- <li>
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">MEASUREMENT</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
 
@@ -92,7 +92,7 @@
 
                     </ul>
 
-                </li>
+                </li> -->
 
 
                 <li >
