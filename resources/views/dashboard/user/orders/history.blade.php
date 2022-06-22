@@ -20,7 +20,7 @@ ORDERS
                         <thead>
                             <tr>
 
-                                <th>ID</th>
+
                                 <th>Order Date</th>
                                 <th>Tailor Name</th>
                                 <th>Tracking Number</th>
@@ -34,7 +34,7 @@ ORDERS
                             @if ($item->status == "1")
                             <tr>
 
-                                <td>{{$loop->index+1}}</td>
+
                                 <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
                                 <td> <a
                                         href="{{url('user/view-tailor/'.$item->tailors->tailor_id)}}">{{$item->tailors->tailor_name}}</a>

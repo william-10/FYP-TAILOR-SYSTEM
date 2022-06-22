@@ -27,7 +27,7 @@ ORDERS
                             <label for="">Last Name</label>
                             <div class="border p-2">{{$orders->users->lname}}</div>
                             <label for="">Email</label>
-                            <div class="border p-2">{{$orders->email}}</div>
+                            <div class="border p-2">{{$orders->users->email}}</div>
 
                             <label for="">Phone Number</label>
                             <div class="border p-2">{{$orders->users->phone}}</div>

@@ -11,6 +11,7 @@ Customer homepage
     </div>
 </div> -->
 
+
 <div class="container">
 <div class="row">
                 @foreach ($tailor as $tailor)
@@ -26,6 +27,7 @@ Customer homepage
                                 <strong class="float-start "  style="color:green">{{$tailor->region}}</strong>
                                 <strong class="float-end" style="color:blue">{{$tailor->city}}</strong>
                             </div>
+
                         </div>
                         </a>
                     </div>

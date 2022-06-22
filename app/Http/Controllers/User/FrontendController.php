@@ -17,12 +17,10 @@ class FrontendController extends Controller
 {
 
     public function index(Request $request )
-    {
-        $tailor=Tailor::get();
-            return view('dashboard.user.tailors.index',compact('tailor'));
-
-
+    {  $tailor=Tailor::get();
+        return view('dashboard.user.tailors.index',compact('tailor'));
         }
+
         public function filtercity($city)
         {
             $tailor=Tailor::where('city',$city)->get();

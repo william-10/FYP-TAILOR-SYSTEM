@@ -71,7 +71,7 @@
 
                             <li>
                                 <a href="{{url('/user/my-orders')}}" class="dropdown-item">
-                                    My orders
+                                    My Notification
                                 </a>
 
                             </li>

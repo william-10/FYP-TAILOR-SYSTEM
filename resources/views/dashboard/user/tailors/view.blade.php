@@ -85,20 +85,21 @@
                 <div class="col-md-8">
                     <div class="span4">
                         <blockquote>
-                            <p>{{ $unique_tailor->tailor_name }}</p>
+                            <h5><i class="fa fa-profile"></i>{{ $unique_tailor->tailor_name }}</h5>
                             <hr>
 
-                            <small><cite title="Source Title"> {{  $unique_tailor->city }},
-                                    {{  $unique_tailor->region }}
-                                    <hr>
+                            <h5><i class="fa fa-location"></i> {{  $unique_tailor->city }},
+                                {{  $unique_tailor->region }}</h5>
+                                <hr>
 
                         </blockquote>
-                        <p>
-                            <i class="icon-envelope"></i> {{ $unique_tailor->email }}
-                        </p>
+                        <h5>
+                            <i class="fa fa-envelope"></i> {{ $unique_tailor->email }}
+                        </h5>
 
                         <hr>
-                        <i class="icon-gift"></i>Joined: {{date('F ,Y',strtotime ($unique_tailor->created_at))}}
+                        <h5><i class="fa fa-clock"></i>Joined: {{date('F ,Y',strtotime ($unique_tailor->created_at))}}
+                        </h5>
                         <hr>
 
                         @php
