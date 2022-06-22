@@ -75,4 +75,9 @@ class Tailor extends Authenticatable
     {
         return $this->hasMany(Order::class,'tailor_id');
     }
+
+    public function requests()
+    {
+        return $this->hasMany(Notification::class,'tailor_id');
+    }
 }

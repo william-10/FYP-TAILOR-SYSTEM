@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tailor;
 
 use Storage;
 use App\Models\City;
+use App\Models\Rating;
 use App\Models\Region;
 use App\Models\Tailor;
 use Illuminate\Http\Request;
@@ -126,7 +127,29 @@ class TailorController extends Controller
     {
         $region=Region::all();
         $city=City::all();
-        return view('tailor.details.index',compact('region','city'));
+
+        if(Tailor::where('tailor_id',Auth::id())->exists())
+        {
+            $ratings=Rating::where('tailor_id',Auth::id())->get();
+            $rating_sum=Rating::where('tailor_id',Auth::id())->sum('stars_rated');
+            // $user_rating=Rating::where('tailor_id',Auth::id())
+            //                 ->where('user_id',Auth::id())->first();
+
+            if($ratings->count()>0)
+            {
+                $rating_value=$rating_sum/$ratings->count();
+            }
+            else{
+                $rating_value=0;
+            }
+            // return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating','tailor_map'));
+            return view('tailor.details.index',compact('region','city','ratings','rating_value'));
+
+        }
+        else{
+            return back()->with('status','tailor not found');
+        }
+
     }
 
     public function edit()

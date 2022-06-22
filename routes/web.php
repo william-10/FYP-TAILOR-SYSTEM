@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderingController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Tailor\MapController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GenderController;
-use App\Http\Controllers\Tailor\OrderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
@@ -60,6 +60,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/view-order/{id}', [CustomerController::class, 'vieworder']);
         Route::get('/wishlist', [WishlistController::class, 'index']);
         Route::post('/add-rating', [RatingController::class, 'add']);
+        Route::post('/put-request', [OrderingController::class, 'putrequest']);
 
     });
 });
@@ -181,13 +182,15 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('delete-map/{id}',[MapController::class,'destroy']);
 
 
-                Route::get('orders',[OrderController::class,'index']);
-                Route::get('view-order/{id}',[OrderController::class,'vieworder']);
-                Route::put('update-order/{id}',[OrderController::class,'updateorder']);
-                Route::get('order-history',[OrderController::class,'orderhistory']);
+                Route::get('orders',[OrderingController::class,'index']);
+                Route::get('view-order/{id}',[OrderingController::class,'vieworder']);
+                Route::put('update-order/{id}',[OrderingController::class,'updateorder']);
+                Route::get('order-history',[OrderingController::class,'orderhistory']);
 
-                Route::get('create-order',[OrderController::class,'createorder']);
-                Route::post('add-order',[OrderController::class,'addorder']);
+                Route::get('create-order',[OrderingController::class,'createorder']);
+                Route::post('add-order',[OrderingController::class,'addorder']);
+                Route::get('view-requests',[OrderingController::class,'viewrequests']);
+
 
 
             });

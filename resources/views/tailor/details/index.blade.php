@@ -9,6 +9,7 @@
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/fontawesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
 
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/home.css') }}" rel="stylesheet">
@@ -124,7 +125,28 @@
         <div class="card">
             <div class="card-header">
                 <h4> personal details</h4>
-                <hr>
+
+
+                @php
+                        $ratenum=number_format($rating_value)
+                        @endphp
+                        <div class="rating float-end">
+                            @for ($i=1; $i<= $ratenum; $i++) <i class="fa fa-star checked"></i>
+                                @endfor
+                                @for ($j=$ratenum+1; $j<=5; $j++) <i class="fa fa-star"></i>
+                                    @endfor
+
+                                    <span>
+                                        @if ($ratings->count() > 0)
+                                        {{$ratings->count()}} Ratings
+
+                                        @else
+                                        No ratings
+                                        @endif
+                                    </span>
+
+
+                        </div>
             </div>
 
             <div class="card-body">

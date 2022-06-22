@@ -77,53 +77,54 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-            <div class="span2">
-      <img src="{{asset(''.$unique_tailor->avator)}}"  alt="image here" class="card-img-top2 " width="100%" height="90%" >
-    </div>
-    </div>
-            <div class="col-md-8">
-    <div class="span4">
-      <blockquote>
-        <p>{{ $unique_tailor->tailor_name }}</p>
-        <hr>
+                    <div class="span2">
+                        <img src="{{asset(''.$unique_tailor->avator)}}" alt="image here" class="card-img-top2 "
+                            width="100%" height="90%">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="span4">
+                        <blockquote>
+                            <p>{{ $unique_tailor->tailor_name }}</p>
+                            <hr>
 
-        <small><cite title="Source Title"> {{  $unique_tailor->city }},
-    {{  $unique_tailor->region }}
-    <hr>
+                            <small><cite title="Source Title"> {{  $unique_tailor->city }},
+                                    {{  $unique_tailor->region }}
+                                    <hr>
 
-      </blockquote>
-      <p>
-        <i class="icon-envelope"></i> {{ $unique_tailor->email }}
-      </p>
+                        </blockquote>
+                        <p>
+                            <i class="icon-envelope"></i> {{ $unique_tailor->email }}
+                        </p>
 
-      <hr>
-      <i class="icon-gift"></i>Joined: {{date('F ,Y',strtotime ($unique_tailor->created_at))}}
-      <hr>
+                        <hr>
+                        <i class="icon-gift"></i>Joined: {{date('F ,Y',strtotime ($unique_tailor->created_at))}}
+                        <hr>
 
-      @php
-            $ratenum=number_format($rating_value)
-            @endphp
-            <div class="rating">
-                @for ($i=1; $i<= $ratenum; $i++) <i class="fa fa-star checked"></i>
-                    @endfor
-                    @for ($j=$ratenum+1; $j<=5; $j++) <i class="fa fa-star"></i>
-                        @endfor
+                        @php
+                        $ratenum=number_format($rating_value)
+                        @endphp
+                        <div class="rating">
+                            @for ($i=1; $i<= $ratenum; $i++) <i class="fa fa-star checked"></i>
+                                @endfor
+                                @for ($j=$ratenum+1; $j<=5; $j++) <i class="fa fa-star"></i>
+                                    @endfor
 
-                        <span>
-                            @if ($ratings->count() > 0)
-                            {{$ratings->count()}} Ratings
+                                    <span>
+                                        @if ($ratings->count() > 0)
+                                        {{$ratings->count()}} Ratings
 
-                            @else
-                            No ratings
-                            @endif
-                        </span>
+                                        @else
+                                        No ratings
+                                        @endif
+                                    </span>
 
 
-            </div>
+                        </div>
 
-    </div>
+                    </div>
 
-    </div>
+                </div>
                 <!-- <div class="col-md-4 ">
                     <div class="bg-image hover-zoom">
                         <img src="{{asset(''.$unique_tailor->avator)}}" class="w-100 img-fluid" alt="image here">
@@ -137,29 +138,41 @@
                     <div class="mb-0">
                         <h6>{{$unique_tailor->phone}}</h6>
                     </div> -->
-    </div>
-    <div class="col-md-12">
+            </div>
+
+            <form action="{{url('user/put-request')}}" method="POST">
+                @csrf
+                <input type="hidden" value="{{ $unique_tailor->tailor_id }}" name="tailor_id">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary btn-sm float-end">Request</button>
+
+                </div>
+            </form>
+
+            <div class="col-md-12">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate this tailor</button>
+                <button type="button " class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Rate this tailor</button>
 
             </div>
-            </div>
-
-            <div class="col-md-12">
-
-                    <h4><a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">GALLERY</h4>
-                </a>
-
-            </div>
-
-            <div class="col-md-12">
-                <!-- <a href="{{url('/user/product/'.$unique_tailor->tailor_id)}}"><h4>PRODUCTS</h4></a> -->
-
-            </div>
-
 
         </div>
+
+        <div class="col-md-12">
+
+            <h4><a href="{{url('/user/gallery/'.$unique_tailor->tailor_id)}}">GALLERY</h4>
+            </a>
+
+        </div>
+
+        <div class="col-md-12">
+            <!-- <a href="{{url('/user/product/'.$unique_tailor->tailor_id)}}"><h4>PRODUCTS</h4></a> -->
+
+        </div>
+
+
     </div>
+</div>
 
 
 
@@ -240,15 +253,15 @@
 
 @if (count($unique_tailor->maps)>0)
 <div class="container">
-<div class="card">
-    <div class="card-body">
+    <div class="card">
+        <div class="card-body">
             <div class="row">
 
                 <h4>MAP LOCATION</h4>
 
 
                 <div class="col md-4 ">
-                <input type="hidden" id="address-input" name="address" class="form-control map-input">
+                    <input type="hidden" id="address-input" name="address" class="form-control map-input">
 
                     <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
                     <input type="hidden" name="longitude" id="address-longitude"
@@ -274,173 +287,192 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
-        @else
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
+    @else
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
                 <div class="row">
-                <h4>LOCATION</h4>
-                <h7 style="color:red">No Map location available at the moment</h7>
-            </div>
+                    <h4>LOCATION</h4>
+                    <h7 style="color:red">No Map location available at the moment</h7>
                 </div>
             </div>
-
         </div>
-        @endif
 
-@endsection
+    </div>
+    @endif
 
-
-@section('scripts')
-
-@if (count($unique_tailor->maps)>0)
-<script
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize"
-    async defer></script>
-
-<!-- <script src="{{ asset('admin/js/mapiinput.js') }}"></script> -->
-
-<script>
- function initialize() {
-
-$('form').on('keyup keypress', function(e) {
-    var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) {
-        e.preventDefault();
-        return false;
-    }
-});
-const locationInputs = document.getElementsByClassName("map-input");
+    @endsection
 
 
+    @section('scripts')
 
-const autocompletes = [];
-const geocoder = new google.maps.Geocoder;
-for (let i = 0; i < locationInputs.length; i++) {
+    @if (count($unique_tailor->maps)>0)
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize"
+        async defer></script>
 
-    const input = locationInputs[i];
-    const fieldKey = input.id.replace("-input", "");
-    const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
+    <!-- <script src="{{ asset('admin/js/mapiinput.js') }}"></script> -->
 
-    const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || {{ $tailor_map->latitude }};
-    const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || {{ $tailor_map->longitude }};
+    <script>
+    function initialize() {
 
-
-    const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
-        center: { lat: latitude, lng: longitude },
-        zoom: 13,
-        scrollwhell: true,
-    });
-
-
-    const marker = new google.maps.Marker({
-        map: map,
-        position: { lat: latitude, lng: longitude },
-        draggable: false,
-    });
-
-    // google.maps.event.addListener(marker, 'position_changed',
-    //     function() {
-    //         let latitude = marker.position.lat()
-    //         let longitude = marker.position.lng()
-    //         $('#lat').val(latitude)
-    //         $('#lng').val(longitude)
-    //     });
-
-    // google.maps.event.addListener(map, 'click',
-    //     function(event) {
-    //         pos = event.latLng
-    //         marker.setPosition(pos)
-    //     });
-
-
-
-
-
-    marker.setVisible(isEdit);
-
-    const autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.key = fieldKey;
-    autocompletes.push({ input: input, map: map, marker: marker, autocomplete: autocomplete });
-}
-
-for (let i = 0; i < autocompletes.length; i++) {
-    const input = autocompletes[i].input;
-    const autocomplete = autocompletes[i].autocomplete;
-    const map = autocompletes[i].map;
-    const marker = autocompletes[i].marker;
-
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        marker.setVisible(false);
-        const place = autocomplete.getPlace();
-
-        geocoder.geocode({ 'placeId': place.place_id }, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                const lat = results[0].geometry.location.lat();
-                const lng = results[0].geometry.location.lng();
-                setLocationCoordinates(autocomplete.key, lat, lng);
+        $('form').on('keyup keypress', function(e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
             }
         });
+        const locationInputs = document.getElementsByClassName("map-input");
 
-        if (!place.geometry) {
-            window.alert("No details available for input: '" + place.name + "'");
-            input.value = "";
-            return;
+
+
+        const autocompletes = [];
+        const geocoder = new google.maps.Geocoder;
+        for (let i = 0; i < locationInputs.length; i++) {
+
+            const input = locationInputs[i];
+            const fieldKey = input.id.replace("-input", "");
+            const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(
+                fieldKey + "-longitude").value != '';
+
+            const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || {
+                {
+                    $tailor_map - > latitude
+                }
+            };
+            const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || {
+                {
+                    $tailor_map - > longitude
+                }
+            };
+
+
+            const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
+                center: {
+                    lat: latitude,
+                    lng: longitude
+                },
+                zoom: 13,
+                scrollwhell: true,
+            });
+
+
+            const marker = new google.maps.Marker({
+                map: map,
+                position: {
+                    lat: latitude,
+                    lng: longitude
+                },
+                draggable: false,
+            });
+
+            // google.maps.event.addListener(marker, 'position_changed',
+            //     function() {
+            //         let latitude = marker.position.lat()
+            //         let longitude = marker.position.lng()
+            //         $('#lat').val(latitude)
+            //         $('#lng').val(longitude)
+            //     });
+
+            // google.maps.event.addListener(map, 'click',
+            //     function(event) {
+            //         pos = event.latLng
+            //         marker.setPosition(pos)
+            //     });
+
+
+
+
+
+            marker.setVisible(isEdit);
+
+            const autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.key = fieldKey;
+            autocompletes.push({
+                input: input,
+                map: map,
+                marker: marker,
+                autocomplete: autocomplete
+            });
         }
 
-        if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-        } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17);
-        }
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
+        for (let i = 0; i < autocompletes.length; i++) {
+            const input = autocompletes[i].input;
+            const autocomplete = autocompletes[i].autocomplete;
+            const map = autocompletes[i].map;
+            const marker = autocompletes[i].marker;
 
-    });
-}
-}
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                marker.setVisible(false);
+                const place = autocomplete.getPlace();
 
-function setLocationCoordinates(key, lat, lng) {
-const latitudeField = document.getElementById(key + "-" + "latitude");
-const longitudeField = document.getElementById(key + "-" + "longitude");
-latitudeField.value = lat;
-longitudeField.value = lng;
-}
+                geocoder.geocode({
+                    'placeId': place.place_id
+                }, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        const lat = results[0].geometry.location.lat();
+                        const lng = results[0].geometry.location.lng();
+                        setLocationCoordinates(autocomplete.key, lat, lng);
+                    }
+                });
 
+                if (!place.geometry) {
+                    window.alert("No details available for input: '" + place.name + "'");
+                    input.value = "";
+                    return;
+                }
 
-</script>
-@endif
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
 
-<script>
-    $(document).ready(function () {
-        $('.featured-carousel').owlCarousel({
-    loop: true,
-    nav: true,
-    autoplay: true,
-    autoplayHoverPause: true,
-    autoplayTimeout: 2000,
-    margin: 10,
-
-    responsive: {
-        0: {
-            items: 1,
-            dots: false
-        },
-        600: {
-            items: 3,
-            dots: false
-        },
-
-        1000: {
-            items: 3,
-            dots: false
+            });
         }
     }
-});
-    });
 
-</script>
-@endsection
+    function setLocationCoordinates(key, lat, lng) {
+        const latitudeField = document.getElementById(key + "-" + "latitude");
+        const longitudeField = document.getElementById(key + "-" + "longitude");
+        latitudeField.value = lat;
+        longitudeField.value = lng;
+    }
+    </script>
+    @endif
+
+    <script>
+    $(document).ready(function() {
+        $('.featured-carousel').owlCarousel({
+            loop: true,
+            nav: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 2000,
+            margin: 10,
+
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false
+                },
+                600: {
+                    items: 3,
+                    dots: false
+                },
+
+                1000: {
+                    items: 3,
+                    dots: false
+                }
+            }
+        });
+    });
+    </script>
+    @endsection

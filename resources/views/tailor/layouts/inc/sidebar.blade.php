@@ -104,6 +104,9 @@
                         <li class="nav-item {{Request::is('tailor/orders') ? 'active':''}}">
                             <a href="{{('orders')}}">VIEW ORDERS</a>
                         </li>
+                        <li class="nav-item {{Request::is('tailor/view-requests') ? 'active':''}}">
+                            <a href="{{('view-requests')}}">REQUESTS</a>
+                        </li>
                     </ul>
 
                 </li>

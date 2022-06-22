@@ -1,16 +1,34 @@
 <?php
 
-namespace App\Http\Controllers\Tailor;
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Order;
-use App\Models\OrderItem;
 use App\Models\Notification;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OrderController extends Controller
+class OrderingController extends Controller
 {
+
+    public function putrequest(Request $request)
+    {
+         $tailor_id=$request->input('tailor_id');
+         Notification::create([
+            'user_id' =>Auth::id(),
+            'tailor_id' =>$tailor_id
+
+    ]);
+
+    return redirect()->back()->with('status',"Requested successfully...waiting to the office arrival");
+    }
+
+    public function viewrequests()
+    {   $customer_request=Notification::where('tailor_id',Auth::id())->get();
+
+        return view('tailor.orders.request',compact('customer_request'));
+    }
+
     public function index()
     {
         $orderitem=Order::where('tailor_id',Auth::id())->get();
@@ -81,8 +99,4 @@ public function addorder(Request $request)
         return redirect()->back()->with('status',"Something went wrong with the email");
     }
 }
-
-
-
 }
-

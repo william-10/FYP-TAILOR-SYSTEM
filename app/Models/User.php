@@ -51,6 +51,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class,'user_id');
     }
+
+    public function requests()
+    {
+        return $this->hasMany(Notification::class,'user_id');
+    }
+
     public function createApiToken()
     {
         $token = Str::random(64);
