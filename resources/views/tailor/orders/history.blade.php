@@ -37,7 +37,7 @@ ORDER HISTORY
                 @if ($item->status == "1")
                     <tr>
                     <td>{{$item->tracking_no}}</td>
-                    <td>{{$item->email}}</td>
+                    <td>{{$item->users->email}}</td>
                         <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
                         <td><strong class="badge badge-success rounded pill">Completed</strong></td>
                         <td>

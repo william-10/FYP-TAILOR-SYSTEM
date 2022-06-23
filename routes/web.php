@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\MeasurementController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -102,13 +104,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::middleware(['auth:admin','PreventBackHistory'])->group(function () {
             Route::view('/home', 'admin.home')->name('home');
             Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
-            Route::get('categories',[CategoryController::class,'index']);
+            Route::get('categories',[AdminCategoryController::class,'index']);
 
-            Route::get('add-categories',[CategoryController::class,'add']);
-            Route::post('insert-category',[CategoryController::class,'insert']);
-            Route::get('edit-cat/{category_id}', [CategoryController::class ,'edit']);
-            Route::put('update-cat/{category_id}', [CategoryController::class ,'update']);
-            Route::get('delete-cat/{category_id}', [CategoryController::class ,'destroy']);
+            Route::get('add-ccategories',[AdminCategoryController::class,'add']);
+            Route::post('insert-category',[AdminCategoryController::class,'insert']);
+            Route::get('edit-cat/{category_id}', [AdminCategoryController::class ,'edit']);
+            Route::put('update-cat/{category_id}', [AdminCategoryController::class ,'update']);
+            Route::get('delete-cat/{category_id}', [AdminCategoryController::class ,'destroy']);
             Route::get('view_tailors',[AdminController::class,'index']);
             Route::get('delete-tailor/{tailor_id}', [AdminController::class ,'destroy']);
 

@@ -80,60 +80,9 @@
 
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                <label for="phone">CITY</label>
-                                    <select class="form-select" name="city_name">
-                                        <option value="">{{Auth::user()->city}}</option>
-                                        @foreach ($city as $item )
-                                        <option value="{{$item->city_name}}">{{$item->city_name}}</option>
-                                        @endforeach
 
-                                    </select>
-                                </div>
 
-                                <div class="col-md-6 mb-3">
-                                <label for="phone">CATEGORY 1</label>
-                                    <select class="form-select" name="category_name">
-                                        <option value=""></option>
-                                        @foreach ($category as $item )
-                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
-                                        @endforeach
 
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                <label for="phone">CATEGORY 2</label>
-                                    <select class="form-select" name="category_name">
-                                        <option value=""></option>
-                                        @foreach ($category as $item )
-                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                <label for="phone">CATEGORY 3</label>
-                                    <select class="form-select" name="category_name">
-                                        <option value=""></option>
-                                        @foreach ($category as $item )
-                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                <label for="phone">CATEGORY 4</label>
-                                    <select class="form-select" name="category_name">
-                                        <option value=""></option>
-                                        @foreach ($category as $item )
-                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
-                                        @endforeach
-
-                                    </select>
-                                </div>
 
 
 

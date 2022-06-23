@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Gallery extends Model
 {
     use HasFactory;
-    
-    
+
+
     protected $table='galleries';
     protected $fillable= [
         'id',
@@ -20,6 +20,6 @@ class Gallery extends Model
 
     public function tailor()
     {
-        return $this->belongsTo(Tailor::class);
+        return $this->belongsTo(Tailor::class,'tailor_id');
     }
 }

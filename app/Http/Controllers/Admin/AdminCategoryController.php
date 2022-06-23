@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 
-class CategoryController extends Controller
+class AdminCategoryController extends Controller
 {
-    public function index()
+     public function index()
     {
         $category= Cloth_category::all();
         return view('admin.category.index', compact('category'));
@@ -73,3 +71,5 @@ class CategoryController extends Controller
         return redirect('admin/categories')->with('status',"Category deleted successfully");
     }
 }
+
+

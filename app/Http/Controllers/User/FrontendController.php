@@ -136,7 +136,7 @@ class FrontendController extends Controller
         {
             $unique_tailor=Gallery::where('tailor_id',$tailor_id)->get();
             return view('dashboard.user.tailors.gallery',compact('unique_tailor'));
-            return response()->json($unique_tailor);
+
 
         }
         else{

@@ -19,14 +19,14 @@
                     </li>
 
                     <li class="nav-item {{Request::is('admin/categories') ? 'active':''}}">
-                        <a class="nav-link" href="{{'categories'}}">
+                        <a class="nav-link" href="{{url('admin/categories')}}">
                             <i class="fa fa-list-alt"></i>
                             <p>CATEGORY</p>
                         </a>
                     </li>
 
-                    <li class="nav-item {{Request::is('admin/add-categories') ? 'active':''}}"  >
-                        <a class="nav-link" href="{{'add-categories'}}">
+                    <li class="nav-item {{Request::is('admin/add-ccategories') ? 'active':''}}"  >
+                        <a class="nav-link" href="{{url('admin/add-ccategories')}}">
                             <i class="fas fa-plus-circle"></i>
                             <p>ADD CATEGORY</p>
                         </a>
