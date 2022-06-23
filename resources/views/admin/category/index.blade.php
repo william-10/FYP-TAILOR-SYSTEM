@@ -16,7 +16,6 @@
                 <tr>
                 <th><h5> ID</h5></th>
                     <th><h5>CATEGORY NAME</h5></th>
-                    <th><h5>IMAGE</h5></th>
                     <th><h5>ACTION</h5></th>
 
                 </tr>
@@ -27,9 +26,7 @@
 
                         <td>{{ $loop->index+1 }}</td>
                         <td>{{ $item->category_name }}</td>
-                        <td>
-                        <img src="{{asset('assets/uploads/category/'.$item->image)}} " class="cate-image"  alt="image here" >
-                        </td>
+
 
                         <td>
                             <a href="{{ url('admin/edit-cat/'.$item->category_id)}}" class="btn btn-primary">Edit</a>

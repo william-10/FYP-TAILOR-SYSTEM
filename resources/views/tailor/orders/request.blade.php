@@ -38,13 +38,16 @@ REQUESTS
 @foreach ($customer_request as $item)
 <tr>
 <td>{{$loop->index+1}}</td>
-<td>{{$item->users->name}}</td>
+<td>{{$item->users->name}} {{$item->users->lname}}</td>
 <td>{{$item->users->email}}</td>
 <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
 <td><strong class="badge badge-warning rounded pill">Requested</strong></td>
 <td>
-    <a href="" class="btn btn-primary">View</a>
+    <a href="" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+    <a href="{{ url('tailor/delete-request/'.$item->id)}}" class="btn btn-danger"
+                        onclick="return confirm('are you sure you want to delete the request?')"><i class="fa fa-trash"></i></a>
 </td>
+
 </tr>
 
 @endforeach

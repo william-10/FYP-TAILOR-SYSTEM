@@ -7,6 +7,7 @@ use App\Models\Rating;
 use App\Models\Tailor;
 use App\Models\Gallery;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Models\Measurement_detail;
@@ -103,6 +104,8 @@ class FrontendController extends Controller
 
             $tailor_map=Map::where('tailor_id',$tailor_id)->first();
 
+            $category=Category::where('tailor_id',$tailor_id)->first();
+
             $unique_tailor=Tailor::findOrFail($tailor_id);
             $tailor_product=Product::where('tailor_id',$tailor_id)->get();
 
@@ -118,7 +121,7 @@ class FrontendController extends Controller
             else{
                 $rating_value=0;
             }
-            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating','tailor_map'));
+            return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating','tailor_map','category'));
 
         }
         else{

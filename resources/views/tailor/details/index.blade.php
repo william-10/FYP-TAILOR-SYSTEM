@@ -44,7 +44,7 @@
 
 
                             <div class="row">
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="tailor_name">NAME</label>
                                     <input type="text" value="{{Auth::user()->tailor_name}}" class="form-control"
                                         name="tailor_name">
@@ -53,13 +53,13 @@
 
 
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="phone">PHONE NUMBER</label>
                                     <input type="text" value="{{Auth::user()->phone}}" class="form-control"
                                         name="phone">
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                 <label for="phone">REGION</label>
                                     <select class="form-select" name="name">
                                         <option value="">{{Auth::user()->region}}</option>
@@ -70,7 +70,17 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
+                                <label for="phone">CITY</label>
+                                    <select class="form-select" name="city_name">
+                                        <option value="">{{Auth::user()->city}}</option>
+                                        @foreach ($city as $item )
+                                        <option value="{{$item->city_name}}">{{$item->city_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
                                 <label for="phone">CITY</label>
                                     <select class="form-select" name="city_name">
                                         <option value="">{{Auth::user()->city}}</option>
@@ -81,7 +91,53 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
+                                <label for="phone">CATEGORY 1</label>
+                                    <select class="form-select" name="category_name">
+                                        <option value=""></option>
+                                        @foreach ($category as $item )
+                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                <label for="phone">CATEGORY 2</label>
+                                    <select class="form-select" name="category_name">
+                                        <option value=""></option>
+                                        @foreach ($category as $item )
+                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                <label for="phone">CATEGORY 3</label>
+                                    <select class="form-select" name="category_name">
+                                        <option value=""></option>
+                                        @foreach ($category as $item )
+                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                <label for="phone">CATEGORY 4</label>
+                                    <select class="form-select" name="category_name">
+                                        <option value=""></option>
+                                        @foreach ($category as $item )
+                                        <option value="{{$item->category_id}}">{{$item->category_name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+
+
+                                <div class="col-md-6 mb-3">
                                     <label for="address">ADDRESS</label>
                                     <textarea id="address" value="{{Auth::user()->address}}" class="form-control"
                                         rows="3" name="address"> </textarea>
@@ -92,7 +148,7 @@
 
 
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="password">Password</label>
 
                                     <div class="col-md-12">
@@ -113,7 +169,7 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary float-start">Update</button>
 
-                            <button type="button" class="btn btn-secondary  " data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger  " data-bs-dismiss="modal"><i class="fas fa-window-close"></i></button>
                         </div>
 
                     </form>

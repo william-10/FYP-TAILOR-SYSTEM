@@ -78,7 +78,7 @@
                 </li> -->
 
 
-                <!-- <li>
+                <li>
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">MEASUREMENT</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
 
@@ -89,10 +89,25 @@
                         <li class="nav-item">
                             <a href="">ADD MEASUREMENT</a>
                         </li>
+                        </ul>
+
+                        </li>
+
+                        <li>
+                    <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">SEWING CATEGORIES</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu6">
+
+                        <li class="nav-item {{Request::is('tailor/view-categories') ? 'active':''}}">
+                            <a href="{{url('tailor/view-categories')}}">VIEW CATEGORIES</a>
+                        </li>
+
+                        <li class="nav-item {{Request::is('tailor/add-categories') ? 'active':''}}">
+                            <a href="{{url('tailor/add-categories')}}">ADD CATEGORY</a>
+                        </li>
 
                     </ul>
 
-                </li> -->
+                </li>
 
 
                 <li >

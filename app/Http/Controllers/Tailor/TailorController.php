@@ -8,6 +8,7 @@ use App\Models\Rating;
 use App\Models\Region;
 use App\Models\Tailor;
 use Illuminate\Http\Request;
+use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -129,7 +130,7 @@ class TailorController extends Controller
         $city=City::all();
 
         if(Tailor::where('tailor_id',Auth::id())->exists())
-        {
+        {   $category=Cloth_category::all();
             $ratings=Rating::where('tailor_id',Auth::id())->get();
             $rating_sum=Rating::where('tailor_id',Auth::id())->sum('stars_rated');
             if($ratings->count()>0)
@@ -140,7 +141,7 @@ class TailorController extends Controller
                 $rating_value=0;
             }
 
-            return view('tailor.details.index',compact('region','city','ratings','rating_value'));
+            return view('tailor.details.index',compact('region','city','ratings','rating_value','category'));
 
         }
         else{
@@ -171,6 +172,7 @@ class TailorController extends Controller
         $user->address = $request['address'];
         $user->region = $request->input('name');
         $user->city = $request->input('city_name');
+
         $user->update();
         return redirect('tailor/details')->with('status',"Profile Updated successfully");
 

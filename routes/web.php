@@ -9,10 +9,10 @@ use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Tailor\GalleryController;
 use App\Http\Controllers\Tailor\ProductController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Tailor\CategoryController;
 use App\Http\Controllers\Admin\MeasurementController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CustomerController;
@@ -190,6 +190,11 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('create-order',[OrderingController::class,'createorder']);
                 Route::post('add-order',[OrderingController::class,'addorder']);
                 Route::get('view-requests',[OrderingController::class,'viewrequests']);
+                Route::get('delete-request/{id}',[OrderingController::class,'deleterequest']);
+
+                Route::get('add-categories',[CategoryController::class,'add']);
+                Route::post('post-categories',[CategoryController::class,'postcategory']);
+                Route::get('view-categories',[CategoryController::class,'index']);
 
 
 

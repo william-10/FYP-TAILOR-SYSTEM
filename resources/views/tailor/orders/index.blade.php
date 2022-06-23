@@ -45,7 +45,8 @@ ORDERS
                         <td>{{$item->tracking_no}}</td>
                         <td ><strong class="badge badge-danger rounded pill"> Pending</strong></td>
                         <td>
-                            <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
+                            <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+
                         </td>
                     </tr>
 

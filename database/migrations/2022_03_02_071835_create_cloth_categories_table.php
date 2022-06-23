@@ -16,10 +16,7 @@ class CreateClothCategoriesTable extends Migration
         Schema::create('cloth_categories', function (Blueprint $table) {
             $table->id('category_id');
             $table->string('category_name')->unique();
-            $table->string('slug');
-            $table->string('image');
-            $table->tinyInteger('popular');
-            $table->tinyInteger('status');            
+
             $table->timestamps();
         });
     }

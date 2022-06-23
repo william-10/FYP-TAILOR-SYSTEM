@@ -99,4 +99,11 @@ public function addorder(Request $request)
         return redirect()->back()->with('status',"Something went wrong with the email");
     }
 }
+
+public function deleterequest($id)
+{
+    $notification= Notification::find($id);
+        $notification->delete();
+        return redirect('tailor/view-requests')->with('status',"Request deleted successfully");
+}
 }

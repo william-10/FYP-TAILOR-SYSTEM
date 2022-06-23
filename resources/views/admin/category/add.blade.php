@@ -16,17 +16,7 @@
                      <input type="text" class="form-control" name="category_name">
                  </div>
 
-                 <div class="col-md-6 mb-3">
-                     <label for="">Slug</label>
-                     <input type="text" class="form-control" name="slug">
-                 </div>
 
-
-
-
-                 <div class="col-md-4">
-                     <input type="file" class="form-control" name="image">
-                 </div>
 
                  <div class="col-md-12">
                      <button type="submit" class="btn btn-primary">Submit</button>

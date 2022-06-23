@@ -85,16 +85,18 @@
                 <div class="col-md-8">
                     <div class="span4">
                         <blockquote>
-                            <h5><i class="fa fa-profile"></i>{{ $unique_tailor->tailor_name }}</h5>
+                            <h5><i class="fa fa-user"></i>{{ $unique_tailor->tailor_name }}</h5>
                             <hr>
 
-                            <h5><i class="fa fa-location"></i> {{  $unique_tailor->city }},
+                            <h5><i class="fa fa-map-marker"></i> {{  $unique_tailor->city }},
                                 {{  $unique_tailor->region }}</h5>
                                 <hr>
 
                         </blockquote>
                         <h5>
-                            <i class="fa fa-envelope"></i> {{ $unique_tailor->email }}
+                            <i class="fa fa-envelope float-end"> {{ $unique_tailor->email }}</i>
+                            <i class="fa fa-phone float-start"></i>{{ $unique_tailor->phone }}
+
                         </h5>
 
                         <hr>
@@ -140,6 +142,10 @@
                         <h6>{{$unique_tailor->phone}}</h6>
                     </div> -->
             </div>
+
+<div class="col-md-12">
+    <h5>Mainly categorized in : <i class="fa fa-star"></i> {{$category->sewcategory->category_name}}</h5>
+</div>
 
             <form action="{{url('user/put-request')}}" method="POST">
                 @csrf
