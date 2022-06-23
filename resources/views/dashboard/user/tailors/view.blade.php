@@ -144,7 +144,9 @@
             </div>
 
 <div class="col-md-12">
-    <h5>Mainly categorized in : <i class="fa fa-star"></i> {{$category->sewcategory->category_name}}</h5>
+    <h5>Mainly categorized in : <i class="fa fa-star"></i>
+     {{$category->sewcategory->category_name}}
+    </h5>
 </div>
 
             <form action="{{url('user/put-request')}}" method="POST">
