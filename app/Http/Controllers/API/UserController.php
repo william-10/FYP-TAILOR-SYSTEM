@@ -90,11 +90,10 @@ class UserController extends Controller
          elseif( Auth::guard('web')->attempt($creds))
          {
             $user=Auth::guard('web')->user();
-            $token=Auth::guard('web')->user()->createApiToken();
+            $token=auth()->user()->createApiToken();
              return response()->json([
                 'status'=>'Customer successfull loged in',
-                'Customer'=>$user,
-                'token' => $token]);
+                'Customer'=>$user]);
 
          }
          else{
