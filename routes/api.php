@@ -24,13 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('user')->name('user.')->group(function () {
-
-    Route::middleware(['guest:api','PreventBackHistory'])->group(function () {
-
-        Route::view('/mobile/login', 'dashboard.user.login')->name('login');
+    Route::middleware(['guest:api'])->group(function () {
         Route::view('/mobile/register', 'dashboard.user.register')->name('register');
-        Route::post('/mobile/create', [UserController::class, 'create'])->name('create');
+        Route::post('/mobile/userregister', [UserController::class, 'createuser']);
         Route::post('/mobile/check', [UserController::class, 'check'])->name('check');
 
 
@@ -44,15 +40,14 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
     });
-});
 
 
 
     Route::middleware(['guest:tailor'])->group(function () {
 
         Route::post('tailor/mobile/create', [UserController::class, 'create']);
-        Route::post('tailor/register',[UserController::class,'registertailor']);
-        Route::post('/mobile/check', [UserController::class, 'check']);
+        Route::post('mobile/register',[UserController::class,'registertailor']);
+        Route::post('/mobile/login', [UserController::class, 'check']);
 
 
 

@@ -21,34 +21,34 @@ class UserController extends Controller
 
 
 
-     public function create(Request  $request)
+     public function createuser(Request  $request)
      {
-           $request->validate([
+           $validateddata=$request->validate([
                  'name'=>'required',
                  'lname'=>'required',
                  'email'=>'required|email|unique:users,email',
-
                  'password'=>'required|min:5|max:30',
-                 'cpassword'=>'required|min:5|max:30|same:password'
            ]);
 
+           $validateddata['password'] = bcrypt($request->password);
 
-           $user=new User();
-           $user->name = $request->name;
-           $user->lname = $request->lname;
-         $user->phone = $request->phone;
-           $user->email = $request->email;
+           $user = User::create($validateddata);
+           $user->createApiToken();
 
-           $user->password = \Hash::make($request->password);
-           $save=$user->save();
+        //    $user=new User();
+        //    $user->name = $request->name;
+        //    $user->lname = $request->lname;
+        //  $user->phone = $request->phone;
+        //    $user->email = $request->email;
 
+        //    $user->password = Hash::make($request->password);
+        //    $user->createApiToken();
+        //    $save=$user->save();
 
-           if($save){
-            return request()->json($save);
-           }
-           else{
-            return request()->json('bad registration');
-           }
+        return response()->json([
+            'status'=>"registerd",
+            'user'=>$user]);
+
 
      }
      public function registertailor(Request $request)
