@@ -142,7 +142,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('region',[TailorController::class,'region']);
 
 Route::prefix('tailor')->name('tailor.')->group(function () {
-            Route::middleware(['guest:tailor','PreventBackHistory'])->group(function () {
+            Route::middleware(['guest:tailor','PreventBackHistory'])->group(function ()
+             {
                 Route::view('/login', 'tailor.login')->name('login');
                 Route::view('/register', 'tailor.register')->name('register');
                 Route::post('/create', [TailorController::class,'create'])->name('create');

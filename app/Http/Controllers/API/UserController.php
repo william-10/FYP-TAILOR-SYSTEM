@@ -64,7 +64,9 @@ class UserController extends Controller
 
     $user = Tailor::create($validatedData);
     $user->createApiToken();
-         return response()->json(['status',"registerd"]);
+         return response()->json([
+            'status'=>"registerd",
+                'tailor'=>$user]);
      }
 
       public function check(Request  $request)
