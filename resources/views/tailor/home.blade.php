@@ -24,6 +24,11 @@
 
             @include('tailor.layouts.inc.navbar')
 
+            @if ( Session::get('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
                     <div class="card">
             <div class="card-body">
                     <h2>welcome <strong>{{Auth::user()->tailor_name}}</strong></h2>

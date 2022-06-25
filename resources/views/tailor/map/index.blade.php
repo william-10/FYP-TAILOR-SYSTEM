@@ -5,6 +5,11 @@ MAP LOCATION
 @endsection
 
 @section('content')
+@if ( Session::get('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead class="table-dark">

@@ -49,7 +49,7 @@ class GalleryController extends Controller
 
         $gallery=Gallery::Create($input);
 
-        return redirect ('tailor/view-gallery')->with('status',"picture added successfully");
+        return redirect ('tailor/view-gallery')->with('success',"picture added successfully");
     }
 
     public function destroy( $id)
@@ -59,7 +59,7 @@ class GalleryController extends Controller
         unlink(public_path().'/storage/gallery/'.$picture->image);
         $picture->delete();
 
-        return redirect('tailor/view-gallery')->with('status',"Picture deleted successfully");
+        return redirect('tailor/view-gallery')->with('success',"Picture deleted successfully");
 
 
     }

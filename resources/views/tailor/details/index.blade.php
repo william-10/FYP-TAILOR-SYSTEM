@@ -27,6 +27,11 @@
         @include('tailor.layouts.inc.sidebar')
 
         @include('tailor.layouts.inc.navbar')
+        @if ( Session::get('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')  }}
+                                </div>
+                            @endif
 
         <div id="mymodal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">

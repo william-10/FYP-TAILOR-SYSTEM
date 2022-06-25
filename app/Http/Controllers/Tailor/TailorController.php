@@ -100,13 +100,13 @@ class TailorController extends Controller
             $creds =$request->only('email','password');
             if( Auth::guard('tailor')->attempt($creds))
                 {
-                    return redirect()->route('tailor.home')->with('status','Welcome Tailor');
+                    return redirect()->route('tailor.home')->with('success','Welcome');
                 }
 
 
                 elseif( Auth::guard('admin')->attempt($creds))
                 {
-                    return redirect()->route('admin.home')->with('status','Welcome Administrator');
+                    return redirect()->route('admin.home')->with('success','Welcome');
                 }
 
                 elseif( Auth::guard('web')->attempt($creds))
@@ -174,7 +174,7 @@ class TailorController extends Controller
         $user->city = $request->input('city_name');
 
         $user->update();
-        return redirect('tailor/details')->with('status',"Profile Updated successfully");
+        return redirect('tailor/details')->with('success',"Profile Updated successfully");
 
     }
 
@@ -212,7 +212,7 @@ class TailorController extends Controller
 
 
         }
-              return redirect('tailor/home')->with('status',"profile picture updated successfully");
+              return redirect('tailor/home')->with('success',"profile picture updated successfully");
 
     }
 }

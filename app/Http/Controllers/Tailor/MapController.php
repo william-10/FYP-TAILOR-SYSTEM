@@ -37,7 +37,7 @@ class MapController extends Controller
         $map->longitude=$request->input('lng');
         $map->save();
 
-        return redirect()->back()->with('status',"Map location added successfully");
+        return redirect()->back()->with('success',"Map location added successfully");
     }
 
     public function update(Request $request, $id)
@@ -50,14 +50,14 @@ class MapController extends Controller
 
         $map->update();
 
-        return redirect()->back()->with('status',"Map updated successfully");
+        return redirect()->back()->with('success',"Map updated successfully");
 
     }
     public function destroy($id)
     {
         $map= Map::find($id);
         $map->delete();
-        return redirect('tailor/list-product')->with('status',"Map location deleted successfully");
+        return redirect('tailor/list-product')->with('success',"Map location deleted successfully");
     }
 
 
