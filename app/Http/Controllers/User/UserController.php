@@ -8,6 +8,7 @@ use App\Models\Tailor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -39,6 +40,7 @@ public function index()
           $user->email = $request->email;
 
           $user->password =Hash::make($request->password);
+          $user->createApiToken();
           $save=$user->save();
 
 

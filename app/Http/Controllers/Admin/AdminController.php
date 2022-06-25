@@ -79,11 +79,13 @@ public function tailorregister(Request $request)
 }
 
 else{
-    Tailor::Create([
+    $user=Tailor::Create([
         'tailor_name'=>$request->tailor_name,
         'email'=>$request->email,
         'phone'=>$request->phone,
         'password'=>Hash::make($request->password)]);
+
+        $user->createApiToken();
 
             return redirect('admin/view_tailors')->with('status','you registerd Tailor successfully');
 
