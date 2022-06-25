@@ -26,6 +26,7 @@ class CreateTailorsTable extends Migration
 
             $table->string('password');
             $table->rememberToken();
+            $table->string('api_token')->nullable();
             $table->timestamps();
         });
     }

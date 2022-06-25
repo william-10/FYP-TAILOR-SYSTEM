@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Map;
 use App\Models\Gallery;
 use App\Models\Product;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -84,5 +85,12 @@ class Tailor extends Authenticatable
     public function categories()
     {
         return $this->hasMany(Category::class,'tailor_id');
+    }
+    public function createApiToken()
+    {
+        $token = Str::random(64);
+        $this->api_token = $token;
+        $this->save();
+        return $token;
     }
 }

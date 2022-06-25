@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Auth;
 use Validator;
 use App\Models\User;
+use App\Models\Tailor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -77,7 +78,14 @@ class HomeController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $token = auth()->user()->createApiToken(); #Generate token
             return response()->json(['status' => 'Authorised', 'token' => $token ], 200);
-        } else {
+        }
+
+        if(Auth::guard('tailor')->attempt(['email' => $request->email, 'password' => $request->password])){
+            $token = Tailor::createApiToken(); #Generate token
+            return response()->json(['status' => 'Authorised', 'token' => $token ], 200);
+        }
+
+        else {
             return response()->json(['status'=>'Unauthorised'], 401);
         }
     }

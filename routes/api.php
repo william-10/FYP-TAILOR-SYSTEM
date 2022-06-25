@@ -34,11 +34,10 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/mobile/check', [UserController::class, 'check'])->name('check');
 
 
+
     });
 
     Route::middleware(['auth:api'])->group(function () {
-
-
         Route::get('/users', [HomeController::class, 'index']);
         Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
         Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
@@ -46,16 +45,35 @@ Route::prefix('user')->name('user.')->group(function () {
 
     });
 });
-// Route::group([
-// 'prefix'=>'auth'
-//     ],
-//     function()
-//     {
 
-//     }
-// );
-Route::post('/register', [HomeController::class, 'register']);
-        Route::post('login', [HomeController::class, 'login']);
+
+
+    Route::middleware(['guest:tailor'])->group(function () {
+
+        Route::post('tailor/mobile/create', [UserController::class, 'create']);
+        Route::post('/mobile/check', [UserController::class, 'check']);
+
+
+
+    });
+
+    Route::middleware(['auth:tailor'])->group(function () {
+
+        Route::get('tailor/mobile/my-orders', [CustomerController::class, 'index']);
+        // Route::get('edit-profile',[TailorController::class,'edit']);
+        // Route::put('update-details',[TailorController::class,'profileUpdate']);
+        // Route::get('details',[TailorController::class,'index']);
+        // Route::get('view-gallery',[GalleryController::class,'view']);     //In pause,will be used later
+        // Route::get('add-picture',[GalleryController::class,'add']);
+        // Route::post('insert-picture',[GalleryController::class,'store']);
+        // Route::get('delete-picture/{id}', [GalleryController::class ,'destroy']);
+        // Route::get('avator',[TailorController::class,'view']);
+        // Route::put('update-avator',[TailorController::class,'updateavator']);
+    });
+
+
+
+
 
         Route::get('/user/mobile/home', [FrontendController::class, 'index']);
         Route::get('/user/mobile/view-tailor/{tailor_id}', [FrontendController::class, 'viewtailor']);
@@ -70,8 +88,3 @@ Route::post('/register', [HomeController::class, 'register']);
         Route::get('/user/mobile/city/{RegionCode}', [FrontendController::class, 'city']);
         Route::get('/user/mobile/region', [FrontendController::class, 'region']);
 
-
-        //  Route::get('/user/product/{tailor_id}', [FrontendController::class, 'listproduct']);
-        // Route::get('user/mobile/products', [FrontendController::class, 'product']);
-        // Route::get('/user/mobile/view-product/{cate_slug}/{prod_slug}', [FrontendController::class, 'viewproduct']);
-        // Route::get('/user/mobile/view-product/{prod_slug}', [FrontendController::class, 'viewcartproduct']);

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Tailor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -67,21 +68,17 @@ class UserController extends Controller
          $creds =$request->only('email','password');
          if( Auth::guard('tailor')->attempt($creds))
          {
-             return redirect()->route('tailor.home');
-         }
-
-
-         elseif( Auth::guard('admin')->attempt($creds))
-         {
-             return redirect()->route('admin.home')->with('status','Welcome Administrator');
+             return response()->json(['status'=>'Tailor successfull loged in']);
          }
 
          elseif( Auth::guard('web')->attempt($creds))
          {
-             return redirect('/user/home');
+             return response()->json(['status'=>'Customer successfull loged in']);
+
          }
          else{
-             return redirect()->route('user.login')->with('fail','invalid credentials');
+            return response()->json(['status'=>'failed to login']);
+
          }
      }
      public function logout()
