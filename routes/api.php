@@ -51,6 +51,7 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['guest:tailor'])->group(function () {
 
         Route::post('tailor/mobile/create', [UserController::class, 'create']);
+        Route::post('tailor/register',[UserController::class,'registertailor']);
         Route::post('/mobile/check', [UserController::class, 'check']);
 
 

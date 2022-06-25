@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 Trait Tokenable
 {
-    public function createApiToken()
+    public function generateAndSaveApiAuthToken()
     {
         $token = Str::random(60);
 

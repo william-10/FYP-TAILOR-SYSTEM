@@ -51,6 +51,21 @@ class UserController extends Controller
            }
 
      }
+     public function registertailor(Request $request)
+     {  $validatedData = $request->validate([
+        'tailor_name' => 'required|string',
+        'phone' => 'required|string',
+        'email' => 'email|required|unique:tailors',
+        'password' => 'required|string'
+    ]);
+
+
+    $validatedData['password'] = bcrypt($request->password);
+
+    $user = Tailor::create($validatedData);
+    $user->createApiToken();
+         return response()->json(['status',"registerd"]);
+     }
 
       public function check(Request  $request)
       {
@@ -68,12 +83,18 @@ class UserController extends Controller
          $creds =$request->only('email','password');
          if( Auth::guard('tailor')->attempt($creds))
          {
-             return response()->json(['status'=>'Tailor successfull loged in']);
+            $user=Auth::guard('tailor')->user();
+             return response()->json($user);
          }
 
          elseif( Auth::guard('web')->attempt($creds))
          {
-             return response()->json(['status'=>'Customer successfull loged in']);
+            $user=Auth::guard('web')->user();
+            $token=Auth::guard('web')->user()->createApiToken();
+             return response()->json([
+                'status'=>'Customer successfull loged in',
+                'Customer'=>$user,
+                'token' => $token]);
 
          }
          else{
