@@ -84,6 +84,7 @@ class UserController extends Controller
          if( Auth::guard('tailor')->attempt($creds))
          {
             $user=Auth::guard('tailor')->user();
+            $token=Auth::guard('tailor')->user()->createApiToken();
              return response()->json($user);
          }
 
