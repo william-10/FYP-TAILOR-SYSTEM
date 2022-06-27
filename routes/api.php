@@ -53,6 +53,8 @@ use App\Http\Controllers\API\FrontendController;
 
         Route::get('add-categories',[CategoryController::class,'add']);
 
+        Route::post('post-categories',[CategoryController::class,'postcategory']);
+        Route::get('view-categories',[CategoryController::class,'index']);
 
     });
 
@@ -64,8 +66,6 @@ use App\Http\Controllers\API\FrontendController;
 
 
 
-        Route::post('post-categories',[CategoryController::class,'postcategory']);
-        Route::get('view-categories',[CategoryController::class,'index']);
 
         // Route::get('view-gallery',[GalleryController::class,'view']);     //In pause,will be used later
         // Route::get('add-picture',[GalleryController::class,'add']);
