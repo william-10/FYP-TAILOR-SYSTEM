@@ -30,7 +30,13 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
         Passport::tokensExpireIn(now()->addDays(15));
 
-        Passport::refreshTokensExpireIn(now()->addDays(30));
+        // Passport::refreshTokensExpireIn(now()->addDays(30));
+
+        // Passport::tokensCan([
+        //     'user'=>'User Type',
+        //     'tailor'=>'Tailor User Type'
+        // ]);
+
 
         Auth::extend('token', function ($app, $name, array $config) {
             return new TokenGuard(Auth::createUserProvider($config['provider']), $app->request);

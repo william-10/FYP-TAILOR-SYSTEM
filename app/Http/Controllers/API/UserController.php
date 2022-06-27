@@ -51,23 +51,25 @@ class UserController extends Controller
 
 
      }
+
      public function registertailor(Request $request)
      {  $validatedData = $request->validate([
         'tailor_name' => 'required|string',
         'phone' => 'required|string',
         'email' => 'email|required|unique:tailors',
         'password' => 'required|string'
-    ]);
+             ]);
 
 
-    $validatedData['password'] = bcrypt($request->password);
+                $validatedData['password'] = bcrypt($request->password);
 
-    $user = Tailor::create($validatedData);
-    $user->createApiToken();
-         return response()->json([
-            'status'=>"registerd",
-                'tailor'=>$user]);
-     }
+                $user = Tailor::create($validatedData);
+                $user->createApiToken();
+                 return response()->json([
+                        'status'=>"registerd",
+                            'tailor'=>$user]);
+    }
+
 
       public function check(Request  $request)
       {
@@ -86,14 +88,16 @@ class UserController extends Controller
          if( Auth::guard('tailor')->attempt($creds))
          {
             $user=Auth::guard('tailor')->user();
-            $token=Auth::guard('tailor')->user()->createApiToken();
-             return response()->json($user);
+            // $token=Auth::guard('tailor')->user()->createApiToken();
+             return response()->json([
+                'status'=>'Tailor successfull loged in',
+                'tailor'=>$user]);
          }
 
          elseif( Auth::guard('web')->attempt($creds))
          {
             $user=Auth::guard('web')->user();
-            $token=auth()->user()->createApiToken();
+            // $token=auth()->user()->createApiToken();
              return response()->json([
                 'status'=>'Customer successfull loged in',
                 'Customer'=>$user]);
@@ -104,10 +108,18 @@ class UserController extends Controller
 
          }
      }
-     public function logout()
+     public function logout(Request $request)
      {
+        $user = Auth::guard('web')->user();
+
+        if ($user) {
+            $user->api_token = null;
+            $user->save();
+        }
+
+        return response()->json(['Success' => 'Logged out'], 200);
          Auth::guard('web')->logout();
-         return redirect('user/home');
+
      }
 
 }

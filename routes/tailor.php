@@ -19,42 +19,36 @@ use App\Http\Controllers\API\FrontendController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
-    Route::middleware(['guest:api'])->group(function () {
-
-        Route::post('/mobile/userregister', [UserController::class, 'createuser']);
-        // Route::post('/mobile/check', [UserController::class, 'check'])->name('check');
-        Route::post('/mobile/login', [UserController::class, 'check']);
-        // Route::post('mobile/register',[UserController::class,'registertailor']);
-
-
-    });
-
-    Route::middleware(['auth:api'])->group(function () {
-        Route::get('/users', [HomeController::class, 'index']);
-        Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
-        Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
-
-
-    });
+    // Route::middleware(['guest:web'])->group(function () {
+    //     Route::view('/mobile/register', 'dashboard.user.register')->name('register');
+    //     Route::post('/mobile/userregister', [UserController::class, 'createuser']);
+    //     Route::post('/mobile/check', [UserController::class, 'check'])->name('check');
 
 
 
-    Route::middleware(['guest:tailor'])->group(function () {
+    // });
+
+    // Route::middleware(['auth:web'])->group(function () {
+    //     Route::get('/users', [HomeController::class, 'index']);
+    //     Route::get('/mobile/my-orders', [CustomerController::class, 'index']);
+    //     Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
+
+
+    // });
+
+
+
+    Route::middleware(['guest:tailor-api'])->group(function () {
 
         Route::post('tailor/mobile/create', [UserController::class, 'create']);
         Route::post('mobile/register',[UserController::class,'registertailor']);
-
+        Route::post('/mobile/login', [UserController::class, 'check']);
 
 
 
     });
 
-    Route::middleware(['auth:tailor'])->group(function () {
+    Route::middleware(['auth:tailor-api'])->group(function () {
 
         Route::get('tailor/mobile/my-orders', [CustomerController::class, 'index']);
         // Route::get('edit-profile',[TailorController::class,'edit']);

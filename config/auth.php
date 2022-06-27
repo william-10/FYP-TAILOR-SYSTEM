@@ -30,6 +30,8 @@ return [
     ],
 
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -64,9 +66,13 @@ return [
             'provider'=>'tailors',
         ],
 
+
+
+
         'api' => [
-            'driver' => 'passport', //only check
+            'driver' => 'token', //previous was passport
             'provider' => 'users',
+            'hash' => false,
         ],
 
     ],
@@ -97,14 +103,6 @@ return [
             'model' => App\Models\User::class,
         ],
 
-
-
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-
         'admins' => [
             'driver' => 'eloquent',
              'model' => App\Models\Admin::class,
@@ -114,6 +112,8 @@ return [
                 'driver' => 'eloquent',
                  'model' => App\Models\Tailor::class,
                 ],
+
+
     ],
 
 
@@ -150,7 +150,9 @@ return [
         'tailors' => [
             'driver' => 'eloquent',
              'model' => App\Models\Tailor::class,
-            ]
+        ],
+
+
 
     ],
 
