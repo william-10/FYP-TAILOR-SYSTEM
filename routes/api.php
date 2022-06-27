@@ -51,7 +51,7 @@ use App\Http\Controllers\API\FrontendController;
         Route::post('tailor/mobile/create', [UserController::class, 'create']);
         Route::post('mobile/register',[UserController::class,'registertailor']);
 
-
+        Route::get('add-categories',[CategoryController::class,'add']);
 
 
     });
@@ -63,7 +63,7 @@ use App\Http\Controllers\API\FrontendController;
         Route::get('details',[TailorController::class,'index']);
 
 
-        Route::get('add-categories',[CategoryController::class,'add']);
+
         Route::post('post-categories',[CategoryController::class,'postcategory']);
         Route::get('view-categories',[CategoryController::class,'index']);
 
