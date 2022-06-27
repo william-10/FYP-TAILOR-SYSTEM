@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Jimmyjs\ReportGenerator\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -232,6 +233,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
     'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+    'PdfReport' => Jimmyjs\ReportGenerator\Facades\PdfReportFacade::class,
+'ExcelReport' => Jimmyjs\ReportGenerator\Facades\ExcelReportFacade::class,
+'CSVReport' => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
 
     ],
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Tailor\MapController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GenderController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
@@ -131,6 +132,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('delete-gender/{id}', [GenderController::class ,'destroy']);
 
             Route::post('register-tailor',[AdminController::class,'tailorregister']);
+            Route::get('reports',[ReportController::class,'index']);
     });
 
 
@@ -198,6 +200,8 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('add-categories',[CategoryController::class,'add']);
                 Route::post('post-categories',[CategoryController::class,'postcategory']);
                 Route::get('view-categories',[CategoryController::class,'index']);
+
+                Route::get('reports',[ReportController::class,'index']);
 
 
 

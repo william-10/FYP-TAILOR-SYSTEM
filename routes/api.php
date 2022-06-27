@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TailorController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\FrontendController;
 
@@ -56,10 +58,15 @@ use App\Http\Controllers\API\FrontendController;
 
     Route::middleware(['auth:tailor'])->group(function () {
 
-        Route::get('tailor/mobile/my-orders', [CustomerController::class, 'index']);
-        // Route::get('edit-profile',[TailorController::class,'edit']);
-        // Route::put('update-details',[TailorController::class,'profileUpdate']);
-        // Route::get('details',[TailorController::class,'index']);
+        // Route::get('tailor/mobile/my-orders', [CustomerController::class, 'index']);
+        Route::put('update-details',[TailorController::class,'profileUpdate']);
+        Route::get('details',[TailorController::class,'index']);
+
+
+        Route::get('add-categories',[CategoryController::class,'add']);
+        Route::post('post-categories',[CategoryController::class,'postcategory']);
+        Route::get('view-categories',[CategoryController::class,'index']);
+
         // Route::get('view-gallery',[GalleryController::class,'view']);     //In pause,will be used later
         // Route::get('add-picture',[GalleryController::class,'add']);
         // Route::post('insert-picture',[GalleryController::class,'store']);
