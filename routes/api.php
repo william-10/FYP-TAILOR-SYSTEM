@@ -42,6 +42,7 @@ use App\Http\Controllers\API\FrontendController;
         Route::get('/mobile/view-order/{id}', [CustomerController::class, 'vieworder']);
 
 
+
     });
 
 
@@ -53,7 +54,7 @@ use App\Http\Controllers\API\FrontendController;
 
         Route::get('add-categories',[CategoryController::class,'add']);
 
-        Route::post('post-categories',[CategoryController::class,'postcategory']);
+        //Route::post('post-categories',[CategoryController::class,'postcategory']);
         Route::get('view-categories',[CategoryController::class,'index']);
 
     });
@@ -61,9 +62,9 @@ use App\Http\Controllers\API\FrontendController;
     Route::middleware(['auth:tailor'])->group(function () {
 
         // Route::get('tailor/mobile/my-orders', [CustomerController::class, 'index']);
-        Route::put('update-details',[TailorController::class,'profileUpdate']);
-        Route::get('details',[TailorController::class,'index']);
-
+        // Route::put('update-details',[TailorController::class,'profileUpdate']);
+        // Route::get('details',[TailorController::class,'index']);
+        //  Route::post('post-categories',[CategoryController::class,'postcategory']);
 
 
 

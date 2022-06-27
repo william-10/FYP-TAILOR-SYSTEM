@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Cloth_category;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -29,11 +30,20 @@ class CategoryController extends Controller
     {
 
         $addcategory =new Category();
-            $addcategory->cloth_category_id=$request->input('category_id');
+            $addcategory->cloth_category_id=$request->input('cloth_category_id');
             $addcategory->tailor_id=Auth::id();
             $addcategory->save();
-            return response()->json([
-                'status'=>"submitted sewing category successfully"]);
+
+            if ($addcategory) {
+                return response()->json([
+                    'status'=>"submitted sewing category successfully"]);
+            }
+
+            else{
+                return response()->json([
+                    'status'=>"error found"]);
+            }
+
 
 
     }
