@@ -59,7 +59,7 @@ class FrontendController extends Controller
         // foreach ($location as $item3) {
         //     $data3= $item3['region'];
         // }
-        return $data1;
+        return $data1->count();
         // return $data1;
         // return $data3;
 

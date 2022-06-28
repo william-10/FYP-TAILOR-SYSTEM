@@ -69,6 +69,13 @@
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                        <li>
+                                <a href="{{url('/user/profile')}}" class="dropdown-item">
+                                    Profile
+                                </a>
+
+                            </li>
+
                             <li>
                                 <a href="{{url('/user/my-orders')}}" class="dropdown-item">
                                     My Notification

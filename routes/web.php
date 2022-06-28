@@ -57,6 +57,10 @@ Route::prefix('user')->name('user.')->group(function () {
 
         Route::get('/cart', [CartController::class, 'viewcart']);
         Route::get('/checkout', [CheckoutController::class, 'index']);
+
+        Route::get('/profile', [UserController::class, 'userprofile']);
+        Route::put('/update-userdetails',[UserController::class,'profileUpdate']);
+
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/my-orders', [CustomerController::class, 'index']);
         Route::get('/order-history', [CustomerController::class, 'orderhistory']);

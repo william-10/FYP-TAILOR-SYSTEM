@@ -92,4 +92,36 @@ public function index()
         return redirect('user/home');
     }
 
+    public function userprofile()
+    {
+
+        return view('dashboard.user.details.index');
+    }
+
+    public function profileUpdate(Request $request){
+        //validation rules
+
+        $request->validate([
+            'name' =>'required|min:4|string|max:20',
+            'lname' =>'required|min:4|string|max:20',
+            'phone' =>'required',
+            'email'=>'required',
+            'password'=>'required|min:5|max:30'
+
+
+        ]);
+
+        $user =Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->lname = $request->lname;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request['password']);
+
+        $user->update();
+        return redirect('user/profile')->with('success',"Profile Updated successfully");
+
+    }
+
+
 }

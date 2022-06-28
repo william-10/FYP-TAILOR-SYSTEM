@@ -46,16 +46,12 @@
 
                         </div>
                         <div class="modal-body">
-
-
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="tailor_name">NAME</label>
                                     <input type="text" value="{{Auth::user()->tailor_name}}" class="form-control"
                                         name="tailor_name">
                                 </div>
-
-
 
 
                                 <div class="col-md-6 mb-3">
