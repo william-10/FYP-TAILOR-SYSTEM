@@ -202,10 +202,14 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::put('update-order/{id}',[OrderingController::class,'updateorder']);
                 Route::get('order-history',[OrderingController::class,'orderhistory']);
 
+                Route::get('delete-order/{id}',[OrderingController::class,'deleteorder']);
+                Route::get('delete-measurement_detail/{id}',[OrderingController::class,'deletemeasurement']);
+                
                 Route::get('create-order',[OrderingController::class,'createorder']);
                 Route::post('add-order',[OrderingController::class,'addorder']);
                 Route::get('view-requests',[OrderingController::class,'viewrequests']);
                 Route::get('delete-request/{id}',[OrderingController::class,'deleterequest']);
+                Route::get('measurement',[OrderingController::class,'viewmeasurement']);
 
                 Route::get('add-categories',[CategoryController::class,'add']);
                 Route::post('post-categories',[CategoryController::class,'postcategory']);

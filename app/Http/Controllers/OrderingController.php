@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use App\Models\Measurement_detail;
 use Illuminate\Support\Facades\Auth;
 
 class OrderingController extends Controller
@@ -82,6 +83,7 @@ public function addorder(Request $request)
         //     ->where('order_items.tailor_id',$tailor_id)->get();
 
         $order=new Order();
+        $measurement=new Measurement_detail();
 
         // $order->user_id=Auth::id();
         $order->tailor_id=$request->input('tailor_id');
@@ -91,6 +93,13 @@ public function addorder(Request $request)
 
         $order->tracking_no='tshop'.rand(1111,9999);
         $order->save();
+
+        $measurement->name=$customer_check->name;
+        $measurement->tailor_id=$request->input('tailor_id');
+        $measurement->phone=$customer_check->phone;
+        $measurement->details=$request->input('measurementdescription');
+        $measurement->save();
+
         return redirect('/tailor/orders')->with('status',"order placed successfully");
     }
 
@@ -100,10 +109,34 @@ public function addorder(Request $request)
     }
 }
 
+public function viewmeasurement()
+{   $measurement=Measurement_detail::where('tailor_id',Auth::id())->get();
+    return view('tailor.measurement.index',compact('measurement'));
+}
+
 public function deleterequest($id)
 {
     $notification= Notification::find($id);
         $notification->delete();
         return redirect('tailor/view-requests')->with('status',"Request deleted successfully");
+}
+
+public function deleteorder($id)
+{   
+ 
+    $order=Order::find($id);
+    $order->delete();
+        return redirect()->back()->with('success',"order deleted successfully");
+   
+}
+
+
+public function deletemeasurement($id)
+{   
+ 
+    $measuremenent=Measurement_detail::find($id);
+    $measuremenent->delete();
+        return redirect()->back()->with('success',"measurement details deleted successfully");
+   
 }
 }

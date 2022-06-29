@@ -1,7 +1,7 @@
 @extends('tailor.layouts.tailor')
 
 @section('title')
-ORDERS
+MEASUREMENT
 @endsection
 
 @section('content')
@@ -12,64 +12,42 @@ ORDERS
                             @endif
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-        <a href="" class="btn btn-success float-start">Download pdf</a>
-        </div>
         <div class="col-md-12">
         <div class="card">
-            
                 <div class="card-header bg-primary">
-                        <h4 class="text-white">NEW ORDERS
-                           <a href="{{url('/tailor/order-history')}}" class="btn btn-warning float-end">Order History</a>
-                           
- 
+                        <h4 class="text-white">MEASUREMENT
+                           <!-- <a href="{{url('/tailor/order-history')}}" class="btn btn-warning float-end">Order History</a> -->
                         </h4>
                 </div>
                         <div class="card-body">
-
-
-
                         <table class="table table-bordered">
                 <thead>
                     <tr>
 
                     <th>Order Date</th>
-                    <th>Customer email/id</th>
-                    <th>tracking no</th>
-
-                    <th>Status</th>
+                    <th>Customer name</th>
+                    <th>phone</th>
+                    <th>Details</th>
                     <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
-
-
-                @foreach ($orderitem as $item)
-                @if ($item->status == "0")
+                @foreach ($measurement as $item)
+                
                     <tr>
 
                         <td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
-                        <td>{{$item->users->email}}</td>
-
-                        <td>{{$item->tracking_no}}</td>
-                        <td ><strong class="badge badge-danger rounded pill"> Pending</strong></td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->phone}}</td>
+                        <td>{{$item->details}}</td>
                         <td>
-                            <a href="{{url('/tailor/view-order/'.$item->id)}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-
-                            <a href="{{ url('tailor/delete-order/'.$item->id)}}" class="btn btn-danger"
-                        onclick="return confirm('are you sure you want to delete the order?')"><i class="fa fa-trash"></i></a>
-
+                        <a href="{{ url('tailor/delete-measurement_detail/'.$item->id)}}" class="btn btn-danger"
+                        onclick="return confirm('are you sure you want to delete the measurement details?')"><i class="fa fa-trash"></i></a>
+                        
                         </td>
                     </tr>
-
-
-                    @endif
-
                     @endforeach
-
-
                 </tbody>
 
             </table>

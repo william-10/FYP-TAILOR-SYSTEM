@@ -1,7 +1,7 @@
   <!-- Page Content  -->
   <div id="content">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
           <div class="container-fluid">
 
               <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -25,7 +25,8 @@
 
                       <li class="nav-item dropdown">
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->tailor_name }}
+
+                            <h5 class="text-white" >{{ Auth::user()->tailor_name }}</h5> 
                           </a>
 
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

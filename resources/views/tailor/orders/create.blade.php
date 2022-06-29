@@ -56,6 +56,12 @@ CREATE ORDER
                      <span class="text-danger">@error('description'){{ $message}}@enderror</span>
                  </div>
 
+                 <div class="col-md-12 mb-3">
+                     <label for="">Measurement description</label>
+                     <textarea class="form-control" rows="3" name="measurementdescription"></textarea>
+                     <span class="text-danger">@error('measurementdescription'){{ $message}}@enderror</span>
+                 </div>
+
                  <div class="col-md-6 mb-3">
                      <label for="">Total price</label>
                      <input type="number" class="form-control" name="price" value="{{ old('price')}}">

@@ -11,9 +11,9 @@ class Measurement_detail extends Model
     protected $table='measurement_details';
     protected $fillable= [
         'id',
+        'tailor_id',
         'name',
-        'image1',
-        'image2',
+        'phone',
         'details'
     ];
 

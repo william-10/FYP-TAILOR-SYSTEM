@@ -23,9 +23,10 @@ REQUESTS
 <thead>
 <tr>
 <th>ID</th>
+<th>Request Date</th>
 <th>Customer Name</th>
 <th>EMAIL</th>
-<th>Request Date</th>
+<th>PHONE</th>
 <th>Status</th>
 <th>Action</th>
 </tr>
@@ -38,9 +39,10 @@ REQUESTS
 @foreach ($customer_request as $item)
 <tr>
 <td>{{$loop->index+1}}</td>
+<td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
 <td>{{$item->users->name}} {{$item->users->lname}}</td>
 <td>{{$item->users->email}}</td>
-<td>{{date('d-m-Y',strtotime ($item->created_at))}}</td>
+<td>{{$item->users->phone}}</td>
 <td><strong class="badge badge-warning rounded pill">Requested</strong></td>
 <td>
     <a href="" class="btn btn-primary"><i class="fa fa-eye"></i></a>

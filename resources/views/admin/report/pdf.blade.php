@@ -34,9 +34,14 @@
         <td>
           {{$tailors->region}}
         </td>
-        <td>
-          {{$tailors->status}}
-        </td>    
+        
+            @if ($tailors->status ==1)
+                <td>ACTIVE</td>            
+            @elseif($tailors->status ==0)
+            <td>BANNED</td>        
+            @endif
+          
+        
         @endforeach
         
       </tr>

@@ -84,8 +84,8 @@
                  class="dropdown-toggle">MEASUREMENT</a>
              <ul class="collapse list-unstyled" id="pageSubmenu2">
 
-                 <li class="nav-item">
-                     <a href="">VIEW MEASUREMENT</a>
+                 <li class="nav-item {{Request::is('tailor/measurement') ? 'active':''}}">
+                     <a href="{{url('tailor/measurement')}}">VIEW MEASUREMENT</a>
                  </li>
 
                  <li class="nav-item">
@@ -131,7 +131,7 @@
 
          <li class="nav-item {{Request::is('tailor/reports') ? 'active':''}}">
 
-             <a href="{{url('tailor/reports')}}">REPORT</a>
+             <a href="{{url('tailor/reports')}}">STATISTICS</a>
          </li>
 
 

@@ -15,9 +15,9 @@ class CreateMeasurementDetailsTable extends Migration
     {
         Schema::create('measurement_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tailor_id');
             $table->string('name');
-            $table->string('image1');
-            $table->string('image2');
+            $table->string('phone');
             $table->string('details');
             $table->timestamps();
         });
