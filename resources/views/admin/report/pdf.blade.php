@@ -6,6 +6,7 @@
   </head>
   <body>
     <h2>TAILOR RECORDS</h2>
+    <hr>
     <div class="table-responsive">
     <table class="table table-bordered table-responsive">
     <thead class="table-dark">
