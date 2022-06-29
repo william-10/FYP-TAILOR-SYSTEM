@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Tailor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use PdfReport;
 
-class ReportController extends Controller
+class ReportsController extends Controller
 {
     public function index()
     {

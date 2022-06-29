@@ -131,7 +131,7 @@
 
          <li class="nav-item {{Request::is('tailor/reports') ? 'active':''}}">
 
-             <a href="{{('reports')}}"><i class="fa fa-file">REPORT</i></a>
+             <a href="{{url('tailor/reports')}}">REPORT</a>
          </li>
 
 

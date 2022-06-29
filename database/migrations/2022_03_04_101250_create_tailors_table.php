@@ -21,6 +21,7 @@ class CreateTailorsTable extends Migration
             $table->string('phone');
             $table->string('region');
             $table->string('city');
+            $table->tinyInteger('status');
             $table->string('address');
             $table->timestamp('email_verified_at')->nullable();
 

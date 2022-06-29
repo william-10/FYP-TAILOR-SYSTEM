@@ -51,6 +51,12 @@
                                     {{Session::get('fail')  }}
                                 </div>
                             @endif
+
+                            @if (session('error'))
+   <div class="alert alert-danger">
+        {{ session('error') }}
+   </div>
+@endif
                             @csrf
                             <div class="form-group mb-3">
                             <label for="email" class="form-group"><strong>Email</strong></label>

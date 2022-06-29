@@ -24,6 +24,7 @@
     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/toastr.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/servicebox.css') }}" rel="stylesheet">
 
 
 
@@ -58,6 +59,7 @@
 <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
 <script src="{{ asset('admin/js/toastr.min.js') }}"></script>
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
 
 @if(SESSION('status'))
 <script>swal("{{session('status')}}");

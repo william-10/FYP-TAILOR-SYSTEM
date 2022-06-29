@@ -100,7 +100,15 @@ class TailorController extends Controller
             $creds =$request->only('email','password');
             if( Auth::guard('tailor')->attempt($creds))
                 {
-                    return redirect()->route('tailor.home')->with('success','Welcome');
+
+
+                        return redirect()->route('tailor.home')->with('success','Welcome');
+
+
+                    // elseif(Tailor::where('tailor_id',Auth::id())->where('status',"0")) {
+                    //     return redirect()->back()->with('fail','You are currently susspended...contact the Administrator');
+                    // }
+
                 }
 
 

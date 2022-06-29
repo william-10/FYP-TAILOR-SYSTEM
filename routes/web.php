@@ -12,6 +12,7 @@ use App\Http\Controllers\Tailor\TailorController;
 use App\Http\Controllers\User\FrontendController;
 use App\Http\Controllers\Tailor\GalleryController;
 use App\Http\Controllers\Tailor\ProductController;
+use App\Http\Controllers\Tailor\ReportsController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Tailor\CategoryController;
 use App\Http\Controllers\Admin\MeasurementController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+
 
 
 /*
@@ -135,8 +137,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('update-gender/{id}', [GenderController::class ,'update']);
             Route::get('delete-gender/{id}', [GenderController::class ,'destroy']);
 
+            Route::put('update-status', [AdminController::class ,'statusupdate']);
+
             Route::post('register-tailor',[AdminController::class,'tailorregister']);
             Route::get('reports',[ReportController::class,'index']);
+            Route::get('pdfpage',[ReportController::class,'reportpdf']);
+            Route::get('pdf',[ReportController::class,'pdf']);
     });
 
 
@@ -205,7 +211,7 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::post('post-categories',[CategoryController::class,'postcategory']);
                 Route::get('view-categories',[CategoryController::class,'index']);
 
-                Route::get('reports',[ReportController::class,'index']);
+                Route::get('reports',[ReportsController::class,'index']);
 
 
 

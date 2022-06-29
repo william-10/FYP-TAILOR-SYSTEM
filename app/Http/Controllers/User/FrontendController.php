@@ -18,7 +18,7 @@ class FrontendController extends Controller
 {
 
     public function index(Request $request )
-    {  $tailor=Tailor::get();
+    {  $tailor=Tailor::where('status','1')->get();
         return view('dashboard.user.tailors.index',compact('tailor'));
         }
 

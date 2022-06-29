@@ -33,7 +33,8 @@ class Tailor extends Authenticatable
         'password',
         'phone',
         'city',
-        'address'
+        'address',
+        'status'
 
     ];
 

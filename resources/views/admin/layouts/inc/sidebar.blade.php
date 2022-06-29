@@ -77,7 +77,7 @@
                     <li class="nav-item {{Request::is('admin/reports') ? 'active':''}}">
                         <a class="nav-link" href="{{'reports'}}">
                             <i class="far fa-file"></i>
-                            <p>REPORT</p>
+                            <p>STATISTICS</p>
                         </a>
                     </li>
 

@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Jimmyjs\ReportGenerator\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -236,6 +237,7 @@ return [
     'PdfReport' => Jimmyjs\ReportGenerator\Facades\PdfReportFacade::class,
 'ExcelReport' => Jimmyjs\ReportGenerator\Facades\ExcelReportFacade::class,
 'CSVReport' => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
+'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

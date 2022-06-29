@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
+    public function home()
+    {
+        return view('admin.index');
+    }
     public function check(Request  $request)
     {
         $request->validate([
@@ -90,6 +95,26 @@ else{
             return redirect('admin/view_tailors')->with('status','you registerd Tailor successfully');
 
   }
+}
+
+public function statusupdate(Request $request)
+{
+    $tailor_id=$request->input('tailor_id');
+
+    $Tailor_check=Tailor::where('tailor_id',$tailor_id)->first();
+    if($Tailor_check->status=="1")
+    {
+        $Tailor_check->status="0";
+        $Tailor_check->update();
+        return redirect()->back()->with('success',"status updated successfully");
+    }
+
+    elseif($Tailor_check->status=="0")
+    {
+        $Tailor_check->status="1";
+        $Tailor_check->update();
+        return redirect()->back()->with('success',"status updated successfully");
+    }
 }
 
 
