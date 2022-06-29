@@ -18,6 +18,7 @@ class CreateCitiesTable extends Migration
             $table->double('DistrictsCode');
             $table->string('city_name');
             $table->string('Region');
+            $table->timestamps();
 
         });
     }

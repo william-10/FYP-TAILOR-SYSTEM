@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Tailor;
 
-use Storage;
 use App\Models\City;
 use App\Models\Rating;
 use App\Models\Region;
@@ -13,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class TailorController extends Controller
 {

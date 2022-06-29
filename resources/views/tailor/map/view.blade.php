@@ -124,22 +124,22 @@ for (let i = 0; i < locationInputs.length; i++) {
     const marker = new google.maps.Marker({
         map: map,
         position: { lat: latitude, lng: longitude },
-        draggable: true,
+        draggable: false,
     });
 
-    google.maps.event.addListener(marker, 'position_changed',
-        function() {
-            let latitude = marker.position.lat()
-            let longitude = marker.position.lng()
-            $('#lat').val(latitude)
-            $('#lng').val(longitude)
-        });
+    // google.maps.event.addListener(marker, 'position_changed',
+    //     function() {
+    //         let latitude = marker.position.lat()
+    //         let longitude = marker.position.lng()
+    //         $('#lat').val(latitude)
+    //         $('#lng').val(longitude)
+    //     });
 
-    google.maps.event.addListener(map, 'click',
-        function(event) {
-            pos = event.latLng
-            marker.setPosition(pos)
-        });
+    // google.maps.event.addListener(map, 'click',
+    //     function(event) {
+    //         pos = event.latLng
+    //         marker.setPosition(pos)
+    //     });
 
 
 

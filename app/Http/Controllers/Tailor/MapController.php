@@ -37,7 +37,7 @@ class MapController extends Controller
         $map->longitude=$request->input('lng');
         $map->save();
 
-        return redirect()->back()->with('success',"Map location added successfully");
+        return redirect('tailor/list-map')->with('success',"Map location added successfully");
     }
 
     public function update(Request $request, $id)
