@@ -25,10 +25,10 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{{url('user/home')}}" class="nav-link">Tailors</a>
 
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <a href="{{url('user/home/products')}}" class="nav-link">Products</a>
 

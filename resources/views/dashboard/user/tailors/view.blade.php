@@ -66,7 +66,7 @@
 </div>
 
 
-<div class="py-3 mb-4 shadow-sm bg-warning border-top">
+<div class="py-3 mb-4 shadow-sm bg-primary border-top">
     <div class="container">
         <h6 class="mb-0">Profile</h6>
     </div>
@@ -95,7 +95,12 @@
                         </blockquote>
                         <h5>
                             <i class="fa fa-envelope float-end"> {{ $unique_tailor->email }}</i>
-                            <i class="fa fa-phone float-start"></i>{{ $unique_tailor->phone }}
+                            <!-- <i class="fa fa-phone float-start"></i>{{ $unique_tailor->phone }} -->
+                            <div class="whatsapp-chat">
+                                <a href=" https://wa.me/{{ $unique_tailor->phone }} ">
+                                    <img src="{{asset('assets/uploads/gallery/download.jpg')}}" alt="whatsapp-logo" height="30px" width="30px">{{ $unique_tailor->phone }}
+                                </a>
+                            </div>
 
                         </h5>
 
