@@ -216,6 +216,7 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
                 Route::get('view-categories',[CategoryController::class,'index']);
 
                 Route::get('reports',[ReportsController::class,'index']);
+                Route::get('pdf',[ReportsController::class,'pdf']);
 
 
 

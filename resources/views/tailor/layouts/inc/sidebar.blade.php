@@ -7,6 +7,11 @@
 
      <ul class="list-unstyled components">
          <h4 class="bg bg-success">ONLINE</h4>
+         <li class="nav-item {{Request::is('tailor/reports') ? 'active':''}}">
+
+             <a href="{{url('tailor/reports')}}">STATISTICS</a>
+         </li>
+         
          <li>
              <a href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">GALLERY</a>
              <ul class="collapse list-unstyled" id="homesubmenu">
@@ -88,9 +93,9 @@
                      <a href="{{url('tailor/measurement')}}">VIEW MEASUREMENT</a>
                  </li>
 
-                 <li class="nav-item">
+                 <!-- <li class="nav-item">
                      <a href="">ADD MEASUREMENT</a>
-                 </li>
+                 </li> -->
              </ul>
 
          </li>
@@ -129,10 +134,7 @@
 
          </li>
 
-         <li class="nav-item {{Request::is('tailor/reports') ? 'active':''}}">
-
-             <a href="{{url('tailor/reports')}}">STATISTICS</a>
-         </li>
+         
 
 
 

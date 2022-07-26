@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tailor;
 
 use App\Models\Order;
 use App\Models\Rating;
+use PDF;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,13 @@ class ReportsController extends Controller
         return view('tailor.report.index',compact('order','ratings','notification','rating_value','rating_sum'));
     }
 
-
+    public function pdf()
+    {
+        $tailor = Order::where('tailor_id',Auth::id())->get();
+        $pdf = PDF::loadView('tailor.report.pdf', compact('tailor'));
+        
+        return $pdf->stream('order.pdf');
+    }
 
 
 }

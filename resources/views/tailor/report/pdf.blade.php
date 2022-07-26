@@ -30,7 +30,7 @@
     }
 </style>
 
-    <h2>TAILOR RECORDS</h2>
+    <h2>TAILOR ORDERS</h2>
     <hr>
     <div class="table-responsive">
     <table id="categories" width="100%">
@@ -40,7 +40,8 @@
         <td><b>Name</b></td>
         <td><b>Email</b></td>
         <td><b>Phone</b></td>
-        <td><b>region</b></td>
+        <td><b>Description</b></td>
+        <td><b>Price</b></td>
         <td><b>status</b></td>     
       </tr>
       </thead>
@@ -49,23 +50,24 @@
       <tr>
       <td>{{$loop->index+1}}</td>
         <td>
-          {{$tailors->tailor_name}}
+          {{$tailors->users->name}}
         </td>
         <td>
-          {{$tailors->email}}
+          {{$tailors->users->email}}
         </td>
         <td>
-          {{$tailors->phone}}
+          {{$tailors->description}}
         </td>
         <td>
-          {{$tailors->region}}
+          {{$tailors->users->phone}}
+        </td>
+        <td>
+          {{$tailors->price}}
         </td>
         
-            @if ($tailors->status ==1)
-                <td>ACTIVE</td>            
-            @elseif($tailors->status ==0)
-            <td>BANNED</td>        
-            @endif
+            
+            <td>PENDING</td>        
+            
           
         
         @endforeach

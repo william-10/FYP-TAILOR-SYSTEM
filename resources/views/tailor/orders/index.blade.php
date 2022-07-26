@@ -13,7 +13,7 @@ ORDERS
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-        <a href="" class="btn btn-success float-start">Download pdf</a>
+        <a href="{{url('tailor/pdf')}}" class="btn btn-outline-success float-start">Download pdf</a>
         </div>
         <div class="col-md-12">
         <div class="card">
@@ -34,7 +34,7 @@ ORDERS
                     <tr>
 
                     <th>Order Date</th>
-                    <th>Customer email/id</th>
+                    <th>Customer email</th>
                     <th>tracking no</th>
 
                     <th>Status</th>
