@@ -188,7 +188,7 @@ class TailorController extends Controller
 
     public function view()
     {
-        return view('Tailor.Gallery.avator');
+        return view('tailor.gallery.avator');
     }
 
     public function updateavator(Request $request)
