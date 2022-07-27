@@ -11,7 +11,7 @@
 
              <a href="{{url('tailor/reports')}}">STATISTICS</a>
          </li>
-         
+
          <li>
              <a href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">GALLERY</a>
              <ul class="collapse list-unstyled" id="homesubmenu">
@@ -84,7 +84,7 @@
                 </li> -->
 
 
-         <li>
+         {{-- <li>
              <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false"
                  class="dropdown-toggle">MEASUREMENT</a>
              <ul class="collapse list-unstyled" id="pageSubmenu2">
@@ -116,7 +116,7 @@
              </ul>
 
          </li>
-
+ --}}
 
          <li>
              <a href="#homesubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">ORDERS</a>
@@ -134,7 +134,7 @@
 
          </li>
 
-         
+
 
 
 
