@@ -110,17 +110,17 @@ class FrontendController extends Controller
             $tailor_product=Product::where('tailor_id',$tailor_id)->get();
 
             $ratings=Rating::where('tailor_id',$unique_tailor->tailor_id)->get();
-            $rating_sum=Rating::where('tailor_id',$unique_tailor->tailor_id)->sum('stars_rated');
+            $rating_sum=Rating::where('tailor_id',$unique_tailor->tailor_id);
             $user_rating=Rating::where('tailor_id',$unique_tailor->tailor_id)
                             ->where('user_id',Auth::id())->first();
 
-            if($ratings->count()>0)
-            {
-                $rating_value=$rating_sum/$ratings->count();
-            }
-            else{
+            // if($ratings->count()>0)
+            // {
+            //     $rating_value=$rating_sum/$ratings->count();
+            // }
+            // else{}
                 $rating_value=0;
-            }
+
             return view('dashboard.user.tailors.view',compact('unique_tailor','tailor_product','ratings','rating_value','user_rating','tailor_map','category'));
 
         }
