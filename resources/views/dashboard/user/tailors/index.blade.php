@@ -110,7 +110,7 @@ Customer homepage
                         <div class="card">
                             <div class="flex-fill d-flex align-items-center">
 
-                            <img src="{{asset('/avator/'.$tailor->avator)}}" class="card-img-top " width="100%" height="90%" alt="image here">
+                            <img src="{{asset('/storage/avator/'.$tailor->avator)}}" class="card-img-top " width="100%" height="90%" alt="image here">
                             </div>
                             <div class="card-body shadow">
                                 <h5>{{$tailor->tailor_name}}</h5>
