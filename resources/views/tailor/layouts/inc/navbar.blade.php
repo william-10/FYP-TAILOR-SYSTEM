@@ -19,7 +19,7 @@
                       <li class="nav-item">
                           <a class="nav-link" href="#">
                               <img src="{{asset('storage/avator/'.Auth::user()->avator)}}"
-                                  style="height:55px;width=70%;border-radius:60%; margin-right:15px" alt="image here"></img>
+                                  style="height:55px;width=70%;border-radius:60%; margin-right:15px" alt="image here">
 
                       </li>
 
