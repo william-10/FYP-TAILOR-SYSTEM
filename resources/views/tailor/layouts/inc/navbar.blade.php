@@ -33,7 +33,7 @@
                               <li>
                                   <a class="dropdown-item" href="{{ route('tailor.logout') }}" onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">
-                                      Logout</a>
+                                      Logoutt</a>
 
 
 
