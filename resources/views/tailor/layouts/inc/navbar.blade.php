@@ -18,7 +18,7 @@
                   <ul class="nav navbar-nav ml-auto">
                       <li class="nav-item">
                           <a class="nav-link" href="#">
-                              <img src="{{asset('/storage/avator/'.Auth::user()->avator)}}"
+                              <img src="{{asset('/public/storage/avator/'.Auth::user()->avator)}}"
                                   style="height:55px;width=70%;border-radius:60%; margin-right:15px" alt="image here"></img>
 
                       </li>
