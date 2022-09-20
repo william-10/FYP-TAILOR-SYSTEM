@@ -35,7 +35,7 @@ class AdminController extends Controller
             return redirect()->route('admin.home')->with('status','Welcome Administrator');
         }
         else{
-            return redirect()->route('admin.login')->with('error','invalid credentials');
+            return redirect()->route('tailor.login')->with('error','invalid credentials');
         }
 
 }

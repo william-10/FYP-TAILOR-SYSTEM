@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="span2">
-                        <img src="{{asset(''.$unique_tailor->avator)}}" alt="image here" class="card-img-top2 "
+                        <img src="{{asset('storage/avator/'.$unique_tailor->avator)}}" alt="image here" class="card-img-top2 "
                             width="100%" height="90%">
                     </div>
                 </div>
