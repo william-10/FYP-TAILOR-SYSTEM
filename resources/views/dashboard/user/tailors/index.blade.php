@@ -110,7 +110,7 @@ Customer homepage
                         <div class="card">
                             <div class="flex-fill d-flex align-items-center">
 
-                            <img src="{{asset(''.$tailor->avator)}}" class="card-img-top " width="100%" height="90%" alt="image here">
+                            <img src="{{asset('/storage/avator/'.$tailor->avator)}}" class="card-img-top " width="100%" height="90%" alt="image here">
                             </div>
                             <div class="card-body shadow">
                                 <h5>{{$tailor->tailor_name}}</h5>
@@ -131,16 +131,16 @@ Customer homepage
         <footer>
             <div class="container">
                 <div class="row">
-                   
+
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Contacts</h3>
                         <ul>
                             <li><i class="fa fa-phone">     0658334677</i></li>
                             <li><i class="fa fa-envelope">     willygeorge100@gmail.com</i></li>
-                            
+
                         </ul>
                     </div>
-                    
+
                     <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
                 </div>
                 <p class="copyright">OTMS © 2022</p>

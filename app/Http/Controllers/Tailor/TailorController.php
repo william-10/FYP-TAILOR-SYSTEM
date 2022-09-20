@@ -215,7 +215,7 @@ class TailorController extends Controller
             Storage::putFileAs($destinationPath, $file, $filename);
             $user['avator']="$filename";
 
-             $user->avator='/storage/avator/'.$filename;
+             $user->avator=$filename;
              $user->update();
 
 

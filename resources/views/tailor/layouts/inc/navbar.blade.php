@@ -18,7 +18,7 @@
                   <ul class="nav navbar-nav ml-auto">
                       <li class="nav-item">
                           <a class="nav-link" href="#">
-                              <img src="{{asset(Auth::user()->avator)}}"
+                              <img src="{{asset('/storage/avator/'.Auth::user()->avator)}}"
                                   style="height:55px;width=70%;border-radius:60%; margin-right:15px" alt="image here"></img>
 
                       </li>
@@ -26,7 +26,7 @@
                       <li class="nav-item dropdown">
                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                            <h5 class="text-white" >{{ Auth::user()->tailor_name }}</h5> 
+                            <h5 class="text-white" >{{ Auth::user()->tailor_name }}</h5>
                           </a>
 
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
