@@ -42,6 +42,12 @@ Route::get('/', [UserController::class, 'index']);
 
 Auth::routes();
 
+Route::get('/artisan/storage', function() {
+    $command = 'storage:link';
+    $result = Artisan::call($command);
+    return Artisan::output();
+});
+
 
 Route::prefix('user')->name('user.')->group(function () {
 
@@ -204,7 +210,7 @@ Route::prefix('tailor')->name('tailor.')->group(function () {
 
                 Route::get('delete-order/{id}',[OrderingController::class,'deleteorder']);
                 Route::get('delete-measurement_detail/{id}',[OrderingController::class,'deletemeasurement']);
-                
+
                 Route::get('create-order',[OrderingController::class,'createorder']);
                 Route::post('add-order',[OrderingController::class,'addorder']);
                 Route::get('view-requests',[OrderingController::class,'viewrequests']);
